@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+         <ImageView
+             android:id="@+id/imageView1"
+             android:layout_margin="10dp"
+             android:layout_alignParentLeft="true"
+             android:layout_width="50dp"
+             android:layout_height="50dp"
+             android:src="@mipmap/headsculpture1"/>
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="雨后晴天"
+            android:textColor="#EE77706E"
+            android:layout_toRightOf="@+id/imageView1"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minLines="3"
+            android:textSize="13dp"
+            android:text="学者须先立志。今日所以悠悠者，只是把学问不曾做一件事看，遇事则且胡乱恁地打过了，此只是志不立。——朱熹"
+            android:layout_below="@id/textView1"
+            android:layout_toRightOf="@+id/imageView1"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="昨天"
+            android:layout_alignLeft="@+id/textView2"
+            android:layout_below="@+id/textView2"/>
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@mipmap/ellipsis"
+            android:layout_below="@+id/textView2"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"/>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000000"/>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="100dp"
+        android:src="@mipmap/headsculpture1"
+        android:scaleType="fitStart"/>
+
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ellipsis"
+        android:background="#ffffff"/>
+</LinearLayout>

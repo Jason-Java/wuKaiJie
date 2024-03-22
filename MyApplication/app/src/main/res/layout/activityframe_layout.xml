@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:foreground="@mipmap/rabbit"
+    android:foregroundGravity="bottom|right"
+    tools:context=".frameLayout.FrameLayoutActivity">
+    <!--foreground它显示在最上方-->
+    <!--往里面添加控件的时候,会默认把他们放到这块区域的左上角-->
+
+    <TextView
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:background="#0000ff"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:background="#5555ff"
+        android:layout_gravity="center"/>
+
+</FrameLayout>

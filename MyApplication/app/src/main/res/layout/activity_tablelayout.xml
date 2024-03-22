@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="0,3"
+    tools:context=".tableLayout.TableLayoutActivity">
+    <!--stretchColumns属性可以使那列缩进-->
+    <!--TableLayout只能横向合并row-->
+
+    <TableRow
+        android:paddingTop="300dp"
+        >
+        <TextView />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="账  号："
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入你的账号"
+            />
+
+        <TextView />
+
+    </TableRow>
+
+    <TableRow>
+        <TextView />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="密  码："
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请输入你的密码"
+            />
+
+        <TextView />
+
+    </TableRow>
+
+    <TableRow>
+        <TextView />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="注  册"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="登  录"
+            />
+
+        <TextView />
+
+    </TableRow>
+
+    <TableRow>
+
+        <TextView />
+
+        <TextView />
+
+        <TextView
+            android:layout_gravity="right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="忘记密码？"
+            />
+
+        <TextView />
+
+    </TableRow>
+
+</TableLayout>
