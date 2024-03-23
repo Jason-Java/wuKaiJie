@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/tab1"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".datepicker.DatePickerActivity">
+    android:gravity="center"
+    tools:context=".March23rd.ImageSwitcher2Activity">
 
-    <DatePicker
-        android:id="@+id/datePicker"
+    <!--图像切换器-->
+    <!--最好设置大小，不然wrap_contenttouch必须开始点击在图片视图才有效-->
+    <ImageSwitcher
+        android:id="@+id/is2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
 
 </LinearLayout>

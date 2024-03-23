@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".March23rd.GridView2Activity">
+
+    <!--numColumns="auto_fit"自动调节verticalSpacing="5dp"每个item距离边框-->
+    <!--horizontalSpacing无效-->
+    <GridView
+        android:id="@+id/gridView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="auto_fit"
+        android:gravity="center"
+        android:horizontalSpacing="10dp"
+        android:verticalSpacing="5dp"
+        android:columnWidth="100dp"/>
+
+
+
+</LinearLayout>

@@ -4,13 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/tab2"
-    tools:context=".chronometer.ChronometerActivity">
-    <Chronometer
-        android:id="@+id/ch"
+    tools:context=".March23rd.RatingBarActivity">
+    <!--numStars默认为5，stepSize默认为0.5，isIndicator="true"时不可更改-->
+    <!--stepSize默认为0.5,星星好像最少是0.5，步长变大最少值变大，步长小于0.5，最小值不变-->
+    <RatingBar
+        android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:format="计时："/>
-    <!--format相当于text，开始计时时消失-->
+        android:numStars="5"
+        android:rating="2"
+        android:stepSize="0.1"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

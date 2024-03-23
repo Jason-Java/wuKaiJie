@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <!--adjustViewBounds 是一个 ImageView 的属性，用于调整 ImageView 的边界以适应图像的尺寸。当设置为 true 时，
+    ImageView 的边界将根据图像的宽高比例进行调整，以确保图像完全显示在 ImageView 内部。-->
+    <ImageView
+        android:id="@+id/imagelistview"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:adjustViewBounds="true"
+        android:maxHeight="65dp"
+        android:maxWidth="65dp"
+        android:padding="10dp"/>
+
+    <TextView
+        android:id="@+id/tvlistview"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:gravity="center_vertical"
+        android:padding="10dp"/>
+
+
+</LinearLayout>

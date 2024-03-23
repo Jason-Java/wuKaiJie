@@ -4,13 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/tab2"
-    tools:context=".chronometer.ChronometerActivity">
-    <Chronometer
-        android:id="@+id/ch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:format="计时："/>
-    <!--format相当于text，开始计时时消失-->
+    tools:context=".March23rd.ImageSwitcherActivity">
+
+    <ImageSwitcher
+        android:id="@+id/imageSwitcher"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

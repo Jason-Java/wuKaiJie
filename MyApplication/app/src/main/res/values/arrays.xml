@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ctype">
+        <item>全部</item>
+        <item>游泳</item>
+        <item>跑步</item>
+        <item>羽毛球</item>
+        <item>篮球</item>
+        <item>足球</item>
+    </string-array>
+</resources>

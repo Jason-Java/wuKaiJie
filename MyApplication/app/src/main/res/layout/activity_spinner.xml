@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/tab2"
-    tools:context=".chronometer.ChronometerActivity">
-    <Chronometer
-        android:id="@+id/ch"
+    tools:context=".March23rd.SpinnerActivity">
+    <!--下拉列表框-->
+    <!--entries数组资源values文件创建绿色XML再点values XML file-->
+    <Spinner
+        android:id="@+id/spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:format="计时："/>
-    <!--format相当于text，开始计时时消失-->
-
+        />
+    <!--        android:entries="@array/ctype"/>-->
 </androidx.constraintlayout.widget.ConstraintLayout>
