@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@drawable/background1"
+    tools:context=".LogonActivity">
+
+    <EditText
+        android:id="@+id/logon_username"
+        android:drawableStart="@mipmap/login_username"
+        android:layout_marginTop="200dp"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:drawablePadding="20dp"
+        android:hint="用户名只包含字母和中文"/>
+
+    <EditText
+        android:id="@+id/logon_email"
+        android:layout_marginTop="10dp"
+        android:drawablePadding="20dp"
+        android:drawableStart="@mipmap/logon_email"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:hint="email"/>
+
+    <EditText
+        android:id="@+id/logon_phone"
+        android:layout_marginTop="10dp"
+        android:drawablePadding="20dp"
+        android:drawableStart="@mipmap/logon_phone"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:hint="电话号码"/>
+
+    <EditText
+        android:id="@+id/logon_password1"
+        android:layout_marginTop="10dp"
+        android:drawablePadding="20dp"
+        android:drawableStart="@mipmap/login_password"
+        android:inputType="textPassword"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:hint="设置密码包含字母、数字"/>
+
+    <EditText
+        android:id="@+id/logon_password2"
+        android:layout_marginTop="10dp"
+        android:drawablePadding="20dp"
+        android:drawableStart="@mipmap/login_password"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="确认密码"/>
+
+    <Button
+        android:id="@+id/logon_login"
+        android:layout_marginTop="10dp"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="注册"/>
+
+    <Button
+        android:id="@+id/logon_exit"
+        android:layout_marginTop="10dp"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="退出"/>
+
+</LinearLayout>
