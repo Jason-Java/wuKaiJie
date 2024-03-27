@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/viewpage_main"/>
+
+<!--    fragment放framelayout，更换时用layout的id-->
+<!--    <FrameLayout-->
+<!--        android:id="@+id/fragmentlayout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        >-->
+
+<!--        <fragment-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:name="com.example.testone.HomePageFragment" />-->
+
+<!--    </FrameLayout>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:background="#C1C0C0"
+        >
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:id="@+id/ll_homepage"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/iv_homepage"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/bottom_homepage"/>
+
+            <TextView
+                android:id="@+id/tv_homepage"
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="首页"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:id="@+id/ll_competition"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/iv_competition"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/bottom_competition"/>
+
+            <TextView
+                android:id="@+id/tv_competition"
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="赛事"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:id="@+id/ll_add"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/iv_add"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/bottom_add"/>
+
+            <TextView
+                android:id="@+id/tv_add"
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="添加"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:id="@+id/ll_chat"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/iv_chat"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/bottom_chat"/>
+
+            <TextView
+                android:id="@+id/tv_chat"
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="聊天"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:id="@+id/ll_my"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/iv_my"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/bottom_my"/>
+
+            <TextView
+                android:id="@+id/tv_my"
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="我的"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>
