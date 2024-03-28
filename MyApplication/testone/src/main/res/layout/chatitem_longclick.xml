@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="120dp"
+    android:background="@drawable/shape_corners"
+    android:layout_height="160dp">
+
+    <TextView
+        android:id="@+id/chatitem_longname"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:text="wukaijie"
+        />
+
+    <EditText
+        android:id="@+id/chatitem_longtext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lines="5"
+        android:maxLines="5"
+        android:gravity="top"
+        android:text="备注"
+        android:textSize="15sp"
+        />
+
+    <Button
+        android:id="@+id/chatitem_longsave"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="10dp"
+        android:text="保存"/>
+
+
+</LinearLayout>

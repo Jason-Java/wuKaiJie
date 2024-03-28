@@ -3,7 +3,7 @@
 
 <!--    网络请求-->
     <uses-permission android:name="android.permission.INTERNET" />
-<!--弹窗权限-->
+<!--    在API Level >= 23的时候，需要在AndroidManefest.xml文件中声明权限SYSTEM_ALERT_WINDOW-->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application

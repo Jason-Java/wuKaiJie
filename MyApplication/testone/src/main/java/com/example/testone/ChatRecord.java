@@ -11,6 +11,16 @@ public class ChatRecord {
 
     Boolean cb;
 
+    String note;
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
     public Boolean getCb() {
         return cb;
     }

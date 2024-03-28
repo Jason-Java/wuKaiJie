@@ -30,3 +30,5 @@ rootProject.name = "MyApplication"
 include ':app'
 include ':database'
 include ':activity'
+include ':testone'
+include ':cartoon'

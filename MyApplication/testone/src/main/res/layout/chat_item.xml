@@ -31,7 +31,9 @@
         android:layout_alignLeft="@+id/chatitem_name"
         android:layout_below="@+id/chatitem_name"
         android:text="你在干嘛"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:layout_height="wrap_content"/>
 
     <TextView

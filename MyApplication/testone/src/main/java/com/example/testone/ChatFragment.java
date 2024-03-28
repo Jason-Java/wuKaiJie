@@ -1,7 +1,9 @@
 package com.example.testone;
 
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,8 +11,10 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +38,7 @@ public class ChatFragment extends Fragment {
     RecyclerView recyclerView;
     ChatRecordAdapter chatRecordAdapter;
     View view;
+    PopupWindow mPopWindow;
 
     @Nullable
     @Override
@@ -91,7 +96,20 @@ public class ChatFragment extends Fragment {
 
         //点击省略号出现悬浮框
         ImageButton chat_ellipsis = view.findViewById(R.id.chat_ellipsis);
+        chat_ellipsis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                View popupView = LayoutInflater.from(getActivity()).inflate(R.layout.chat_clickellipsis,null);
+                mPopWindow = new PopupWindow(popupView);
+                mPopWindow.setWidth(300);
+                mPopWindow.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
 
+                mPopWindow.setBackgroundDrawable(new BitmapDrawable());
+                mPopWindow.setOutsideTouchable(true);
+
+                mPopWindow.showAsDropDown(chat_ellipsis);
+            }
+        });
 
         return view;
     }
@@ -113,6 +131,7 @@ public class ChatFragment extends Fragment {
             chatRecord.setImg(img[i%6]);
             chatRecord.setDate("3月"+i+"日");
             chatRecord.setCb(false);
+            chatRecord.setNote("备注");
             data.add(chatRecord);
         }
     }
