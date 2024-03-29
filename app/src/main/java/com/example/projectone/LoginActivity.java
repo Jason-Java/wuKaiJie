@@ -1,12 +1,18 @@
 package com.example.projectone;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -14,7 +20,18 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.projectone.table.User;
+
+import org.litepal.LitePal;
+import org.litepal.tablemanager.Connector;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class LoginActivity extends AppCompatActivity {
+    private String[] PM_MULTIPLE={
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE
+    };
 
     private TextView logon;
     private Button login;
@@ -28,6 +45,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        applyForMultiplePermissions();
+
         
         logon = findViewById(R.id.loginregister);
         login = findViewById(R.id.logintoMain);
@@ -46,14 +65,15 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+
         //内部存储
         sp = getSharedPreferences("config", Context.MODE_PRIVATE);
-
+        SharedPreferences.Editor editor = sp.edit();
 
         //关闭app，再打开
-        Boolean remberpwd2 = sp.getBoolean("rememberpwd",false);//取不到就取默认值false
+        Boolean rememberpwd2 = sp.getBoolean("rememberpwd",false);//取不到就取默认值false
         Boolean autologin2 = sp.getBoolean("autologin",false);
-        if (remberpwd2){
+        if (rememberpwd2){
             et_name.setText(sp.getString("name",""));
             et_pwd.setText(sp.getString("password",""));
             rememberpwd.setChecked(true);
@@ -72,31 +92,89 @@ public class LoginActivity extends AppCompatActivity {
         if (TextUtils.isEmpty(name) || TextUtils.isEmpty(pwd)){
             Toast.makeText(LoginActivity.this, "用户名或者密码为空", Toast.LENGTH_SHORT).show();
         }else{
-            //少一步检验密码是否正确
-            if (rememberpwd.isChecked()){
-                SharedPreferences.Editor editor = sp.edit();
-                editor.putString("name",name);
-                editor.putString("password",pwd);
-                editor.putBoolean("rememberpwd",true);
-                editor.apply();//数据上交
+            //验证用户名是否为空
+            Connector.getDatabase();
+            List<User> user = LitePal.where("username = ?",name).find(User.class);
+            if (user.size() > 1){
+                Toast.makeText(this, "数据库错误", Toast.LENGTH_SHORT).show();
+            }else if (user.size() == 0){
+                Toast.makeText(this, "用户名不存在，请注册", Toast.LENGTH_SHORT).show();
             }else{
-                SharedPreferences.Editor editor = sp.edit();
-                editor.remove("name");
-                editor.remove("password");
-                editor.remove("rememberpwd");
-                editor.apply();
+                String correctpwd = user.get(0).getPassword();
+                if (correctpwd.equals(pwd)){
+                    //记住密码
+                    if (rememberpwd.isChecked()){
+                        SharedPreferences.Editor editor = sp.edit();
+                        editor.putString("name",name);
+                        editor.putString("password",pwd);
+                        editor.putBoolean("rememberpwd",true);
+                        editor.apply();//数据上交
+                    }else{
+                        SharedPreferences.Editor editor = sp.edit();
+                        editor.remove("name");
+                        editor.remove("password");
+                        editor.remove("rememberpwd");
+                        editor.apply();
+                    }
+                    //自动登录
+                    if (autologin.isChecked()){
+                        SharedPreferences.Editor editor = sp.edit();
+                        editor.putBoolean("autologin",true);
+                        editor.apply();
+                    }else {
+                        SharedPreferences.Editor editor = sp.edit();
+                        editor.remove("autologin");
+                        editor.apply();
+                    }
+                    //跳转到主页面
+                    Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(this, "密码错误", Toast.LENGTH_SHORT).show();
+                }
             }
-            if (autologin.isChecked()){
-                SharedPreferences.Editor editor = sp.edit();
-                editor.putBoolean("autologin",true);
-                editor.apply();
-            }else {
-                SharedPreferences.Editor editor = sp.edit();
-                editor.remove("autologin");
-                editor.apply();
-            }
-            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
-            startActivity(intent);
         }
+    }
+
+    //权限申请
+    public void applyForMultiplePermissions(){
+        Log.i("apply","applyForMultiplePermissions");
+        try{
+            //如果操作系统SDK级别在23之上（android6.0），就进行动态权限申请
+            if(Build.VERSION.SDK_INT>=23){
+                ArrayList<String> pmList=new ArrayList<>();
+                //获取当前未授权的权限列表
+                for(String permission:PM_MULTIPLE){
+//                    检查应用是否具有某个危险权限，如果应用具有此权限，方法将返回 PackageManager.PERMISSION_GRANTED；
+//                    如果应用不具有此权限，方法将返回 PackageManager.PERMISSION_DENIED。
+                    int nRet= ContextCompat.checkSelfPermission(this,permission);
+                    Log.i("apply","checkSelfPermission nRet="+nRet);
+                    if(nRet!= PackageManager.PERMISSION_GRANTED){
+                        pmList.add(permission);
+                    }
+                }
+
+                if(pmList.size()>0){
+                    Log.i("apply","进行权限申请...");
+                    String[] sList=pmList.toArray(new String[0]);
+//                    应用可以通过这个方法动态申请权限，调用后会弹出一个对话框提示用户授权所申请的权限组
+                    ActivityCompat.requestPermissions(this,sList,10000);
+                }
+                else{
+                    Toast.makeText(this, "所以权限申请完毕", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+    }
+
+    public void see(View view) {
+        //该可见
+//        if (et_pwd.getInputType() == 131073){
+//            et_pwd.setInputType();
+//        }
+//        Toast.makeText(this, et_pwd.getInputType()+"", Toast.LENGTH_SHORT).show();
     }
 }

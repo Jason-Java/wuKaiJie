@@ -16,7 +16,8 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:drawablePadding="20dp"
-        android:hint="用户名只包含字母和中文"/>
+        android:maxLines="1"
+        android:hint="用户名"/>
 
     <EditText
         android:id="@+id/logon_email"
@@ -25,6 +26,7 @@
         android:drawableStart="@mipmap/logon_email"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
+        android:maxLines="1"
         android:hint="email"/>
 
     <EditText
@@ -34,6 +36,7 @@
         android:drawableStart="@mipmap/logon_phone"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
+        android:maxLines="1"
         android:hint="电话号码"/>
 
     <EditText
@@ -44,6 +47,7 @@
         android:inputType="textPassword"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
+        android:maxLines="1"
         android:hint="设置密码包含字母、数字"/>
 
     <EditText
@@ -54,6 +58,7 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
+        android:maxLines="1"
         android:hint="确认密码"/>
 
     <Button

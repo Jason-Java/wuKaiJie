@@ -22,20 +22,36 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="用户名"
+            android:maxLines="1"
             android:textColorHint="@color/white"/>
 
         <!--android:inputType=”textPassword” 密码
             android:inputType=”textVisiblePassword” 可见密码-->
-        <EditText
-            android:id="@+id/loginPassword"
-            android:layout_marginTop="10dp"
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColorHint="@color/white"
-            android:hint="密码"
-            android:drawableStart="@mipmap/login_password"
-            android:drawableEnd="@drawable/selector_eye"
-            android:drawablePadding="20dp"/>
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/loginPassword"
+                android:layout_marginTop="10dp"
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/white"
+                android:hint="密码"
+                android:maxLines="1"
+                android:drawableStart="@mipmap/login_password"
+                android:drawablePadding="20dp"/>
+
+            <ImageButton
+                android:onClick="see"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:src="@drawable/selector_eye"/>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
