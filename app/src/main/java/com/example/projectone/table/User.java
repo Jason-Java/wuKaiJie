@@ -1,20 +1,44 @@
 package com.example.projectone.table;
 
+import android.graphics.Bitmap;
+
+import androidx.dynamicanimation.animation.SpringAnimation;
+
 import org.litepal.annotation.Column;
 import org.litepal.crud.LitePalSupport;
 
 public class User extends LitePalSupport {
-    @Column(unique = true)
-    String username;
+    @Column(unique = true,nullable = false)
+    private String username;
 
-    @Column(unique = true)
-    String password;
+    @Column(nullable = false)
+    private String password;
 
-    @Column(unique = true)
-    String telephone;
+    @Column(unique = true,nullable = false)
+    private String telephone;
 
-    @Column(unique = true)
-    String email;
+    @Column(unique = true,nullable = false)
+    private String email;
+
+    private String headpicture;
+
+    private String sentence;
+
+    public String getHeadpicture() {
+        return headpicture;
+    }
+
+    public void setHeadpicture(String headpicture) {
+        this.headpicture = headpicture;
+    }
+
+    public String getSentence() {
+        return sentence;
+    }
+
+    public void setSentence(String sentence) {
+        this.sentence = sentence;
+    }
 
     public String getUsername() {
         return username;

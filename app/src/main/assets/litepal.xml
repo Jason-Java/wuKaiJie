@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <litepal>
-    <storage value="unite/database"/>
+<!--    工控机-->
+<!--    <storage value="unite/database"/>-->
     <!--
     	Define the database name of your application.
     	By default each database name should be end with .db.
@@ -20,7 +21,9 @@
 			For example:
     	<version value="1" />
     -->
-    <version value="1" />
+<!--    工控机-->
+<!--    <version value="6" />-->
+    <version value="3" />
 
     <!--
     	Define your models in the list with mapping tag, LitePal will
@@ -34,6 +37,7 @@
     -->
     <list>
         <mapping class="com.example.projectone.table.User" />
+        <mapping class="com.example.projectone.table.News" />
     </list>
 
     <!--

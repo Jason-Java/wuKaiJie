@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="35dp">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <LinearLayout
+            android:id="@+id/homepage_enjoyll"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/homepage_enjoytext"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="分享"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/nochoose"/>
+
+            <View
+                android:id="@+id/homepage_enjoyview"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/white"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/homepage_newsll"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/homepage_newstext"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="新闻"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/nochoose"/>
+
+            <View
+                android:id="@+id/homepage_newsview"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/white"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/homepage_buyll"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/homepage_buytext"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="商城"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/nochoose"/>
+
+            <View
+                android:id="@+id/homepage_buyview"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/white"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/homepage_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginBottom="50dp"/>
+
+
+
+</LinearLayout>

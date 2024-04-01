@@ -30,7 +30,7 @@ import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
     private String[] PM_MULTIPLE={
-            Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.INTERNET
     };
 
     private TextView logon;
@@ -128,6 +128,7 @@ public class LoginActivity extends AppCompatActivity {
                     }
                     //跳转到主页面
                     Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                    intent.putExtra("name",name);
                     startActivity(intent);
                 }else{
                     Toast.makeText(this, "密码错误", Toast.LENGTH_SHORT).show();

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="32dp">
+
+
+        <Button
+            android:id="@+id/chat_btdelete"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:textSize="10sp"
+            android:text="删除"/>
+
+        <CheckBox
+            android:id="@+id/chat_cbdelete"
+            android:layout_toRightOf="@id/chat_btdelete"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="全选"/>
+
+
+        <TextView
+            android:text="聊天"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chat_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp"
+        />
+<!--    android:layout_marginBottom="50dp"避免与菜单栏冲突-->
+
+</LinearLayout>
