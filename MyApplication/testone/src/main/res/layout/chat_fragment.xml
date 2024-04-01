@@ -41,12 +41,27 @@
 
     </RelativeLayout>
 
+
+<com.scwang.smart.refresh.layout.SmartRefreshLayout
+    android:id="@+id/refresh"
+    android:layout_marginBottom="50dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chat_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="50dp"
         />
+
+</com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+
+
+
+
+
+
 <!--    android:layout_marginBottom="50dp"避免与菜单栏冲突-->
 
 </LinearLayout>

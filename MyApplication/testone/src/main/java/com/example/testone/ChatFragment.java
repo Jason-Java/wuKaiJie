@@ -26,6 +26,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.scwang.smart.refresh.footer.BallPulseFooter;
+import com.scwang.smart.refresh.header.BezierRadarHeader;
+import com.scwang.smart.refresh.layout.SmartRefreshLayout;
+import com.scwang.smart.refresh.layout.api.RefreshLayout;
+import com.scwang.smart.refresh.layout.listener.OnLoadMoreListener;
+import com.scwang.smart.refresh.layout.listener.OnRefreshListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +45,8 @@ public class ChatFragment extends Fragment {
     ChatRecordAdapter chatRecordAdapter;
     View view;
     PopupWindow mPopWindow;
+    SmartRefreshLayout smartRefreshLayout;
+
 
     @Nullable
     @Override
@@ -110,6 +118,40 @@ public class ChatFragment extends Fragment {
                 mPopWindow.showAsDropDown(chat_ellipsis);
             }
         });
+
+
+        smartRefreshLayout = view.findViewById(R.id.refresh);
+        //设置头部刷新的样式
+        smartRefreshLayout.setRefreshHeader(new BezierRadarHeader(getActivity()));
+        //设置页脚刷新的样式
+        smartRefreshLayout.setRefreshFooter(new BallPulseFooter(getActivity()));
+        smartRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+
+                smartRefreshLayout.finishRefresh(2000/*,false*/);//传入false表示刷新失败
+                chatRecordAdapter.notifyDataSetChanged();
+                Toast.makeText(getActivity(), "刷新成功", Toast.LENGTH_SHORT).show();
+            }
+        });
+        smartRefreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void onLoadMore(RefreshLayout refreshLayout) {
+                smartRefreshLayout.finishLoadMore(2000);
+                for (int i = 100; i < 105; i++) {
+                    ChatRecord chatRecord = new ChatRecord();
+                    chatRecord.setName("zhang"+i);
+                    chatRecord.setFinalchat("你今天"+i+"点下班是吗？");
+                    chatRecord.setImg(img[i%6]);
+                    chatRecord.setDate("3月"+i+"日");
+                    chatRecord.setCb(false);
+                    chatRecord.setNote("备注");
+                    data.add(chatRecord);
+                }
+                chatRecordAdapter.notifyDataSetChanged();
+            }
+        });
+
 
         return view;
     }

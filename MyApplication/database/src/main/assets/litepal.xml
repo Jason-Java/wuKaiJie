@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <litepal>
+    <storage value="unite/database"/>
     <!--
     	Define the database name of your application.
     	By default each database name should be end with .db.
@@ -8,7 +9,7 @@
     	For example:
     	<dbname value="demo" />
     -->
-    <dbname value="demo" />
+    <dbname value="test" />
 
     <!--
     	Define the version of your database. Each time you want
