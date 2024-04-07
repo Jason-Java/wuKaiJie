@@ -8,30 +8,12 @@
         android:layout_width="match_parent"
         android:layout_height="32dp">
 
-
-        <Button
-            android:id="@+id/chat_btdelete"
-            android:layout_width="60dp"
-            android:layout_height="match_parent"
-            android:textSize="10sp"
-            android:text="删除"/>
-
-        <CheckBox
-            android:id="@+id/chat_cbdelete"
-            android:layout_toRightOf="@id/chat_btdelete"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="全选"/>
-
-
         <TextView
             android:text="聊天"
             android:textStyle="bold"
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
-
-
 
     </RelativeLayout>
 

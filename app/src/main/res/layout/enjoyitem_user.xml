@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/enjoyUserImg"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/defaultheadpicture"/>
+
+    <TextView
+        android:id="@+id/enjoyUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/enjoyUserImg"
+        android:text="用户名"
+        android:textSize="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:id="@+id/enjoyUserDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:text="几月几号几点"/>
+
+    <TextView
+        android:id="@+id/enjoyUserText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/enjoyUserImg"
+        android:text="啊啊啊啊"/>
+
+    <ImageButton
+        android:id="@+id/enjoyUserLikesImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/enjoyUserText"
+        android:src="@drawable/like"
+        android:layout_toLeftOf="@+id/enjoyUserLikesNum"
+        android:layout_marginRight="10dp"/>
+
+    <TextView
+        android:id="@+id/enjoyUserLikesNum"
+        android:layout_below="@id/enjoyUserText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/enjoyUserRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/nochoose"
+        android:layout_below="@id/enjoyUserLikesImg"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/enjoyUserRecyclerView">
+
+        <EditText
+            android:id="@+id/enjoyUserEt"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"/>
+
+
+        <Button
+            android:id="@+id/enjoyUserBt"
+            android:text="发送评论"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

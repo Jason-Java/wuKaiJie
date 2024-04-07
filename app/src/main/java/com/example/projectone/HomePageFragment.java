@@ -1,7 +1,6 @@
 package com.example.projectone;
 
 
-import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,10 +16,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.widget.ViewPager2;
 
-import com.example.projectone.adapter.ViewPagerMainAdapter;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.example.projectone.enjoy.EnjoyFragment;
 
 
 public class HomePageFragment extends Fragment {

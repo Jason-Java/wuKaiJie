@@ -36,7 +36,7 @@
             android:layout_width="250dp"
             android:maxLines="2"
             android:layout_height="wrap_content"
-            android:text="个人名言戒骄戒躁戒骄戒躁"
+            android:text="个人名言:戒骄戒躁戒骄戒躁"
             android:textSize="20dp"/>
 
     </RelativeLayout>
@@ -46,5 +46,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="更改资料"/>
+
+    <Button
+        android:id="@+id/my_enjoy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="自己的分享"/>
+
+    <Button
+        android:id="@+id/my_exit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="退出"/>
 
 </LinearLayout>

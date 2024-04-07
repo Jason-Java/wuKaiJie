@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/myenjoy_iv"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/defaultheadpicture"/>
+
+    <TextView
+        android:id="@+id/myenjoy_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/myenjoy_iv"
+        android:text="用户名"
+        android:textSize="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:id="@+id/myenjoy_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:text="几月几号几点"/>
+
+    <TextView
+        android:id="@+id/myenjoy_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/myenjoy_iv"
+        android:text="啊啊啊啊"/>
+
+    <Button
+        android:id="@+id/myenjoy_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/myenjoy_text"
+        android:text="删除"/>
+
+</RelativeLayout>

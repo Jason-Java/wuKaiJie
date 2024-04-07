@@ -4,10 +4,23 @@
     android:orientation="vertical"
     android:layout_height="match_parent">
 
-    <TextView
+    <Button
+        android:id="@+id/add_addfriend"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:text="添加"
-        android:textSize="50sp"/>
+        android:layout_height="wrap_content"
+        android:text="添加朋友"/>
+
+    <Button
+        android:id="@+id/add_newfriend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="新的朋友"/>
+
+    <Button
+        android:id="@+id/add_addEnjoy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="添加分享"/>
 
 </LinearLayout>

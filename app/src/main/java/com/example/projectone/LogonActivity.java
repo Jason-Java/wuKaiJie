@@ -119,10 +119,7 @@ public class LogonActivity extends AppCompatActivity {
                     user.save();
                     Toast.makeText(LogonActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
                     //注册成功后返回登录界面
-                    Intent intent = new Intent();
-                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-                    intent.setClass(LogonActivity.this,LoginActivity.class);
-                    startActivity(intent);
+                    finish();
                 }
 
             }

@@ -7,40 +7,53 @@
     android:orientation="vertical"
     android:gravity="center_horizontal"
     android:background="@drawable/background1"
-    tools:context=".LogonActivity">
+    tools:context=".my.activity.ChangemyActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/changemy_Toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bottomcolor"
+        app:navigationIcon="@drawable/back"/>
 
     <EditText
-        android:id="@+id/logon_username"
+        android:id="@+id/changemy_name"
         android:drawableStart="@mipmap/login_username"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="150dp"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:drawablePadding="20dp"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         android:maxLines="1"
-        android:hint="用户名，不能更改"/>
+        android:hint="用户名"/>
 
     <EditText
-        android:id="@+id/logon_email"
+        android:id="@+id/changemy_email"
         android:layout_marginTop="10dp"
         android:drawablePadding="20dp"
         android:drawableStart="@mipmap/logon_email"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:maxLines="1"
-        android:hint="email,不可更改"/>
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:hint="email"/>
 
     <EditText
-        android:id="@+id/logon_phone"
+        android:id="@+id/changemy_phone"
         android:layout_marginTop="10dp"
         android:drawablePadding="20dp"
         android:drawableStart="@mipmap/logon_phone"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         android:maxLines="1"
-        android:hint="电话号码，不可更改"/>
+        android:hint="电话号码"/>
 
     <EditText
-        android:id="@+id/logon_password1"
+        android:id="@+id/changemy_newpassword1"
         android:layout_marginTop="10dp"
         android:drawablePadding="20dp"
         android:drawableStart="@mipmap/login_password"
@@ -48,10 +61,10 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:maxLines="1"
-        android:hint="设置密码包含字母、数字"/>
+        android:hint="新密码，为空不更改"/>
 
     <EditText
-        android:id="@+id/logon_password2"
+        android:id="@+id/changemy_newpassword2"
         android:layout_marginTop="10dp"
         android:drawablePadding="20dp"
         android:drawableStart="@mipmap/login_password"
@@ -59,20 +72,23 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:maxLines="1"
-        android:hint="确认密码"/>
+        android:hint="确认新密码"/>
+
+    <EditText
+        android:id="@+id/changemy_mysay"
+        android:drawableStart="@mipmap/login_username"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:drawablePadding="20dp"
+        android:maxLines="1"
+        android:hint="个人名言"/>
 
     <Button
-        android:id="@+id/logon_login"
+        android:id="@+id/changemy_change"
         android:layout_marginTop="10dp"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:text="注册"/>
+        android:text="更改"/>
 
-    <Button
-        android:id="@+id/logon_exit"
-        android:layout_marginTop="10dp"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:text="退出"/>
 
 </LinearLayout>

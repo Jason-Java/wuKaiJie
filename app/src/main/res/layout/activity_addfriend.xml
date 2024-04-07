@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".add.activity.AddFriendActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/addfriendToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bottomcolor"
+        app:navigationIcon="@drawable/back"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/addfriendEt"
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="50dp"
+            android:maxLines="1"
+            android:hint="用户名/email/电话号码"/>
+
+        <Button
+            android:id="@+id/addfriendBt"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="搜索"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+
+        <!--        centerInside：保持纵横比缩放图片，以使得ImageView能完全显示该图片。-->
+        <ImageView
+            android:id="@+id/addfriendHeadpicture"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/defaultheadpicture"
+            android:scaleType="centerInside"/>
+
+        <TextView
+            android:textStyle="bold"
+            android:id="@+id/addfriendName"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="无"
+            android:textSize="25dp"/>
+
+        <!--        12*2最多的文字数量-->
+        <TextView
+            android:id="@+id/addfriendMytext"
+            android:layout_alignLeft="@+id/addfriendName"
+            android:layout_marginTop="70dp"
+            android:layout_width="250dp"
+            android:maxLines="2"
+            android:layout_height="wrap_content"
+            android:text="无"
+            android:textSize="20dp"/>
+
+    </RelativeLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="验证信息，长度不能大于24"
+        android:id="@+id/addfriendSay"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="发送添加好友信息"
+        android:id="@+id/addfriendSend"/>
+
+</LinearLayout>

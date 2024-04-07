@@ -5,10 +5,9 @@
     android:orientation="vertical"
     android:layout_marginTop="35dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="分享"
-        android:textSize="30dp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/enjoy_home"/>
 
 </LinearLayout>

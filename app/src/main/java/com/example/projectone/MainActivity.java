@@ -5,6 +5,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -12,6 +13,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.projectone.adapter.ViewPagerMainAdapter;
+import com.example.projectone.add.AddFragment;
+import com.example.projectone.chat.ChatFragment;
+import com.example.projectone.my.MyFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     ImageView ivCurrent;
     LinearLayout ll_homepage,ll_competition,ll_add,ll_chat,ll_my;
     ViewPager2 viewPager2;
+
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +56,11 @@ public class MainActivity extends AppCompatActivity {
         tvCurrent = tv_homepage;
 
         initPage();
+
+        intent = getIntent();
+        if (intent.getIntExtra("id",0) == 5){
+            changeButtom(R.id.ll_my);
+        }
 
         ll_homepage.setOnClickListener(ll);
         ll_competition.setOnClickListener(ll);

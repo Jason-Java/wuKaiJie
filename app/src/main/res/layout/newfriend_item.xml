@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="150dp">
+
+    <ImageView
+        android:id="@+id/newfriendHeadpicture"
+        android:layout_below="@+id/newfriendName"
+        android:layout_marginLeft="10dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/defaultheadpicture"
+        android:scaleType="centerInside"/>
+
+    <TextView
+        android:textStyle="bold"
+        android:id="@+id/newfriendName"
+        android:layout_marginLeft="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="无"
+        android:textSize="25dp"/>
+
+    <!--        12*2最多的文字数量-->
+    <TextView
+        android:id="@+id/newfriendMytext"
+        android:layout_toRightOf="@+id/newfriendHeadpicture"
+        android:layout_alignTop="@+id/newfriendHeadpicture"
+        android:layout_width="250dp"
+        android:maxLines="2"
+        android:layout_height="wrap_content"
+        android:text="无"
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/newfriendAgree"
+        android:text="同意"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/newfriendHeadpicture"
+        android:layout_marginLeft="10dp"/>
+
+    <Button
+        android:id="@+id/newfriendRefuse"
+        android:text="拒绝"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/newfriendAgree"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:id="@+id/newfriendDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="呜呜呜"
+        android:textSize="20sp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"/>
+
+    <TextView
+        android:id="@+id/newfriendResult"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="呜呜呜"
+        android:textSize="30sp"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

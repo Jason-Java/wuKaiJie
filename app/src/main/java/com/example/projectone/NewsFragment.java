@@ -151,142 +151,142 @@ public class NewsFragment extends Fragment {
     private void initData() {
         format = new SimpleDateFormat("yyyy-MM-dd");
 
-//        News new1 = new News();
-//        new1.setImage("https://p2.img.cctvpic.com/photoworkspace/2024/02/19/2024021913400460601.jpg");
-//        new1.setTitle("多哈游泳世锦赛收官 中国游泳队创近30年最佳战绩");
-//        new1.setContent("中新网北京2月19日电(记者 刘星晨)北京时间19日凌晨，2024多哈游泳世锦赛落幕，中国队以23金位居总奖牌榜榜首，其中跳水项目9金4银，花样游泳项目7金1银1铜。");
-//        try {
-//            date = "2024-02-19";
-//            new1.setDate(format.parse(date));
-//        }catch (Exception e){
-//            Log.e("looknews", "写入日期失败 ");
-//        }
-//        new1.setUrl("https://sports.cctv.com/2024/02/19/ARTIMkzEM7MbtXCZ792HgwHX240219.shtml");
-//        new1.save();
-//
-//        News new2 = new News();
-//        new2.setImage("https://p1.img.cctvpic.com/photoworkspace/2024/03/22/2024032207553824248.jpg");
-//        new2.setTitle("世界泳联花样游泳世界杯（北京站）将于4月举办");
-//        new2.setContent("在今年初的多哈游泳世锦赛花样游泳全部11个项目争夺中，中国花样游泳队摘得7金1银1铜，创造世锦赛参赛以来最佳成绩。本次世界杯北京站，中国花样游泳队将有25名队员出战。");
-//        try {
-//            date = "2024-03-22";
-//            new2.setDate(format.parse(date));
-//        }catch (Exception e){
-//            Log.e("looknews", "写入日期失败 ");
-//        }
-//        new2.setUrl("https://sports.cctv.com/2024/03/22/ARTI7XKbCSD9AnNdgdu9qNlJ240322.shtml");
-//        new2.save();
-//
-//
-//        News new3 = new News();
-//        new3.setImage("https://p4.img.cctvpic.com/photoworkspace/2024/02/04/2024020421130648083.jpg");
-//        new3.setTitle("中国队赢得游泳世锦赛花样游泳集体技巧自选金牌");
-//        new3.setContent("视网消息：北京时间2月4日，在卡塔尔多哈举行的世界游泳锦标赛花样游泳集体技巧自选决赛中，中国队赢得冠军。");
-//        try {
-//            date = "2024-02-24";
-//            new3.setDate(format.parse(date));
-//        }catch (Exception e){
-//            Log.e("looknews", "写入日期失败 ");
-//        }
-//        new3.setUrl("hhttps://sports.cctv.com/2024/02/04/ARTI2jSYeJFiife7SRE6riyq240204.shtml");
-//        new3.save();
-//
-//
-//        News new4 = new News();
-//        new4.setImage("https://p1.img.cctvpic.com/photoworkspace/2023/12/23/2023122303305348961.jpg");
-//        new4.setTitle("国家体育总局游泳中心公示《2024年巴黎奥运会游泳项目选拔办法》");
-//        new4.setContent("根据《选拔办法》，选拔运动员的赛事依据来自三个赛事：2023年福冈世界游泳锦标赛、2024年多哈世界游泳锦标赛的各单项决赛成绩以及2024年全国游泳冠军赛成绩。");
-//        try {
-//            date = "2023-12-23";
-//            new4.setDate(format.parse(date));
-//        }catch (Exception e){
-//            Log.e("looknews", "写入日期失败 ");
-//        }
-//        new4.setUrl("https://news.cctv.com/2023/12/23/ARTIFqAHXSPzuNVnw2gfI8Lt231223.shtml");
-//        new4.save();
-//
-//
-//        News new5 = new News();
-//        new5.setImage("https://p3.img.cctvpic.com/photoworkspace/2024/02/17/2024021710594350857.jpg");
-//        new5.setTitle("游泳世锦赛：中国队“逆转之夜”勇夺两金");
-//        new5.setContent("截至目前，中国游泳队以6金2银1铜位列金牌榜第二位，金牌数已经超过福冈世锦赛。");
-//        try {
-//            date = "2024-02-17";
-//            new5.setDate(format.parse(date));
-//        }catch (Exception e){
-//            Log.e("looknews", "写入日期失败 ");
-//        }
-//        new5.setUrl("https://news.cctv.com/2024/02/17/ARTI1nCoojViWtkL35ztsTZ6240217.shtml");
-//        new5.save();
-//
-//
-//        News new6 = new News();
-//        new6.setImage("https://p3.img.cctvpic.com/photoworkspace/2024/02/19/2024021913361467678.jpg");
-//        new6.setTitle("多哈游泳世锦赛：中国队双榜第一 收获颇丰");
-//        new6.setContent("中国队所斩获的33枚奖牌来自3个大项，其中跳水项目9金4银，花样游泳项目7金1银1铜，游泳项目7金3银1铜。");
-//        try {
-//            date = "2024-02-19";
-//            new6.setDate(format.parse(date));
-//        }catch (Exception e){
-//            Log.e("looknews", "写入日期失败 ");
-//        }
-//        new6.setUrl("https://sports.cctv.com/2024/02/19/ARTIHS7aTIQVd59HQSCDQHj3240219.shtml");
-//        new6.save();
-//
-//
-//        News new7 = new News();
-//        new7.setImage("https://p3.img.cctvpic.com/photoworkspace/2024/01/06/2024010608200938801.jpg");
-//        new7.setTitle("北京力争成功申办田径、游泳世锦赛");
-//        new7.setContent("游泳世锦赛曾于2011年首次在中国举办，由上海承办。");
-//        try {
-//            date = "2024-01-06";
-//            new7.setDate(format.parse(date));
-//        }catch (Exception e){
-//            Log.e("looknews", "写入日期失败 ");
-//        }
-//        new7.setUrl("https://sports.cctv.com/2024/01/06/ARTI1brsDc4A1hGDNHvK2qfP240106.shtml");
-//        new7.save();
-//
-//
-//        News new8 = new News();
-//        new8.setImage("https://p5.img.cctvpic.com/photoworkspace/2024/02/11/2024021119343025962.jpg");
-//        new8.setTitle("北京将举办2029年世界游泳锦标赛");
-//        new8.setContent("世界泳联主席侯赛因·阿尔-穆萨拉姆当天在新闻发布会上宣布，届时北京游泳世锦赛将举办游泳、跳水、花样游泳、水球、公开水域游泳和高台跳水共6个大项的比赛。　");
-//        try {
-//            date = "2024-02-11";
-//            new8.setDate(format.parse(date));
-//        }catch (Exception e){
-//            Log.e("looknews", "写入日期失败 ");
-//        }
-//        new8.setUrl("https://news.cctv.com/2024/02/11/ARTIuiv7AzTuGC3I2UgQkFvm240211.shtml");
-//        new8.save();
-//
-//
-//        News new9 = new News();
-//        new9.setImage("https://p5.img.cctvpic.com/photoworkspace/2024/02/12/2024021208522226460.jpg");
-//        new9.setTitle("北京将举办2029年世界游泳锦标赛");
-//        new9.setContent("世界游泳锦标赛是世界泳联主办的世界顶级游泳赛事，代表世界游泳运动的最高水平，共设游泳、跳水、花样游泳、水球、公开水域游泳、高台跳水六大项目。");
-//        try {
-//            date = "2024-02-12";
-//            new9.setDate(format.parse(date));
-//        }catch (Exception e){
-//            Log.e("looknews", "写入日期失败 ");
-//        }
-//        new9.setUrl("https://sports.cctv.com/2024/02/12/ARTIUuNW15tJ6b8Jkehk9waS240212.shtml");
-//        new9.save();
-//
-//        News new10 = new News();
-//        new10.setImage("https://p2.img.cctvpic.com/photoworkspace/2024/02/08/2024020808414985185.jpg");
-//        new10.setTitle("游泳世锦赛男子3米板 王宗源夺冠谢思埸收获银牌");
-//        new10.setContent("游泳世锦赛男子3米板 王宗源夺冠谢思埸银牌");
-//        try {
-//            date = "2024-02-08";
-//            new10.setDate(format.parse(date));
-//        }catch (Exception e){
-//            Log.e("looknews", "写入日期失败 ");
-//        }
-//        new10.setUrl("https://sports.cctv.com/2024/02/08/ARTIKLiXJw4xXqeGPz4ODqJS240208.shtml");
-//        new10.save();
+        News new1 = new News();
+        new1.setImage("https://p2.img.cctvpic.com/photoworkspace/2024/02/19/2024021913400460601.jpg");
+        new1.setTitle("多哈游泳世锦赛收官 中国游泳队创近30年最佳战绩");
+        new1.setContent("中新网北京2月19日电(记者 刘星晨)北京时间19日凌晨，2024多哈游泳世锦赛落幕，中国队以23金位居总奖牌榜榜首，其中跳水项目9金4银，花样游泳项目7金1银1铜。");
+        try {
+            date = "2024-02-19";
+            new1.setDate(format.parse(date));
+        }catch (Exception e){
+            Log.e("looknews", "写入日期失败 ");
+        }
+        new1.setUrl("https://sports.cctv.com/2024/02/19/ARTIMkzEM7MbtXCZ792HgwHX240219.shtml");
+        new1.save();
+
+        News new2 = new News();
+        new2.setImage("https://p1.img.cctvpic.com/photoworkspace/2024/03/22/2024032207553824248.jpg");
+        new2.setTitle("世界泳联花样游泳世界杯（北京站）将于4月举办");
+        new2.setContent("在今年初的多哈游泳世锦赛花样游泳全部11个项目争夺中，中国花样游泳队摘得7金1银1铜，创造世锦赛参赛以来最佳成绩。本次世界杯北京站，中国花样游泳队将有25名队员出战。");
+        try {
+            date = "2024-03-22";
+            new2.setDate(format.parse(date));
+        }catch (Exception e){
+            Log.e("looknews", "写入日期失败 ");
+        }
+        new2.setUrl("https://sports.cctv.com/2024/03/22/ARTI7XKbCSD9AnNdgdu9qNlJ240322.shtml");
+        new2.save();
+
+
+        News new3 = new News();
+        new3.setImage("https://p4.img.cctvpic.com/photoworkspace/2024/02/04/2024020421130648083.jpg");
+        new3.setTitle("中国队赢得游泳世锦赛花样游泳集体技巧自选金牌");
+        new3.setContent("视网消息：北京时间2月4日，在卡塔尔多哈举行的世界游泳锦标赛花样游泳集体技巧自选决赛中，中国队赢得冠军。");
+        try {
+            date = "2024-02-24";
+            new3.setDate(format.parse(date));
+        }catch (Exception e){
+            Log.e("looknews", "写入日期失败 ");
+        }
+        new3.setUrl("hhttps://sports.cctv.com/2024/02/04/ARTI2jSYeJFiife7SRE6riyq240204.shtml");
+        new3.save();
+
+
+        News new4 = new News();
+        new4.setImage("https://p1.img.cctvpic.com/photoworkspace/2023/12/23/2023122303305348961.jpg");
+        new4.setTitle("国家体育总局游泳中心公示《2024年巴黎奥运会游泳项目选拔办法》");
+        new4.setContent("根据《选拔办法》，选拔运动员的赛事依据来自三个赛事：2023年福冈世界游泳锦标赛、2024年多哈世界游泳锦标赛的各单项决赛成绩以及2024年全国游泳冠军赛成绩。");
+        try {
+            date = "2023-12-23";
+            new4.setDate(format.parse(date));
+        }catch (Exception e){
+            Log.e("looknews", "写入日期失败 ");
+        }
+        new4.setUrl("https://news.cctv.com/2023/12/23/ARTIFqAHXSPzuNVnw2gfI8Lt231223.shtml");
+        new4.save();
+
+
+        News new5 = new News();
+        new5.setImage("https://p3.img.cctvpic.com/photoworkspace/2024/02/17/2024021710594350857.jpg");
+        new5.setTitle("游泳世锦赛：中国队“逆转之夜”勇夺两金");
+        new5.setContent("截至目前，中国游泳队以6金2银1铜位列金牌榜第二位，金牌数已经超过福冈世锦赛。");
+        try {
+            date = "2024-02-17";
+            new5.setDate(format.parse(date));
+        }catch (Exception e){
+            Log.e("looknews", "写入日期失败 ");
+        }
+        new5.setUrl("https://news.cctv.com/2024/02/17/ARTI1nCoojViWtkL35ztsTZ6240217.shtml");
+        new5.save();
+
+
+        News new6 = new News();
+        new6.setImage("https://p3.img.cctvpic.com/photoworkspace/2024/02/19/2024021913361467678.jpg");
+        new6.setTitle("多哈游泳世锦赛：中国队双榜第一 收获颇丰");
+        new6.setContent("中国队所斩获的33枚奖牌来自3个大项，其中跳水项目9金4银，花样游泳项目7金1银1铜，游泳项目7金3银1铜。");
+        try {
+            date = "2024-02-19";
+            new6.setDate(format.parse(date));
+        }catch (Exception e){
+            Log.e("looknews", "写入日期失败 ");
+        }
+        new6.setUrl("https://sports.cctv.com/2024/02/19/ARTIHS7aTIQVd59HQSCDQHj3240219.shtml");
+        new6.save();
+
+
+        News new7 = new News();
+        new7.setImage("https://p3.img.cctvpic.com/photoworkspace/2024/01/06/2024010608200938801.jpg");
+        new7.setTitle("北京力争成功申办田径、游泳世锦赛");
+        new7.setContent("游泳世锦赛曾于2011年首次在中国举办，由上海承办。");
+        try {
+            date = "2024-01-06";
+            new7.setDate(format.parse(date));
+        }catch (Exception e){
+            Log.e("looknews", "写入日期失败 ");
+        }
+        new7.setUrl("https://sports.cctv.com/2024/01/06/ARTI1brsDc4A1hGDNHvK2qfP240106.shtml");
+        new7.save();
+
+
+        News new8 = new News();
+        new8.setImage("https://p5.img.cctvpic.com/photoworkspace/2024/02/11/2024021119343025962.jpg");
+        new8.setTitle("北京将举办2029年世界游泳锦标赛");
+        new8.setContent("世界泳联主席侯赛因·阿尔-穆萨拉姆当天在新闻发布会上宣布，届时北京游泳世锦赛将举办游泳、跳水、花样游泳、水球、公开水域游泳和高台跳水共6个大项的比赛。　");
+        try {
+            date = "2024-02-11";
+            new8.setDate(format.parse(date));
+        }catch (Exception e){
+            Log.e("looknews", "写入日期失败 ");
+        }
+        new8.setUrl("https://news.cctv.com/2024/02/11/ARTIuiv7AzTuGC3I2UgQkFvm240211.shtml");
+        new8.save();
+
+
+        News new9 = new News();
+        new9.setImage("https://p5.img.cctvpic.com/photoworkspace/2024/02/12/2024021208522226460.jpg");
+        new9.setTitle("北京将举办2029年世界游泳锦标赛");
+        new9.setContent("世界游泳锦标赛是世界泳联主办的世界顶级游泳赛事，代表世界游泳运动的最高水平，共设游泳、跳水、花样游泳、水球、公开水域游泳、高台跳水六大项目。");
+        try {
+            date = "2024-02-12";
+            new9.setDate(format.parse(date));
+        }catch (Exception e){
+            Log.e("looknews", "写入日期失败 ");
+        }
+        new9.setUrl("https://sports.cctv.com/2024/02/12/ARTIUuNW15tJ6b8Jkehk9waS240212.shtml");
+        new9.save();
+
+        News new10 = new News();
+        new10.setImage("https://p2.img.cctvpic.com/photoworkspace/2024/02/08/2024020808414985185.jpg");
+        new10.setTitle("游泳世锦赛男子3米板 王宗源夺冠谢思埸收获银牌");
+        new10.setContent("游泳世锦赛男子3米板 王宗源夺冠谢思埸银牌");
+        try {
+            date = "2024-02-08";
+            new10.setDate(format.parse(date));
+        }catch (Exception e){
+            Log.e("looknews", "写入日期失败 ");
+        }
+        new10.setUrl("https://sports.cctv.com/2024/02/08/ARTIKLiXJw4xXqeGPz4ODqJS240208.shtml");
+        new10.save();
 
         News new11 = new News();
         new11.setImage("https://p3.img.cctvpic.com/photoworkspace/2023/10/24/2023102414234049920.jpg");
