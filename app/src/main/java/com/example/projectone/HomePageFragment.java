@@ -16,6 +16,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.example.projectone.buy.BuyFragment;
 import com.example.projectone.enjoy.EnjoyFragment;
 
 

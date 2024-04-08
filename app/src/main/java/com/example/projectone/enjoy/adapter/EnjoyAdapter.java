@@ -8,18 +8,24 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.projectone.DetailActivity;
+import com.example.projectone.Manage.CommentManage;
 import com.example.projectone.R;
+import com.example.projectone.table.Comment;
 import com.example.projectone.table.Enjoy;
 import com.example.projectone.table.Like;
 import com.example.projectone.table.User;
 
 import org.litepal.LitePal;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class EnjoyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -41,8 +47,18 @@ public class EnjoyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     int likestate;
     int likenum;
     String likename;
+
+    String commentText;
+    List<Comment> comments = new ArrayList<>();
+    Comment comment;
+    String commentName;
+    Long time;
+    Date commentTime;
+    String commentDate;
+    SimpleDateFormat format;
     private List<User> users = new ArrayList<>();
     private User user;
+    private CommentAdapter commentAdapter;
 
     public EnjoyAdapter(Context context, String username) {
         this.context = context;
@@ -65,6 +81,8 @@ public class EnjoyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             return 1;
         }
     }
+
+
 
     @NonNull
     @Override
@@ -160,14 +178,51 @@ public class EnjoyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 });
 
                 //评论初始化
+                commentAdapter = new CommentAdapter(context,username);
+                rootHoder.enjoyRootRecyclerView.setAdapter(commentAdapter);
+                rootHoder.enjoyRootRecyclerView.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false));
+//                rootHoder.enjoyRootRecyclerView.addItemDecoration(new DividerItemDecoration(context,DividerItemDecoration.VERTICAL));
+                comments = CommentManage.FindALlComment("root",date);
+                commentAdapter.setData(comments);
+
                 //发送评论
+                rootHoder.enjoyRootBt.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        //评论内容获取
+                        commentText = ((RootHoder) holder).enjoyRootEt.getText().toString();
+                        if (commentText.length() != 0){
+                            //username已存在
+                            //commentname获取
+                            enjoy = enjoys.get(holder.getAdapterPosition());
+                            commentName = enjoy.getUsername();
+                            //分享发布时间获取,String
+                            date = enjoy.getDate();
+                            //评论时间获取
+                            time = System.currentTimeMillis();
+                            commentTime = new Date(time);
+                            format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                            commentDate = format.format(commentTime);
+                            Toast.makeText(context, ""+commentText, Toast.LENGTH_SHORT).show();
+                            CommentManage.AddComment(username,commentName,date,commentDate,commentText);
+
+                            //edittext清空
+                            ((RootHoder) holder).enjoyRootEt.setText("");
+                            //查找给评论的所有评论
+                            comments = CommentManage.FindALlComment(commentName,date);
+                            //更新评论
+                            commentAdapter.setData(comments);
+                            notifyDataSetChanged();
+                        }
+                    }
+                });
 
 
                 break;
             case 1://用户
                 userHoder = (UserHoder) holder;
 
-                users = LitePal.where("username = ?",username).find(User.class);
+                users = LitePal.where("username = ?",enjoy.getUsername()).find(User.class);
                 user = users.get(0);
                 if (user.getHeadpicture() == null){
                     Glide.with(context).load(R.drawable.defaultheadpicture).into(userHoder.enjoyUserImg);
@@ -236,10 +291,48 @@ public class EnjoyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                         //刷新
                         enjoys = LitePal.order("date desc").find(Enjoy.class);
                         setData(enjoys);
-                        Toast.makeText(context, ""+likenum, Toast.LENGTH_SHORT).show();
                     }
                 });
 
+                //评论初始化
+                commentAdapter = new CommentAdapter(context,username);
+                userHoder.enjoyUserRecyclerView.setAdapter(commentAdapter);
+                userHoder.enjoyUserRecyclerView.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false));
+//                rootHoder.enjoyRootRecyclerView.addItemDecoration(new DividerItemDecoration(context,DividerItemDecoration.VERTICAL));
+                comments = CommentManage.FindALlComment(likename,date);
+                commentAdapter.setData(comments);
+
+                //发送评论
+                userHoder.enjoyUserBt.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        //评论内容获取
+                        commentText = ((UserHoder) holder).enjoyUserEt.getText().toString();
+                        if (commentText.length() != 0){
+                            //username已存在
+                            //commentname获取
+                            enjoy = enjoys.get(holder.getAdapterPosition());
+                            commentName = enjoy.getUsername();
+                            //分享发布时间获取,String
+                            date = enjoy.getDate();
+                            //评论时间获取
+                            time = System.currentTimeMillis();
+                            commentTime = new Date(time);
+                            format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                            commentDate = format.format(commentTime);
+                            Toast.makeText(context, ""+commentText, Toast.LENGTH_SHORT).show();
+                            CommentManage.AddComment(username,commentName,date,commentDate,commentText);
+
+                            //edittext清空
+                            ((UserHoder) holder).enjoyUserEt.setText("");
+                            //查找给评论的所有评论
+                            comments = CommentManage.FindALlComment(commentName,date);
+                            //更新评论
+                            commentAdapter.setData(comments);
+                            notifyDataSetChanged();
+                        }
+                    }
+                });
 
 
         }

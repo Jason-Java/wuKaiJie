@@ -23,7 +23,7 @@
     -->
 <!--    工控机-->
 <!--    <version value="6" />-->
-    <version value="10" />
+    <version value="11" />
 
     <!--
     	Define your models in the list with mapping tag, LitePal will
@@ -43,6 +43,8 @@
         <mapping class="com.example.projectone.table.Enjoy" />
         <mapping class="com.example.projectone.table.Like" />
         <mapping class="com.example.projectone.table.Comment" />
+        <mapping class="com.example.projectone.table.Buy" />
+        <mapping class="com.example.projectone.table.BuyCollection" />
     </list>
 
     <!--

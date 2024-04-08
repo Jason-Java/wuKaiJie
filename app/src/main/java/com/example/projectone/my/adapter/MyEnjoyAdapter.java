@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.projectone.Manage.CommentManage;
 import com.example.projectone.R;
 import com.example.projectone.table.Enjoy;
 import com.example.projectone.table.Friends;
@@ -86,6 +87,7 @@ public class MyEnjoyAdapter extends RecyclerView.Adapter<MyEnjoyHoder> {
             public void onClick(View view) {
                 if (System.currentTimeMillis() - firstPressedTime < 2000) {
                     LitePal.deleteAll(Enjoy.class,"username = ? and date = ?",username,enjoys.get(holder.getAdapterPosition()).getDate());
+                    CommentManage.DeleteAllComment(username,enjoys.get(holder.getAdapterPosition()).getDate());
                     Toast.makeText(context, "删除成功", Toast.LENGTH_SHORT).show();
                     enjoys = LitePal.where("username = ?",username).order("date desc").find(Enjoy.class);
                     setData(enjoys);
