@@ -4,18 +4,18 @@ import org.litepal.crud.LitePalSupport;
 
 public class BuyCollection extends LitePalSupport {
 
-    private String username;
+    private String userName;
 
     private String buyName;
 
-    private String buyshop;
+    private String buyShop;
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getBuyName() {
@@ -26,11 +26,11 @@ public class BuyCollection extends LitePalSupport {
         this.buyName = buyName;
     }
 
-    public String getBuyshop() {
-        return buyshop;
+    public String getBuyShop() {
+        return buyShop;
     }
 
-    public void setBuyshop(String buyshop) {
-        this.buyshop = buyshop;
+    public void setBuyShop(String buyShop) {
+        this.buyShop = buyShop;
     }
 }

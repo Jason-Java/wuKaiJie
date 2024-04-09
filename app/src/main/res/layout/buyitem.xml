@@ -30,12 +30,20 @@
             android:layout_below="@id/buyName"
             android:text="商品价格"/>
 
+        <TextView
+            android:id="@+id/buyShop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/buyPrice"
+            android:text="商品价格"/>
+
         <Button
             android:id="@+id/buyCollection"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/buyName"
             android:text="收藏"
+            android:background="@color/nochoose"
             android:layout_alignParentRight="true"
             />
 

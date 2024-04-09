@@ -48,10 +48,22 @@
         android:text="更改资料"/>
 
     <Button
+        android:id="@+id/myPerson"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="更改比赛资料"/>
+
+    <Button
         android:id="@+id/my_enjoy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="自己的分享"/>
+
+    <Button
+        android:id="@+id/my_buyCollection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="商城-我的收藏"/>
 
     <Button
         android:id="@+id/my_exit"

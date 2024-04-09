@@ -18,6 +18,18 @@ public class BuyManage {
         return LitePal.findAll(Buy.class);
     }
 
+    public static List<Buy> FindBuyShop(String buyShop){
+        return LitePal.where("buyShop = ?",buyShop).find(Buy.class);
+    }
+
+    public static List<Buy> FindBuyCollection(String buyName,String buyShop){
+        return LitePal.where("buyName = ? and buyShop = ?",buyName,buyShop).find(Buy.class);
+    }
+
+    public static List<Buy> FindBuyName(String buyName){
+        return LitePal.where("buyName like ?","%"+buyName+"%").find(Buy.class);
+    }
+
     public static void AddBuy(String buyImage,String buyName,int buyPrice,String buyUrl,String buyShop){
         buy = new Buy();
         buy.setBuyImage(buyImage);

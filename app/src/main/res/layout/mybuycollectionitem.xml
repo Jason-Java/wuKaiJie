@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/myBuyCollectionRelativeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/myBuyImage"
+        android:layout_width="150dp"
+        android:layout_height="150dp"/>
+
+    <TextView
+        android:id="@+id/myBuyName"
+        android:layout_toRightOf="@+id/myBuyImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="商品名称"
+        android:textStyle="bold"
+        android:maxLines="2"
+        android:maxEms="22"
+        android:ellipsize="end"
+        />
+
+    <TextView
+        android:id="@+id/myBuyPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/myBuyImage"
+        android:layout_below="@id/myBuyName"
+        android:text="商品价格"/>
+
+    <TextView
+        android:id="@+id/myBuyShop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/myBuyImage"
+        android:layout_below="@id/myBuyPrice"
+        android:text="商品价格"/>
+
+    <Button
+        android:id="@+id/myBuyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="已收藏"
+        android:background="@color/bottomcolor"
+        android:layout_below="@id/myBuyName"
+        android:layout_alignParentRight="true"/>
+
+
+
+</RelativeLayout>

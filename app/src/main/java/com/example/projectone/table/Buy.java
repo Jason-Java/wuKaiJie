@@ -11,7 +11,7 @@ public class Buy extends LitePalSupport {
     private int buyPrice;
 
     private String buyUrl;
-
+//商品类型
     private String buyShop;
 
     public String getBuyShop() {

@@ -25,7 +25,9 @@ import com.bumptech.glide.Glide;
 import com.example.projectone.R;
 import com.example.projectone.add.activity.AddEnjoyActivity;
 import com.example.projectone.my.activity.ChangemyActivity;
+import com.example.projectone.my.activity.MyBuyCollectionActivity;
 import com.example.projectone.my.activity.MyEnjoyActivity;
+import com.example.projectone.my.activity.MyPersonActivity;
 import com.example.projectone.table.User;
 
 import org.litepal.LitePal;
@@ -46,6 +48,8 @@ public class MyFragment extends Fragment {
     Button my_changemy;
     Button my_exit;
     Button myEnjoy;
+    Button myBuyCollection;
+    Button myPerson;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -67,6 +71,8 @@ public class MyFragment extends Fragment {
         my_changemy = view.findViewById(R.id.my_changemy);
         my_mytext = view.findViewById(R.id.my_mytext);
         myEnjoy = view.findViewById(R.id.my_enjoy);
+        myBuyCollection = view.findViewById(R.id.my_buyCollection);
+        myPerson = view.findViewById(R.id.myPerson);
 
         intent = getActivity().getIntent();
         name = intent.getStringExtra("name");
@@ -138,6 +144,26 @@ public class MyFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 intent = new Intent(getActivity(), MyEnjoyActivity.class);
+                intent.putExtra("name",name);
+                startActivity(intent);
+            }
+        });
+
+        //进入我的收藏
+        myBuyCollection.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent = new Intent(getActivity(), MyBuyCollectionActivity.class);
+                intent.putExtra("name",name);
+                startActivity(intent);
+            }
+        });
+
+        //进入更改比赛资料界面
+        myPerson.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent = new Intent(getActivity(), MyPersonActivity.class);
                 intent.putExtra("name",name);
                 startActivity(intent);
             }

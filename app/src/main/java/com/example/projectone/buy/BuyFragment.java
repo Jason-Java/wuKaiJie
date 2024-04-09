@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,6 +27,10 @@ public class BuyFragment extends Fragment {
     BuyAdapter buyAdapter;
     Intent intent;
     String username;
+
+    EditText buySearchEt;
+    Button buySearchBt;
+    String searchtext;
 
     List<Buy> buys;
 
@@ -47,6 +53,8 @@ public class BuyFragment extends Fragment {
 
     private void initView() {
         recyclerView = view.findViewById(R.id.buyRecyclerView);
+        buySearchEt = view.findViewById(R.id.buySearchEt);
+        buySearchBt = view.findViewById(R.id.buySearchBt);
 
         intent = getActivity().getIntent();
         username = intent.getStringExtra("name");
@@ -63,6 +71,24 @@ public class BuyFragment extends Fragment {
     }
 
     private void initEvent() {
+        buySearchBt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                searchtext = buySearchEt.getText().toString();
+                buys = BuyManage.FindBuyShop(searchtext);
+                if (searchtext.length() == 0){
+                    buys = BuyManage.FindAll();
+                    buyAdapter.setData(buys);
+                }else{
+                    if (buys.size() != 0){
+                        buyAdapter.setData(buys);
+                    }else {
+                        buys = BuyManage.FindBuyName(searchtext);
+                        buyAdapter.setData(buys);
+                    }
+                }
+            }
+        });
 
     }
 

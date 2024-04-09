@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.example.projectone.adapter.ViewPagerMainAdapter;
 import com.example.projectone.add.AddFragment;
 import com.example.projectone.chat.ChatFragment;
+import com.example.projectone.competition.CompetitionFragment;
 import com.example.projectone.my.MyFragment;
 
 import java.util.ArrayList;

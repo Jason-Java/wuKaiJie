@@ -1,4 +1,4 @@
-package com.example.projectone;
+package com.example.projectone.competition;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,11 +9,20 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.projectone.R;
+
+import org.litepal.LitePal;
+
 public class CompetitionFragment extends Fragment {
+
+    View view;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.competition_fragment,null);
+        view = inflater.inflate(R.layout.competition_fragment,null);
+
+
 
         return view;
     }

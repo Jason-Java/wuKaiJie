@@ -4,10 +4,9 @@
     android:orientation="vertical"
     android:layout_height="match_parent">
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/CompetitionRecyclerview"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:text="赛事"
-        android:textSize="50sp"/>
+        android:layout_height="match_parent"/>
 
 </LinearLayout>
