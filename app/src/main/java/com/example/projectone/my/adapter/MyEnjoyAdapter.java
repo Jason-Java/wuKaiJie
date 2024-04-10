@@ -2,7 +2,6 @@ package com.example.projectone.my.adapter;
 
 import android.content.Context;
 import android.net.Uri;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -11,17 +10,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.projectone.Manage.CommentManage;
+import com.example.projectone.manage.CommentManage;
 import com.example.projectone.R;
 import com.example.projectone.table.Enjoy;
-import com.example.projectone.table.Friends;
 import com.example.projectone.table.User;
 
 import org.litepal.LitePal;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class MyEnjoyAdapter extends RecyclerView.Adapter<MyEnjoyHoder> {

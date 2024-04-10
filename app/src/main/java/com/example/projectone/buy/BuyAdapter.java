@@ -2,20 +2,18 @@ package com.example.projectone.buy;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.projectone.DetailActivity;
-import com.example.projectone.Manage.BuyCollectionManage;
+import com.example.projectone.manage.BuyCollectionManage;
 import com.example.projectone.R;
 import com.example.projectone.table.Buy;
 import com.example.projectone.table.BuyCollection;

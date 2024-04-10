@@ -1,7 +1,10 @@
 package com.example.projectone.chat.adapter;
 
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.util.Log;
 import android.view.Gravity;
@@ -108,7 +111,8 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatHoder> {
                 //外部是否可以点击
                 //只有加上它之后，PopupWindow才会对手机的返回按钮有响应：即，点击手机返回按钮，可以关闭PopupWindow；
                 // 如果不加setBackgroundDrawable（）将关闭的PopupWindow所在的Activity.
-                popupWindow.setBackgroundDrawable(new BitmapDrawable());
+                Drawable drawable = new BitmapDrawable();
+                popupWindow.setBackgroundDrawable(drawable);
                 popupWindow.setOutsideTouchable(true);
 
                 //popupwidow放在rootview里

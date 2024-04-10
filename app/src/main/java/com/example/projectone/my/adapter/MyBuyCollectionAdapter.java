@@ -3,10 +3,9 @@ package com.example.projectone.my.adapter;
 import android.content.Context;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RelativeLayout;
 
-import com.example.projectone.Manage.BuyCollectionManage;
-import com.example.projectone.Manage.BuyManage;
+import com.example.projectone.manage.BuyCollectionManage;
+import com.example.projectone.manage.BuyManage;
 import com.example.projectone.R;
 import com.example.projectone.databinding.BuyitemBinding;
 import com.example.projectone.table.Buy;

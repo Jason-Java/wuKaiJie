@@ -1,4 +1,4 @@
-package com.example.projectone.Manage;
+package com.example.projectone.manage;
 
 import android.util.Log;
 
@@ -15,6 +15,11 @@ public class PersonManage {
 
     public static List<Person> FindUserName(String userName){
         return LitePal.where("userName = ?",userName).find(Person.class);
+    }
+
+    public static String getPersonName(String userName){
+        person = LitePal.where("userName = ?",userName).find(Person.class).get(0);
+        return person.getPersonName();
     }
 
     public static List<Person> FindPersonName(String personName){

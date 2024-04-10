@@ -5,12 +5,13 @@ import org.litepal.crud.LitePalSupport;
 import java.util.Date;
 
 public class CompetitionIntel extends LitePalSupport {
+    private  int competitionImage;
 
     private String competitionName;
 
     private String competitionAddress;
 
-    private int competitionMaxnum;
+    private int competitionMaxNum;
 
     private Date competitionStartTime;
 
@@ -19,6 +20,14 @@ public class CompetitionIntel extends LitePalSupport {
     private Date applicationStartTime;
 
     private Date applicationEndTime;
+
+    public int getCompetitionImage() {
+        return competitionImage;
+    }
+
+    public void setCompetitionImage(int competitionImage) {
+        this.competitionImage = competitionImage;
+    }
 
     public String getCompetitionName() {
         return competitionName;
@@ -36,12 +45,12 @@ public class CompetitionIntel extends LitePalSupport {
         this.competitionAddress = competitionAddress;
     }
 
-    public int getCompetitionMaxnum() {
-        return competitionMaxnum;
+    public int getCompetitionMaxNum() {
+        return competitionMaxNum;
     }
 
-    public void setCompetitionMaxnum(int competitionMaxnum) {
-        this.competitionMaxnum = competitionMaxnum;
+    public void setCompetitionMaxNum(int competitionMaxNum) {
+        this.competitionMaxNum = competitionMaxNum;
     }
 
     public Date getCompetitionStartTime() {

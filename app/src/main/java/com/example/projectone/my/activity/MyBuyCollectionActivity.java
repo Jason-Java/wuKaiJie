@@ -3,15 +3,14 @@ package com.example.projectone.my.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import com.example.projectone.DetailActivity;
-import com.example.projectone.Manage.BuyCollectionManage;
-import com.example.projectone.Manage.BuyManage;
+import com.example.projectone.manage.BuyCollectionManage;
+import com.example.projectone.manage.BuyManage;
 import com.example.projectone.databinding.ActivityMybuycollectionBinding;
 import com.example.projectone.my.adapter.BaseRecyclerViewAdapter;
 import com.example.projectone.my.adapter.MyBuyCollectionAdapter;

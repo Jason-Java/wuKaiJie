@@ -1,6 +1,8 @@
 package com.example.projectone.buy;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
-import com.example.projectone.Manage.BuyManage;
+import com.example.projectone.manage.BuyManage;
 import com.example.projectone.R;
 import com.example.projectone.table.Buy;
 
@@ -33,14 +35,12 @@ public class BuyFragment extends Fragment {
     String searchtext;
 
     List<Buy> buys;
+    private SharedPreferences sp;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.buy_fragment,null);
-
-        //模拟数据
-//        initBuy();
 
         initView();
 
@@ -58,6 +58,16 @@ public class BuyFragment extends Fragment {
 
         intent = getActivity().getIntent();
         username = intent.getStringExtra("name");
+
+        //模拟数据
+        sp = getActivity().getSharedPreferences("config", Context.MODE_PRIVATE);
+        if (sp.getBoolean("initBuy",false) == false){
+            initBuy();
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putBoolean("initBuy",true);
+            editor.apply();
+        }
+
         buyAdapter = new BuyAdapter(username,getActivity());
         recyclerView.setAdapter(buyAdapter);
         //设置layoutManager

@@ -2,6 +2,8 @@ package com.example.projectone.table;
 
 import org.litepal.crud.LitePalSupport;
 
+import java.util.Date;
+
 public class CompetitionPerson extends LitePalSupport {
 
     private String competitionName;
@@ -18,6 +20,38 @@ public class CompetitionPerson extends LitePalSupport {
 
     private int personAge;
 
+    //成绩
+    private String time;
+
+    //第几名
+    private int ranking;
+
+    //添加成绩的时间
+    private Date addTime;
+
+    public Date getAddTime() {
+        return addTime;
+    }
+
+    public void setAddTime(Date addTime) {
+        this.addTime = addTime;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public int getRanking() {
+        return ranking;
+    }
+
+    public void setRanking(int ranking) {
+        this.ranking = ranking;
+    }
 
     public String getCompetitionName() {
         return competitionName;

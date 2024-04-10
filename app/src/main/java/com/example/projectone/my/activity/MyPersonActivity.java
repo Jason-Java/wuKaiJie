@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.projectone.Manage.Constant;
-import com.example.projectone.Manage.PersonManage;
+import com.example.projectone.manage.Constant;
+import com.example.projectone.manage.PersonManage;
 import com.example.projectone.databinding.ActivityMypersonBinding;
 import com.example.projectone.table.Person;
 

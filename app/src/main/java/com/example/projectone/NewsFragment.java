@@ -1,5 +1,8 @@
 package com.example.projectone;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -45,14 +48,23 @@ public class NewsFragment extends Fragment {
     SmartRefreshLayout smartRefreshLayout;
     int refreshitem;
     News news;
+    Intent intent;
     private List<News> refreshdata = new ArrayList<>();
+    private SharedPreferences sp;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.news_fragment,null);
 
         //模拟数据
-//        initData();
+        sp = getActivity().getSharedPreferences("config", Context.MODE_PRIVATE);
+        if (sp.getBoolean("initNews",false) == false){
+            initData();
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putBoolean("initNews",true);
+            editor.apply();
+        }
 
         //读取数据库数据,倒叙时间排列
         Connector.getDatabase();

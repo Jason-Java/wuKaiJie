@@ -14,14 +14,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.projectone.Manage.CommentManage;
+import com.example.projectone.manage.CommentManage;
 import com.example.projectone.R;
 import com.example.projectone.table.Comment;
-import com.example.projectone.table.Friends;
 
-import org.litepal.LitePal;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class CommentAdapter extends RecyclerView.Adapter<CommentHolder> {

@@ -14,7 +14,7 @@ public class CompetitionProject extends LitePalSupport {
 
     private String itemSex;
 
-    private String itemMinAge;
+    private int itemMinAge;
 
     private int itemMaxAge;
 
@@ -50,11 +50,11 @@ public class CompetitionProject extends LitePalSupport {
         this.itemSex = itemSex;
     }
 
-    public String getItemMinAge() {
+    public int getItemMinAge() {
         return itemMinAge;
     }
 
-    public void setItemMinAge(String itemMinAge) {
+    public void setItemMinAge(int itemMinAge) {
         this.itemMinAge = itemMinAge;
     }
 

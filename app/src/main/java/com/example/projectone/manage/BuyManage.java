@@ -1,4 +1,4 @@
-package com.example.projectone.Manage;
+package com.example.projectone.manage;
 
 
 import android.util.Log;

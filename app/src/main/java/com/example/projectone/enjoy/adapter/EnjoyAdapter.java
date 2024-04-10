@@ -8,13 +8,12 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.projectone.DetailActivity;
-import com.example.projectone.Manage.CommentManage;
+import com.example.projectone.manage.CommentManage;
 import com.example.projectone.R;
 import com.example.projectone.table.Comment;
 import com.example.projectone.table.Enjoy;

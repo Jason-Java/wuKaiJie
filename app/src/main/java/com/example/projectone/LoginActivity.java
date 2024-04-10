@@ -20,6 +20,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.projectone.manage.UserManage;
 import com.example.projectone.table.User;
 
 import org.litepal.LitePal;
@@ -40,6 +41,9 @@ public class LoginActivity extends AppCompatActivity {
     private CheckBox rememberpwd;
     private CheckBox autologin;
     private SharedPreferences sp;
+
+    Boolean init;
+    Boolean initlogon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +74,13 @@ public class LoginActivity extends AppCompatActivity {
         sp = getSharedPreferences("config", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
 
+        //初始化账号
+        initlogon = sp.getBoolean("initlogon",false);
+        if (initlogon == false){
+            initlogon();
+        }
+
+
         //关闭app，再打开
         Boolean rememberpwd2 = sp.getBoolean("rememberpwd",false);//取不到就取默认值false
         Boolean autologin2 = sp.getBoolean("autologin",false);
@@ -85,6 +96,7 @@ public class LoginActivity extends AppCompatActivity {
         }
 
     }
+
     //跳转至主页面
     public void logintoMain(View view) {
         String name = et_name.getText().toString();
@@ -126,15 +138,28 @@ public class LoginActivity extends AppCompatActivity {
                         editor.remove("autologin");
                         editor.apply();
                     }
+
                     //跳转到主页面
                     Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                     intent.putExtra("name",name);
+                    intent.putExtra("init",init);
                     startActivity(intent);
                 }else{
                     Toast.makeText(this, "密码错误", Toast.LENGTH_SHORT).show();
                 }
             }
         }
+    }
+
+    private void initlogon() {
+        UserManage.Add("root", "wkj123456",
+                "15868374899","1842256004@qq.com");
+        UserManage.Add("wkj", "wkj123456",
+                "15868374891","1842256001@qq.com");
+        UserManage.Add("wtf", "wkj123456",
+                "15868374811","1842256002@qq.com");
+        UserManage.Add("woc", "wkj123456",
+                "15868374111","1842256003@qq.com");
     }
 
     //权限申请

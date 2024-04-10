@@ -39,6 +39,13 @@ public class BaseRecyclerViewHolder extends RecyclerView.ViewHolder {
             callBack.run(tx);
         }
     }
+
+//    设置Textview文本内容
+    public void setText(int id,String text){
+        TextView tx = (TextView) inflate.findViewById(id);
+        tx.setText(text);
+    }
+
     //获取Textview的文字信息
     public String getText(int tvID){
         TextView tx = (TextView) inflate.findViewById(tvID);
@@ -54,6 +61,12 @@ public class BaseRecyclerViewHolder extends RecyclerView.ViewHolder {
         }
     }
 
+    //获取控件
+    public <T> T get(int id){
+        T img = (T) inflate.findViewById(id);
+        return img;
+    }
+
     /*设置CheckBox 控件*/
     public void setCheckBox(int cbID, boolean cb, CallBack<CheckBox> callBack) {
         CheckBox cbox = (CheckBox) inflate.findViewById(cbID);
@@ -62,6 +75,18 @@ public class BaseRecyclerViewHolder extends RecyclerView.ViewHolder {
             callBack.run(cbox);
         }
     }
+
+    /*设置CheckBox 控件*/
+    public CheckBox setCheckBox(int cbID) {
+        CheckBox cbox = (CheckBox) inflate.findViewById(cbID);
+
+        return  cbox;
+    }
+
+    /*设置CheckBox 控件*/
+    public void setCheckBox(int cbID, boolean cb) {
+        CheckBox cbox = (CheckBox) inflate.findViewById(cbID);
+        cbox.setChecked(cb);}
 
     /*设置Button 控件*/
     public void setButton(int btnID, CallBack<Button> callBack) {
