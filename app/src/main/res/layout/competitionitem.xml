@@ -6,7 +6,7 @@
 
     <ImageView
         android:id="@+id/competitionImage"
-        android:layout_width="320dp"
+        android:layout_width="400dp"
         android:layout_height="125dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
@@ -23,6 +23,8 @@
         android:textStyle="italic"
         android:layout_alignTop="@id/competitionImage"
         android:layout_alignLeft="@+id/competitionImage"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
         android:textColor="@color/white"/>
 
     <LinearLayout

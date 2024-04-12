@@ -23,4 +23,11 @@
         android:layout_height="wrap_content"
         android:text="添加分享"/>
 
+    <Button
+        android:id="@+id/rootAddNews"
+        android:text="添加新闻"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 </LinearLayout>

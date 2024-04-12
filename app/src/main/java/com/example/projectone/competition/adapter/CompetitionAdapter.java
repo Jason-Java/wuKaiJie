@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.projectone.R;
 import com.example.projectone.manage.Constant;
 import com.example.projectone.my.adapter.BaseRecyclerViewAdapter;
@@ -32,11 +33,13 @@ public class CompetitionAdapter extends BaseRecyclerViewAdapter<CompetitionIntel
     Drawable drawable;
     String state;
     SimpleDateFormat format;
+    Context mContext;
 
 
     public CompetitionAdapter(int mLayoutID, Context mContext, String username) {
         super(R.layout.competitionitem, mContext, username);
         this.username = username;
+        this.mContext = mContext;
     }
 
     @Override
@@ -45,7 +48,7 @@ public class CompetitionAdapter extends BaseRecyclerViewAdapter<CompetitionIntel
         competitionIntel = bean;
 
         competitionImage = holder.get(R.id.competitionImage);
-        competitionImage.setImageResource(competitionIntel.getCompetitionImage());
+        Glide.with(mContext).load(competitionIntel.getCompetitionImage()).into(competitionImage);
 
         //设置赛事状态
         competitionState = holder.get(R.id.competitionState);

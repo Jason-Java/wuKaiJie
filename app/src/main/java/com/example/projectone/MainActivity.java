@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         ll_homepage = findViewById(R.id.ll_homepage);
         ll_competition = findViewById(R.id.ll_competition);
         ll_add = findViewById(R.id.ll_add);

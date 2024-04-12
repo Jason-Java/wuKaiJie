@@ -39,6 +39,11 @@ public abstract class BaseRecyclerViewAdapter<T> extends RecyclerView.Adapter<Ba
         this.username = username;
     }
 
+    public BaseRecyclerViewAdapter(int mLayoutID, Context mContext) {
+        this.mLayoutID = mLayoutID;
+        this.mContext = mContext;
+    }
+
     /*设置数据源*/
     public void setData(List<T> data) {
         this.mListData = data;

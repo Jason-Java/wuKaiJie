@@ -66,6 +66,12 @@
         android:text="商城-我的收藏"/>
 
     <Button
+        android:id="@+id/myCompetitionProject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="我的比赛项目"/>
+
+    <Button
         android:id="@+id/my_exit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.projectone.Myapplication;
 import com.example.projectone.R;
 import com.example.projectone.my.adapter.MyEnjoyAdapter;
 import com.example.projectone.table.Enjoy;

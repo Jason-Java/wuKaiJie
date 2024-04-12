@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.projectone.Myapplication;
 import com.example.projectone.R;
 import com.example.projectone.table.Enjoy;
 import com.example.projectone.table.Like;
@@ -49,6 +50,7 @@ public class AddEnjoyActivity extends AppCompatActivity {
         initData();
 
         initEvent();
+
     }
 
     private void initView() {

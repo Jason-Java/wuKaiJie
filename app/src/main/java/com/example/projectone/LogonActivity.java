@@ -34,6 +34,7 @@ public class LogonActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logon);
+
         //注册
         et_name = findViewById(R.id.logon_username);
         et_email = findViewById(R.id.logon_email);

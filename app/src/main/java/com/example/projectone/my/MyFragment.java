@@ -22,12 +22,15 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
+import com.example.projectone.LoginActivity;
+import com.example.projectone.Myapplication;
 import com.example.projectone.R;
 import com.example.projectone.add.activity.AddEnjoyActivity;
 import com.example.projectone.my.activity.ChangemyActivity;
 import com.example.projectone.my.activity.MyBuyCollectionActivity;
 import com.example.projectone.my.activity.MyEnjoyActivity;
 import com.example.projectone.my.activity.MyPersonActivity;
+import com.example.projectone.my.activity.MyProjectActivity;
 import com.example.projectone.table.User;
 
 import org.litepal.LitePal;
@@ -50,6 +53,7 @@ public class MyFragment extends Fragment {
     Button myEnjoy;
     Button myBuyCollection;
     Button myPerson;
+    Button myCompetitionProject;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -73,6 +77,7 @@ public class MyFragment extends Fragment {
         myEnjoy = view.findViewById(R.id.my_enjoy);
         myBuyCollection = view.findViewById(R.id.my_buyCollection);
         myPerson = view.findViewById(R.id.myPerson);
+        myCompetitionProject = view.findViewById(R.id.myCompetitionProject);
 
         intent = getActivity().getIntent();
         name = intent.getStringExtra("name");
@@ -135,7 +140,9 @@ public class MyFragment extends Fragment {
         my_exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getActivity().finish();
+
+                Myapplication.closeAllActivities();
+
             }
         });
 
@@ -164,6 +171,16 @@ public class MyFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 intent = new Intent(getActivity(), MyPersonActivity.class);
+                intent.putExtra("name",name);
+                startActivity(intent);
+            }
+        });
+
+        //查看我的比赛项目
+        myCompetitionProject.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent = new Intent(getActivity(), MyProjectActivity.class);
                 intent.putExtra("name",name);
                 startActivity(intent);
             }

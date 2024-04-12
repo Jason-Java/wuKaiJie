@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.projectone.MainActivity;
+import com.example.projectone.Myapplication;
 import com.example.projectone.R;
 import com.example.projectone.table.User;
 
@@ -51,6 +52,7 @@ public class ChangemyActivity extends AppCompatActivity {
         initData();
 
         initEvent();
+
     }
 
     private void initView() {

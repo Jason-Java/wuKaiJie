@@ -134,4 +134,10 @@ public class BaseRecyclerViewHolder extends RecyclerView.ViewHolder {
             callBack.run(grid);
         }
     }
+
+    /*设置RecyclerView 控件*/
+    public RecyclerView setRecyclerView(int id) {
+        RecyclerView grid = (RecyclerView) inflate.findViewById(id);
+        return grid;
+    }
 }

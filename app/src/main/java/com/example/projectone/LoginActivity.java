@@ -11,12 +11,14 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,6 +43,9 @@ public class LoginActivity extends AppCompatActivity {
     private CheckBox rememberpwd;
     private CheckBox autologin;
     private SharedPreferences sp;
+    ImageButton see;
+    TextView loginForget;
+    Intent intent;
 
     Boolean init;
     Boolean initlogon;
@@ -51,6 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         applyForMultiplePermissions();
 
+
         
         logon = findViewById(R.id.loginregister);
         login = findViewById(R.id.logintoMain);
@@ -58,13 +64,14 @@ public class LoginActivity extends AppCompatActivity {
         et_pwd = findViewById(R.id.loginPassword);
         rememberpwd = findViewById(R.id.checkbox_rememberpwd);
         autologin = findViewById(R.id.checkbox_autologin);
-                
+        see = findViewById(R.id.see);
+        loginForget = findViewById(R.id.loginforget);
         
         //跳转至注册页面
         logon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this,LogonActivity.class);
+                intent = new Intent(LoginActivity.this,LogonActivity.class);
                 startActivity(intent);
             }
         });
@@ -94,6 +101,29 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(this, "自动登录", Toast.LENGTH_SHORT).show();
             logintoMain(new View(this));
         }
+
+        //密码可见
+        see.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (see.isSelected() == true){
+                    see.setSelected(false);
+                    et_pwd.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                }else {
+                    et_pwd.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                    see.setSelected(true);
+                }
+            }
+        });
+
+        //点击进入忘记密码
+        loginForget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent = new Intent(LoginActivity.this,ForgetActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -196,11 +226,5 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    public void see(View view) {
-        //该可见
-//        if (et_pwd.getInputType() == 131073){
-//            et_pwd.setInputType();
-//        }
-//        Toast.makeText(this, et_pwd.getInputType()+"", Toast.LENGTH_SHORT).show();
-    }
+
 }

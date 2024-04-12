@@ -4,9 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".competition.activity.CompetitionItemActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/competitionItemToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bottomcolor"
+        app:navigationIcon="@drawable/back"/>
 
+    <TextView
+        android:id="@+id/competitionItemTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/comprtitionItemRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 
 </LinearLayout>

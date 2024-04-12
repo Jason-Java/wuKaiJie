@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.projectone.Myapplication;
 import com.example.projectone.R;
 import com.example.projectone.competition.adapter.ApplicationAdapter;
 import com.example.projectone.databinding.ActivityApplicationBinding;
@@ -58,6 +59,7 @@ public class ApplicationActivity extends AppCompatActivity {
         initData();
 
         initEvent();
+
     }
 
     private void initView() {

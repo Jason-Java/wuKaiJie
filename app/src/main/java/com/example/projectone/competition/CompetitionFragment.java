@@ -18,7 +18,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.projectone.R;
 import com.example.projectone.buy.BuyFragment;
 import com.example.projectone.competition.activity.ApplicationActivity;
+import com.example.projectone.competition.activity.CompetitionItemActivity;
 import com.example.projectone.competition.adapter.CompetitionAdapter;
+import com.example.projectone.competitiondata.ChongQing;
+import com.example.projectone.competitiondata.NanJing;
 import com.example.projectone.databinding.BuyFragmentBinding;
 import com.example.projectone.databinding.CompetitionFragmentBinding;
 import com.example.projectone.manage.CompetitionIntelManage;
@@ -65,7 +68,7 @@ public class CompetitionFragment extends Fragment {
     private String itemSex;
     private int itemMinAge;
     private int itemMaxAge;
-
+    private Person person;
 
 
     @Nullable
@@ -97,6 +100,10 @@ public class CompetitionFragment extends Fragment {
         if (sp.getBoolean("initCompetition",false) == false){
             initCompetition();
             initCompetitionProject();
+            ChongQing.initChongQingCompetitionProject();
+            ChongQing.initChongQingCompetitionPerson();
+            NanJing.initNanJingCompetitionProject();
+            NanJing.initNanJingCompetitionPerson();
             SharedPreferences.Editor editor = sp.edit();
             editor.putBoolean("initCompetition",true);
             editor.apply();
@@ -136,18 +143,32 @@ public class CompetitionFragment extends Fragment {
 
                 //报名进行中
                 if (state == Constant.competitionStateTwo){
+                    if (PersonManage.FindUserName(username).size() > 0){
+                        person = PersonManage.FindUserName(username).get(0);
+                    }
+
+
                     if (PersonManage.FindUserName(username).size() == 0){
                         Toast.makeText(getActivity(), "请先去我的创建比赛资料", Toast.LENGTH_SHORT).show();
                     }else if (CompetitionProjectManage.CheckAge(username,competitionIntel.getCompetitionName())){//判断年龄是否允许
                         Toast.makeText(getActivity(), "没有适合你的比赛项目，请换一个比赛", Toast.LENGTH_SHORT).show();
-                    }else if (CompetitionPersonManage.FindPerson(PersonManage.getPersonName(username)).size() > 0){
-                        Toast.makeText(getActivity(), "你绑定的用户已报名", Toast.LENGTH_SHORT).show();
+                    }else if (CompetitionPersonManage.FindPersonCard(person.getPersonCard()).size() > 0){
+                        Toast.makeText(getActivity(), "你绑定的用户身份证已报名", Toast.LENGTH_SHORT).show();
                     }else {//进入报名页面
                         intent = new Intent(getActivity(), ApplicationActivity.class);
                         intent.putExtra("name",username);
                         intent.putExtra("competitionName",competitionIntel.getCompetitionName());
                         startActivity(intent);
                     }
+                }
+
+                //报名已结束、比赛未开始 + 正在比赛+比赛结束
+                if (state == Constant.competitionStateThree || state == Constant.competitionStateFour ||
+                state == Constant.competitionStateFive){
+                    intent = new Intent(getActivity(), CompetitionItemActivity.class);
+                    intent.putExtra("name",username);
+                    intent.putExtra("competitionName",competitionIntel.getCompetitionName());
+                    startActivity(intent);
                 }
             }
 
@@ -427,6 +448,5 @@ public class CompetitionFragment extends Fragment {
         itemMinAge = 19;
         itemMaxAge = 21;
         CompetitionProjectManage.Add(competitionName,competitionItem,itemTime, itemSex,itemMinAge,itemMaxAge);
-
     }
 }

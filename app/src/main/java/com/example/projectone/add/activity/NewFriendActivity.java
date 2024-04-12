@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.example.projectone.Myapplication;
 import com.example.projectone.R;
 import com.example.projectone.add.adapter.NewFriendAdapter;
 import com.example.projectone.table.AddFriend;
@@ -43,6 +44,7 @@ public class NewFriendActivity extends AppCompatActivity {
         newfriendRecycleview.addItemDecoration(new DividerItemDecoration(NewFriendActivity.this,DividerItemDecoration.VERTICAL));
 
         initEvent();
+
     }
 
     private void initView() {

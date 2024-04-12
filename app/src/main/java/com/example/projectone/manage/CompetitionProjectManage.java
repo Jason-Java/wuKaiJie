@@ -19,6 +19,11 @@ public class CompetitionProjectManage {
     private static List<Person> people;
     private static Person person;
 
+    public static List<CompetitionProject> FindAllProject(String competitionName){
+        return  LitePal.where("competitionName = ?",competitionName).order("itemTime asc")
+                .find(CompetitionProject.class);
+    }
+
     //判断是否达到年龄和性别要求
     public static Boolean CheckAge(String username,String competitionName){
         people = PersonManage.FindUserName(username);

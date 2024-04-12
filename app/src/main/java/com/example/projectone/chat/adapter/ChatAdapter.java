@@ -1,6 +1,7 @@
 package com.example.projectone.chat.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -22,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.projectone.R;
+import com.example.projectone.chat.activity.ChatRecordActivity;
 import com.example.projectone.table.Friends;
 import com.example.projectone.table.User;
 
@@ -50,6 +52,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatHoder> {
     Friends friend;
     List<String> num = new ArrayList<>();
     ChatAdapter chatAdapter;
+    private Intent intent;
 
     public ChatAdapter(Context context, String username) {
         this.context = context;
@@ -165,7 +168,10 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatHoder> {
         holder.chatitem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                intent = new Intent(context, ChatRecordActivity.class);
+                intent.putExtra("userName",username);
+                intent.putExtra("friendName",data.get(holder.getLayoutPosition()));
+                context.startActivity(intent);
             }
         });
 

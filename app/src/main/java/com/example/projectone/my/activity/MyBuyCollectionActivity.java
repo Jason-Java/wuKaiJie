@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.projectone.DetailActivity;
+import com.example.projectone.Myapplication;
 import com.example.projectone.manage.BuyCollectionManage;
 import com.example.projectone.manage.BuyManage;
 import com.example.projectone.databinding.ActivityMybuycollectionBinding;
@@ -43,6 +44,7 @@ public class MyBuyCollectionActivity extends AppCompatActivity {
         initData();
 
         initEvent();
+
     }
 
     private void initView() {

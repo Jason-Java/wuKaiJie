@@ -24,6 +24,7 @@ public class AddFragment extends Fragment {
     View view;
     Intent intent;
     String name;
+    Button rootAddNews;
 
     @Nullable
     @Override
@@ -43,6 +44,7 @@ public class AddFragment extends Fragment {
         add_addfriend = view.findViewById(R.id.add_addfriend);
         add_newfriend = view.findViewById(R.id.add_newfriend);
         addEnjoy = view.findViewById(R.id.add_addEnjoy);
+        rootAddNews = view.findViewById(R.id.rootAddNews);
 
         intent = getActivity().getIntent();
         name = intent.getStringExtra("name");
@@ -84,6 +86,14 @@ public class AddFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+
+        //添加
+        if (name.equals("root")){
+            rootAddNews.setVisibility(View.VISIBLE);
+
+
+        }
 
     }
 }

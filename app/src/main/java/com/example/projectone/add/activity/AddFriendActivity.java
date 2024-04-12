@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.projectone.MainActivity;
+import com.example.projectone.Myapplication;
 import com.example.projectone.R;
 import com.example.projectone.table.AddFriend;
 import com.example.projectone.table.Friends;
@@ -73,6 +74,7 @@ public class AddFriendActivity extends AppCompatActivity {
         initData();
 
         initEvent();
+
     }
 
     private void initView() {
