@@ -14,8 +14,11 @@
             <option value="$PROJECT_DIR$/activity" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/cartoon" />
+            <option value="$PROJECT_DIR$/chat" />
             <option value="$PROJECT_DIR$/database" />
             <option value="$PROJECT_DIR$/imageview" />
+            <option value="$PROJECT_DIR$/server" />
+            <option value="$PROJECT_DIR$/test" />
             <option value="$PROJECT_DIR$/testone" />
             <option value="$PROJECT_DIR$/webview" />
           </set>
