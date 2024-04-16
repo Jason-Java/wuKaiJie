@@ -4,9 +4,3 @@ plugins {
     id 'com.android.library' version '7.3.1' apply false
 }
 
-//扩展配置
-//相当于定义常量
-ext {
-    //最小版本
-    minSdkVersion = 21
-}
