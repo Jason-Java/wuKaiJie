@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--小文本-->
+    <dimen name="text_small">12sp</dimen>
+
+    <!--中间隙-->
+    <dimen name="padding_middle">10dp</dimen>
+    <!--大间隙-->
+    <dimen name="padding_large">20dp</dimen>
+    <!--按钮相关-->
+    <dimen name="button_width_large">130dp</dimen>
+    <dimen name="button_height">40dp</dimen>
+    <!--圆角相关-->
+    <dimen name="radius_button">20dp</dimen>
+    <!--分割线相关-->
+    <dimen name="divier_small">1dp</dimen>
+
+    <!--指示器相关-->
+    <dimen name="guide_indicator_height">40dp</dimen>
+
+    <!--登陆注册相关-->
+    <dimen name="login_logo_height">80dp</dimen>
+    <!--Activity边距-->
+    <dimen name="activity_margin">16dp</dimen>
+</resources>

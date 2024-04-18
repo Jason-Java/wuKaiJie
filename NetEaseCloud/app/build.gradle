@@ -30,6 +30,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    //将源码兼容版本设置为 Java 8
+    //因为butterknife需要 Java 8
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -43,6 +45,8 @@ dependencies {
 
     //低版本手机也能使用高版本SDK的一些功能
     implementation 'androidx.appcompat:appcompat:1.4.1'
+    //material design依赖
+    //AppBarLayout
     implementation 'com.google.android.material:material:1.5.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
     //java测试依赖
@@ -50,4 +54,27 @@ dependencies {
     //Android测试依赖
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    //ViewPager圆形指示器
+    //https://github.com/ongakuer/CircleIndicator
+    implementation 'me.relex:circleindicator:2.1.4'
+
+    //请求网络相关
+    //https://github.com/square/okhttp
+    implementation 'com.squareup.okhttp3:okhttp:4.2.0'
+
+    //提供注解来找控件
+    //绑定方法
+    //https://github.com/JakeWharton/butterknife
+    implementation 'com.jakewharton:butterknife:10.2.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
+
+    //apache common lang3工具包
+    //提供了StringUtils等这样的类
+    //http://commons.apache.org/proper/commons-lang/
+    implementation 'org.apache.commons:commons-lang3:3.9'
+
+    //Toast工具类
+    //https://github.com/GrenderG/Toasty
+    implementation 'com.github.GrenderG:Toasty:1.5.2'
 }

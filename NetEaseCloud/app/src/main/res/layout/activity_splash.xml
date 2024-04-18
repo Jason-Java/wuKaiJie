@@ -9,6 +9,29 @@
     <!--banner-->
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:src="@drawable/splash_banner" />
+
+    <!--logo-->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/splash_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/tv_copyright"
+        android:layout_marginBottom="@dimen/padding_large"/>
+
+    <!--版权-->
+    <TextView
+        android:id="@+id/tv_copyright"
+        style="@style/TextSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/padding_large"
+        android:text="@string/copyright" />
 
 </RelativeLayout>
