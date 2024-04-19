@@ -22,6 +22,12 @@ android {
         versionName "1.0"
         //测试相关
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        //渠道相关
+        flavorDimensions 'versionCode'
+
+        //开启MultiDex,Dex
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -30,6 +36,24 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    //配置不同的环境
+    productFlavors{
+        //开发环境
+        dev {
+            //API端点
+            buildConfigField('String','ENDPOINT', '"https://my-cloud-music-api-sp3-dev.ixuea.com/"')
+            dimension = minSdkVersion
+        }
+
+        //生产环境
+        prod {
+            //API端点
+            buildConfigField 'String','ENDPOINT','"http://api-courses-misuc.ixuea.com/"'
+            dimension = minSdkVersion
+        }
+    }
+
     //将源码兼容版本设置为 Java 8
     //因为butterknife需要 Java 8
     compileOptions {
@@ -63,6 +87,31 @@ dependencies {
     //https://github.com/square/okhttp
     implementation 'com.squareup.okhttp3:okhttp:4.2.0'
 
+    //用来打印okhttp请求日志,要与okhttp版本一致
+    //当然亦可以自定义
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.2.0'
+
+    //retrofit
+    //https://github.com/square/retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
+
+    //使用gson解析json
+    //https://github.com/google/gson
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+    //适配retrofit使用gson解析
+    //版本要与retrofit一致
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
+
+    //适配retrofit支持rxjava
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.6.2'
+
+    //使用Android响应式编程
+    //RxJava和RxAndroid的区别
+    //RxAndroid在RxJava的基础上优化了一些功能，增强了Android特有的功能
+    //https://github.com/ReactiveX/RxAndroid
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+
     //提供注解来找控件
     //绑定方法
     //https://github.com/JakeWharton/butterknife
@@ -77,4 +126,8 @@ dependencies {
     //Toast工具类
     //https://github.com/GrenderG/Toasty
     implementation 'com.github.GrenderG:Toasty:1.5.2'
+
+    //MultiDex,Dex
+    implementation 'androidx.multidex:multidex:2.0.1'
+
 }

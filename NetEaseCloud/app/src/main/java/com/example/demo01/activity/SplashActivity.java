@@ -14,6 +14,8 @@ import android.util.Log;
 import android.view.View;
 
 import com.example.demo01.R;
+import com.example.demo01.util.Constant;
+import com.example.demo01.util.LogUtil;
 
 /**
  * 启动界面
@@ -109,6 +111,10 @@ public class SplashActivity extends BaseCommonActivity {
 //        username = preferences.getString("username",null);
 //
 //        Log.d(TAG, "initDatum: "+username);
+
+        //测试productFlavors
+        //获取ENDPOINT常量
+        LogUtil.d(TAG,"initDatum:"+ Constant.ENDPOINT);
     }
 
 }

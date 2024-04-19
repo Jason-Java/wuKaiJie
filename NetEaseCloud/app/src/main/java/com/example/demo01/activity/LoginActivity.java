@@ -1,23 +1,37 @@
 package com.example.demo01.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.demo01.R;
-import com.example.demo01.ToastUtil;
+import com.example.demo01.api.Service;
+import com.example.demo01.domain.SheetDetailWrapper;
+import com.example.demo01.util.Constant;
+import com.example.demo01.util.StringUtil;
+import com.example.demo01.util.ToastUtil;
 import com.example.demo01.databinding.ActivityLoginBinding;
 import com.example.demo01.util.LogUtil;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.net.ConnectException;
+import java.net.HttpRetryException;
+import java.net.SocketTimeoutException;
+import java.net.UnknownHostException;
+
 import butterknife.BindView;
 import butterknife.OnClick;
-import es.dmoral.toasty.Toasty;
+import io.reactivex.Observer;
+import io.reactivex.Scheduler;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
+import okhttp3.OkHttpClient;
+import retrofit2.HttpException;
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * 登录界面
@@ -49,33 +63,132 @@ public class LoginActivity extends BaseTitleActivity {
     //登录按钮
     @OnClick(R.id.bt_login)
     public void onLoginClick(){
-        //trim去掉输入字符串最前面和最后面的空格
-        String username = etUsername.getText().toString().trim();
-        if (StringUtils.isBlank(username)){
-            LogUtil.d(TAG,"onLoginClick username empty");
-//            Toast.makeText(getMainActivity(), R.string.enter_username, Toast.LENGTH_SHORT).show();
-//            Toasty.error(getMainActivity(), R.string.enter_username,Toasty.LENGTH_SHORT).show();
-            ToastUtil.errorShortToast(getMainActivity(), R.string.enter_username);
-            return;
-        }
+        //测试网络请求
 
-        String password = etPassword.getText().toString().trim();
-        if (TextUtils.isEmpty(password)){
-            LogUtil.w(TAG,"onLoginClick password empty");
-//            Toast.makeText(getMainActivity(), R.string.enter_password, Toast.LENGTH_SHORT).show();
-            ToastUtil.errorShortToast(getMainActivity(), R.string.enter_password);
-            return;
-        }
+        //初始化okhttp
+        OkHttpClient.Builder okhttpClientBuilder = new OkHttpClient.Builder();
 
-        //TODO 调用登录方法
+        //初始化retrofit
+        Retrofit retrofit = new Retrofit.Builder()
+                //让retrofit使用okhttp
+                .client(okhttpClientBuilder.build())
+                //api地址
+                .baseUrl(Constant.ENDPOINT)
+                //适配rxjava
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                //使用gson解析json
+                //包括请求参数和响应
+                .addConverterFactory(GsonConverterFactory.create())
+                //创建retrofit
+                .build();
 
-        ToastUtil.successShortToast(getMainActivity(), R.string.login_success);
+        //创建service
+        Service service = retrofit.create(Service.class);
+
+        //请求歌单详情
+        service.sheetDatil("1")
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<SheetDetailWrapper>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    /**
+                     * 请求成功
+                     * @param sheetDetailWrapper
+                     */
+                    @Override
+                    public void onNext(SheetDetailWrapper sheetDetailWrapper) {
+                        LogUtil.d(TAG,"request sheet detail success"+sheetDetailWrapper.getData().getTitle());
+
+                    }
+
+                    /**
+                     * 请求失败
+                     * @param e
+                     */
+                    @Override
+                    public void onError(Throwable e) {
+                        LogUtil.d(TAG,"request sheet detail failed"+e.getLocalizedMessage());
+
+                        //判断错误类型
+                        if (e instanceof UnknownHostException){
+                            ToastUtil.errorShortToast(R.string.error_network_unknown_host);
+                        }else if (e instanceof ConnectException){
+                            ToastUtil.errorShortToast(R.string.error_network_connect);
+                        }else if (e instanceof SocketTimeoutException){
+                            ToastUtil.errorShortToast(R.string.error_network_timeout);
+                        }else if (e instanceof HttpException){
+                            HttpException exception = (HttpException) e;
+
+                            //获取响应码
+                            int code = exception.code();
+                            if (code == 401){
+                                ToastUtil.errorShortToast(R.string.error_network_not_auth);
+                            }else if (code == 403){
+                                ToastUtil.errorShortToast(R.string.error_network_not_permission);
+                            }else if (code == 404){
+                                ToastUtil.errorShortToast(R.string.error_network_not_found);
+                            }else if (code == 500){
+                                ToastUtil.errorShortToast(R.string.error_network_server);
+                            }else{
+                                ToastUtil.errorShortToast(R.string.error_network_unknown);
+                            }
+
+                        }else{
+                            ToastUtil.errorShortToast(R.string.error_network_unknown);
+                        }
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+
+//        //获取用户名
+//        //trim去掉输入字符串最前面和最后面的空格
+//        String username = etUsername.getText().toString().trim();
+//        if (StringUtils.isBlank(username)){
+//            LogUtil.d(TAG,"onLoginClick username empty");
+////            Toast.makeText(getMainActivity(), R.string.enter_username, Toast.LENGTH_SHORT).show();
+////            Toasty.error(getMainActivity(), R.string.enter_username,Toasty.LENGTH_SHORT).show();
+//            ToastUtil.errorShortToast(R.string.enter_username);
+//            return;
+//        }
+//
+//        //如果用户名不是手机号不是邮箱，就是格式错误
+//        if (!(StringUtil.isPhone(username) || StringUtil.isEmail(username))){
+//            ToastUtil.errorShortToast(R.string.error_username_format);
+//            return;
+//        }
+//
+//        //获取密码
+//        String password = etPassword.getText().toString().trim();
+//        if (TextUtils.isEmpty(password)){
+//            LogUtil.w(TAG,"onLoginClick password empty");
+////            Toast.makeText(getMainActivity(), R.string.enter_password, Toast.LENGTH_SHORT).show();
+//            ToastUtil.errorShortToast( R.string.enter_password);
+//            return;
+//        }
+//
+//        //如果密长度小于6位或者大于15位
+//        if (!StringUtil.isPassword(password)){
+//            ToastUtil.errorShortToast(R.string.error_password_format);
+//            return;
+//        }
+
+
 
     }
 
-    //登录按钮
+    //忘记密码按钮
     @OnClick(R.id.bt_forget_password)
     public void onForgetPasswordClick(){
+
+
 
     }
 }
