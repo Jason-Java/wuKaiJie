@@ -29,6 +29,10 @@ public class ToastUtil {
         Toasty.error(context,id,Toasty.LENGTH_SHORT).show();
     }
 
+    public static void errorShortToast(String message) {
+        Toasty.error(context,message,Toasty.LENGTH_SHORT).show();
+    }
+
     /**
      * 实现长时间错误toast
      * @param id
@@ -44,6 +48,5 @@ public class ToastUtil {
     public static void successShortToast(@StringRes int id) {
         Toasty.success(context,id,Toasty.LENGTH_SHORT).show();
     }
-
 
 }

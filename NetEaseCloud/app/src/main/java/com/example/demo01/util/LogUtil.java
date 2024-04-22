@@ -13,7 +13,7 @@ public class LogUtil {
     /**
      * 是否是调试模式
      */
-    private static boolean isDebug = BuildConfig.DEBUG;
+    public static boolean isDebug = BuildConfig.DEBUG;
 
     /**
      * 调试级别日志
