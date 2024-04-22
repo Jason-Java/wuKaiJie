@@ -1,7 +1,14 @@
 package com.example.projectone.add;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +21,14 @@ import androidx.fragment.app.Fragment;
 import com.example.projectone.R;
 import com.example.projectone.add.activity.AddEnjoyActivity;
 import com.example.projectone.add.activity.AddFriendActivity;
+import com.example.projectone.add.activity.NetworkActivity;
 import com.example.projectone.add.activity.NewFriendActivity;
 import com.example.projectone.my.activity.ChangemyActivity;
+
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.UnknownHostException;
+import java.util.Collections;
 
 public class AddFragment extends Fragment {
     Button add_addfriend;
@@ -25,6 +38,8 @@ public class AddFragment extends Fragment {
     Intent intent;
     String name;
     Button rootAddNews;
+    Button addChat;
+    String addressHost;
 
     @Nullable
     @Override
@@ -45,6 +60,7 @@ public class AddFragment extends Fragment {
         add_newfriend = view.findViewById(R.id.add_newfriend);
         addEnjoy = view.findViewById(R.id.add_addEnjoy);
         rootAddNews = view.findViewById(R.id.rootAddNews);
+        addChat = view.findViewById(R.id.addChat);
 
         intent = getActivity().getIntent();
         name = intent.getStringExtra("name");
@@ -91,9 +107,18 @@ public class AddFragment extends Fragment {
         //添加
         if (name.equals("root")){
             rootAddNews.setVisibility(View.VISIBLE);
-
-
         }
+
+        //跳转NetworkActivity
+        addChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent = new Intent(getActivity(), NetworkActivity.class);
+                intent.putExtra("address",addressHost);
+                intent.putExtra("name",name);
+                startActivity(intent);
+            }
+        });
 
     }
 }

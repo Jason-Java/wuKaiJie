@@ -24,6 +24,13 @@ public class ForgetActivity extends AppCompatActivity {
         binding = ActivityForgetBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        binding.forgetToolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
 
         //发送验证码
         binding.forgetSend.setOnClickListener(new View.OnClickListener() {

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".add.activity.NetworkActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/networkBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bottomcolor"
+        app:navigationIcon="@drawable/back"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/servername"/>
+
+    <Button
+        android:id="@+id/createbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="服务器创建"
+        tools:layout_editor_absoluteX="19dp"
+        tools:layout_editor_absoluteY="22dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入要连接的服务器域名"
+        android:id="@+id/serverConnectName"/>
+
+    <Button
+        android:id="@+id/connectbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="连接服务器"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="79dp" />
+
+    <Button
+        android:id="@+id/backbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="断开服务器"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="79dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/networkBackRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="40dp"/>
+
+        <LinearLayout
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <EditText
+                android:id="@+id/sendtext"
+                android:hint="要说的话"
+                android:layout_weight="3"
+                android:layout_width="0dp"
+                android:layout_height="40dp"/>
+
+            <Button
+                android:id="@+id/send"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="发送"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</LinearLayout>

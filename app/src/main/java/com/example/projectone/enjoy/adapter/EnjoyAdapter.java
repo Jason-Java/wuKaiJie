@@ -141,7 +141,7 @@ public class EnjoyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 }
 
                 //点赞点击
-                rootHoder.enjoyRootLikesImg.setOnClickListener(new View.OnClickListener() {
+                ((RootHoder)holder).enjoyRootLikesImg.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         date = enjoys.get(holder.getAdapterPosition()).getDate();
@@ -152,7 +152,7 @@ public class EnjoyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                         enjoy = enjoys.get(holder.getAdapterPosition());
                         likenum = enjoy.getLikes();
                         if (likestate == 0){//本来未点赞
-                            rootHoder.enjoyRootLikesImg.setSelected(true);
+                            ((RootHoder)holder).enjoyRootLikesImg.setSelected(true);
                             //单个记录
                             like.setLike(1);
                             like.save();
@@ -161,7 +161,7 @@ public class EnjoyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                             enjoy.setLikes(likenum);
                             enjoy.save();
                         }else{//本来点赞
-                            rootHoder.enjoyRootLikesImg.setSelected(false);
+                            ((RootHoder)holder).enjoyRootLikesImg.setSelected(false);
                             //单个记录
                             like.setLike(0);
                             like.save();
@@ -258,7 +258,7 @@ public class EnjoyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 }
 
                 //点赞点击
-                userHoder.enjoyUserLikesImg.setOnClickListener(new View.OnClickListener() {
+                ((UserHoder) holder).enjoyUserLikesImg.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         date = enjoys.get(holder.getAdapterPosition()).getDate();
@@ -269,7 +269,7 @@ public class EnjoyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                         enjoy = enjoys.get(holder.getAdapterPosition());
                         likenum = enjoy.getLikes();
                         if (likestate == 0){//本来未点赞
-                            userHoder.enjoyUserLikesImg.setSelected(true);
+                            ((UserHoder) holder).enjoyUserLikesImg.setSelected(true);
                             //单个记录
                             like.setLike(1);
                             like.save();
@@ -278,7 +278,7 @@ public class EnjoyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                             enjoy.setLikes(likenum);
                             enjoy.save();
                         }else{//本来点赞
-                            userHoder.enjoyUserLikesImg.setSelected(false);
+                            ((UserHoder) holder).enjoyUserLikesImg.setSelected(false);
                             //单个记录
                             like.setLike(0);
                             like.save();
