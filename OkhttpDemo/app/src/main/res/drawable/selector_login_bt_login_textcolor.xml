@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--按钮按下文字状态-->
+    <item android:state_pressed="true" android:color="@color/light_blue"/>
+
+    <!--按钮默认文字状态-->
+    <item android:color="@color/white"/>
+</selector>

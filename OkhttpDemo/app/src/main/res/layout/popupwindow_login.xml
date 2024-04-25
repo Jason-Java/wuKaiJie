@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="140.67dp"
+    android:layout_height="97.33dp"
+    android:orientation="vertical"
+    android:background="@drawable/shape_popunwindow">
+
+    <Button
+        android:id="@+id/login_pop_bt_passwordlogin"
+        style="@style/login_popupWindow_item"
+        android:layout_width="match_parent"
+        android:text="@string/passwordLogin" />
+
+
+    <Button
+        android:id="@+id/login_pop_bt_unifiedlogin"
+        style="@style/login_popupWindow_item"
+        android:text="统一登录"
+        />
+
+
+</LinearLayout>

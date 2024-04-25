@@ -14,6 +14,9 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        //渠道相关
+        flavorDimensions 'versionCode'
     }
 
     buildTypes {
@@ -26,6 +29,20 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    //配置不同的环境
+    productFlavors {
+        //开发环境
+        dev {
+            //API端点
+            buildConfigField('String', 'ENDPOINT', '"http://192.168.1.73:9291/"')
+            dimension = minSdkVersion
+        }
+    }
+
+    viewBinding{
+        enabled = true
+    }
 }
 
 dependencies {
@@ -37,4 +54,38 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+
+    //请求网络相关
+    //https://github.com/square/okhttp
+    implementation 'com.squareup.okhttp3:okhttp:4.2.0'
+
+    //用来打印okhttp请求日志,要与okhttp版本一致
+    //当然亦可以自定义
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.2.0'
+
+    //retrofit
+    //https://github.com/square/retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
+
+    //使用gson解析json
+    //https://github.com/google/gson
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+    //适配retrofit使用gson解析
+    //版本要与retrofit一致
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
+
+    //适配retrofit支持rxjava
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.6.2'
+
+    //使用Android响应式编程
+    //RxJava和RxAndroid的区别
+    //RxAndroid在RxJava的基础上优化了一些功能，增强了Android特有的功能
+    //https://github.com/ReactiveX/RxAndroid
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+
+    //Toast工具类
+    //https://github.com/GrenderG/Toasty
+    implementation 'com.github.GrenderG:Toasty:1.5.2'
 }

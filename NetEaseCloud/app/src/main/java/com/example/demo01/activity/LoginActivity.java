@@ -5,9 +5,11 @@ import android.os.Handler;
 import android.text.TextUtils;
 import android.widget.EditText;
 
+import com.example.demo01.AppContext;
 import com.example.demo01.R;
 import com.example.demo01.api.Api;
 import com.example.demo01.api.Service;
+import com.example.demo01.domain.Session;
 import com.example.demo01.domain.Sheet;
 import com.example.demo01.domain.SheetDetailWrapper;
 import com.example.demo01.domain.SheetListWrapper;
@@ -274,53 +276,82 @@ public class LoginActivity extends BaseTitleActivity {
 
 
 //        //模拟404错误
-        Api.getInstance().userDatil("-1","11111111")
-                .subscribe(new HttpObserver<DetailResponse<User>>(getMainActivity(),true) {
-                    @Override
-                    public void onSucceeded(DetailResponse<User> data) {
-                        LogUtil.d(TAG,"OnNext" + data.getData());
-                    }
+//        Api.getInstance().userDatil("-1","11111111")
+//                .subscribe(new HttpObserver<DetailResponse<User>>(getMainActivity(),true) {
+//                    @Override
+//                    public void onSucceeded(DetailResponse<User> data) {
+//                        LogUtil.d(TAG,"OnNext" + data.getData());
+//                    }
+//
+//                    @Override
+//                    public boolean onFailed(DetailResponse<User> data, Throwable e) {
+//                        LogUtil.d(TAG,"onFailed" + e);
+//                        HttpUtil.handlerRequest(data,e);
+//                        return true;
+//                    }
+//                });
 
+        //获取用户名
+        //trim去掉输入字符串最前面和最后面的空格
+        String username = etUsername.getText().toString().trim();
+        if (StringUtils.isBlank(username)){
+            LogUtil.d(TAG,"onLoginClick username empty");
+//            Toast.makeText(getMainActivity(), R.string.enter_username, Toast.LENGTH_SHORT).show();
+//            Toasty.error(getMainActivity(), R.string.enter_username,Toasty.LENGTH_SHORT).show();
+            ToastUtil.errorShortToast(R.string.enter_username);
+            return;
+        }
+
+        //如果用户名不是手机号不是邮箱，就是格式错误
+        if (!(StringUtil.isPhone(username) || StringUtil.isEmail(username))){
+            ToastUtil.errorShortToast(R.string.error_username_format);
+            return;
+        }
+
+        //获取密码
+        String password = etPassword.getText().toString().trim();
+        if (TextUtils.isEmpty(password)){
+            LogUtil.w(TAG,"onLoginClick password empty");
+//            Toast.makeText(getMainActivity(), R.string.enter_password, Toast.LENGTH_SHORT).show();
+            ToastUtil.errorShortToast( R.string.enter_password);
+            return;
+        }
+
+        //如果密长度小于6位或者大于15位
+        if (!StringUtil.isPassword(password)){
+            ToastUtil.errorShortToast(R.string.error_password_format);
+            return;
+        }
+
+        //判断是手机号还是邮箱
+        String phone = null;
+        String email = null;
+        if (StringUtil.isPhone(username)){
+            phone = username;
+        }else{
+            email = username;
+        }
+
+        User user = new User();
+
+        //这里虽然同时传递手机号和邮箱
+        //但服务端登录有先后顺序
+        user.setPhone(phone);
+        user.setEmail(email);
+
+        //调用登录接口
+        Api.getInstance()
+                .login(user)
+                .subscribe(new HttpObserver<DetailResponse<Session>>() {
                     @Override
-                    public boolean onFailed(DetailResponse<User> data, Throwable e) {
-                        LogUtil.d(TAG,"onFailed" + e);
-                        HttpUtil.handlerRequest(data,e);
-                        return true;
+                    public void onSucceeded(DetailResponse<Session> data) {
+                        LogUtil.d(TAG,"onClick"+data.getData());
+
+                        AppContext.getInstance().login(sp,data.getData());
+
+                        ToastUtil.successShortToast(R.string.login_success);
                     }
                 });
-
-//        //获取用户名
-//        //trim去掉输入字符串最前面和最后面的空格
-//        String username = etUsername.getText().toString().trim();
-//        if (StringUtils.isBlank(username)){
-//            LogUtil.d(TAG,"onLoginClick username empty");
-////            Toast.makeText(getMainActivity(), R.string.enter_username, Toast.LENGTH_SHORT).show();
-////            Toasty.error(getMainActivity(), R.string.enter_username,Toasty.LENGTH_SHORT).show();
-//            ToastUtil.errorShortToast(R.string.enter_username);
-//            return;
-//        }
-//
-//        //如果用户名不是手机号不是邮箱，就是格式错误
-//        if (!(StringUtil.isPhone(username) || StringUtil.isEmail(username))){
-//            ToastUtil.errorShortToast(R.string.error_username_format);
-//            return;
-//        }
-//
-//        //获取密码
-//        String password = etPassword.getText().toString().trim();
-//        if (TextUtils.isEmpty(password)){
-//            LogUtil.w(TAG,"onLoginClick password empty");
-////            Toast.makeText(getMainActivity(), R.string.enter_password, Toast.LENGTH_SHORT).show();
-//            ToastUtil.errorShortToast( R.string.enter_password);
-//            return;
-//        }
-//
-//        //如果密长度小于6位或者大于15位
-//        if (!StringUtil.isPassword(password)){
-//            ToastUtil.errorShortToast(R.string.error_password_format);
-//            return;
-//        }
-
 
     }
 

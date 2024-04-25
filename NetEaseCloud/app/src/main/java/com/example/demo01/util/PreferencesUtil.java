@@ -26,6 +26,10 @@ public class PreferencesUtil {
      * 是否显示引导界面key
      */
     private static final String SHOW_GUIDE = "SHOW_GUIDE";
+    //用户登录session 的key
+    private static final String SESSION = "SESSION";
+    //用户登录user_id 的key
+    private static final String USER_ID = "USER_ID";
 
     /**
      * 构造方法
@@ -66,6 +70,44 @@ public class PreferencesUtil {
      * 设置是否显示引导界面
      */
     public void setShowGuide(boolean value){
-        preference.edit().putBoolean(SHOW_GUIDE,value).commit();
+        putBoolean(SHOW_GUIDE,value);
     }
+
+    /**
+     * 保存的登录的session
+     */
+    public void setSession(String value) {
+        putString(SESSION,value);
+    }
+
+    /**
+     * 获取登录的session
+     */
+    public String getSession(){
+        return preference.getString(SESSION,null);
+    }
+
+    /**
+     * 保存登录的用户id
+     */
+    public void setUserId(String value) {
+        putString(USER_ID,value);
+    }
+
+    /**
+     * 获取登录的用户id
+     */
+    public String getUserId(){
+        return preference.getString(USER_ID,null);
+    }
+
+    //辅助方法
+    private void putBoolean(String key, boolean value) {
+        preference.edit().putBoolean(key,value).commit();
+    }
+
+    private void putString(String key, String value) {
+        preference.edit().putString(key,value).commit();
+    }
+
 }

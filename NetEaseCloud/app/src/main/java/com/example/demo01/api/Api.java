@@ -1,5 +1,6 @@
 package com.example.demo01.api;
 
+import com.example.demo01.domain.Session;
 import com.example.demo01.domain.Sheet;
 import com.example.demo01.domain.SheetDetailWrapper;
 import com.example.demo01.domain.SheetListWrapper;
@@ -8,6 +9,7 @@ import com.example.demo01.domain.response.DetailResponse;
 import com.example.demo01.util.Constant;
 import com.example.demo01.util.LogUtil;
 import com.example.demo01.util.StringUtil;
+import com.facebook.stetho.okhttp3.StethoInterceptor;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -71,6 +73,10 @@ public class Api {
 
             //添加到网络框架中
             okhttpClientBuilder.addInterceptor(loggingInterceptor);
+
+            //添加stetho抓包拦截器
+            okhttpClientBuilder.addNetworkInterceptor(new StethoInterceptor());
+
         }
 
         //初始化retrofit
@@ -101,6 +107,12 @@ public class Api {
 
     }
 
+    public Observable<DetailResponse<Session>> login(User data){
+        return service.login(data)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
     /**
      * 歌单列表
      */
@@ -127,4 +139,5 @@ public class Api {
                 .observeOn(AndroidSchedulers.mainThread());//观察在主线程
 
     }
+
 }

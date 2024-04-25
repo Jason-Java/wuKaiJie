@@ -7,4 +7,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="dark_blue">#2F498D</color>
+<!--    login界面-->
+    <color name="light_blue">#3B7CFC</color>
+    <color name="dark_black">#434343</color>
+    <color name="login_small_spot">#244A8E</color>
+    <color name="login_text_popupWindow_selected">#1E5590</color>
+    <color name="login_text_popupWindow_unselected">#333333</color>
+    <color name="login_text_background_popupWindow_selected">#EEF2F6</color>
 </resources>

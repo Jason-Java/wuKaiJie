@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.OkhttpDemo" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.OkhttpDemo" parent="Theme.MaterialComponents.DayNight.DarkActionBar.Bridge">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -13,4 +13,52 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+
+    <!--去除ActionBar+全屏+状态栏小时-->
+    <style name="Theme.OkhttpDemo.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+    
+    <!--login界面输入框-->
+    <style name="login_et">
+        <item name="android:layout_width">@dimen/login_width</item>
+        <item name="android:layout_height">@dimen/login_height</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:textSize">8sp</item>
+        <item name="android:drawablePadding">8.33dp</item>
+        <item name="android:paddingLeft">9.67dp</item>
+    </style>
+
+    <!--login界面按钮-->
+    <style name="login_bt">
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">8sp</item>
+        <item name="android:layout_width">@dimen/login_width</item>
+        <item name="android:layout_height">@dimen/login_height</item>
+        <!--默认为其设置了阴影和点击特效-->
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+    <!--login界面TextView研发单位-->
+    <style name="login_RandD">
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/dark_black</item>
+        <item name="android:textSize">@dimen/text_toosmall</item>
+    </style>
+
+    <!--login界面pupopWindow的Item-->
+    <style name="login_popupWindow_item">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@drawable/selector_login_popupwindow_textcolor</item>
+        <item name="android:textSize">@dimen/text_middle</item>
+        <item name="android:background">@drawable/selector_login_popupwindow_background</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
 </resources>

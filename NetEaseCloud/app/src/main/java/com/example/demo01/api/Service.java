@@ -2,6 +2,7 @@ package com.example.demo01.api;
 
 
 
+import com.example.demo01.domain.Session;
 import com.example.demo01.domain.Sheet;
 import com.example.demo01.domain.SheetDetailWrapper;
 import com.example.demo01.domain.SheetListWrapper;
@@ -11,7 +12,9 @@ import com.example.demo01.domain.response.DetailResponse;
 import java.util.Map;
 
 import io.reactivex.Observable;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.QueryMap;
 
@@ -36,6 +39,14 @@ public interface Service {
      */
     @GET("v1/sheets/")
     Observable<SheetListWrapper> sheets();
+
+    /**
+     * 登录
+     * @param data
+     * @return
+     */
+    @POST("v1/sessions")
+    Observable<DetailResponse<Session>> login(@Body User data);
 
     /**
      * 用户详情

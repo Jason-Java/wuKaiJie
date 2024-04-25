@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/login_background"
+    tools:context=".login.LoginActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="33.33dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="33.33dp"
+        android:src="@mipmap/login_iv_environment" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="374dp"
+        android:layout_marginTop="60.67dp"
+        android:src="@mipmap/login_iv_hello" />
+
+    <ImageView
+        android:id="@+id/ivFaceLogin"
+        android:layout_width="158.67dp"
+        android:layout_height="143.33dp"
+        android:layout_marginLeft="401dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="95dp"
+        android:src="@mipmap/login_iv_faceorcard" />
+    
+    <TextView
+        android:id="@+id/tvPasswordLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="127.67dp"
+        android:visibility="gone"
+        android:layout_alignLeft="@+id/btLogin"
+        android:text="账号密码登录"
+        android:textSize="10.67sp"
+        android:textColor="@color/login_text_popupWindow_unselected"/>
+
+    <EditText
+        android:id="@+id/etUser"
+        android:drawableLeft="@mipmap/login_et_user"
+        android:hint="请输入账号"
+        android:visibility="gone"
+        android:layout_marginTop="151.67dp"
+        android:layout_alignLeft="@+id/btLogin"
+        style="@style/login_et"
+        />
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:drawableLeft="@mipmap/login_et_password"
+        android:hint="请输入密码"
+        android:visibility="gone"
+        android:layout_marginTop="187dp"
+        android:layout_alignLeft="@+id/btLogin"
+        style="@style/login_et"
+        />
+
+
+    <Button
+        android:id="@+id/btLogin"
+        android:visibility="gone"
+        style="@style/login_bt"
+        android:layout_marginLeft="390.67dp"
+        android:layout_marginTop="222.33dp"
+        android:textColor="@drawable/selector_login_bt_login_textcolor"
+        android:background="@drawable/selector_login_bt_login_background"
+        android:text="@string/login" />
+
+    <Button
+        android:id="@+id/btOtherway"
+        style="@style/login_bt"
+        android:layout_marginLeft="390.67dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="54.33dp"
+        android:textColor="@drawable/selector_login_bt_otherway_textcolor"
+        android:background="@drawable/selector_login_bt_otherway_background"
+        android:text="@string/login_otherway" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="418.97dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="13.67dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="2.06dp"
+            android:layout_height="2.06dp"
+            android:background="@color/login_small_spot" />
+
+        <View
+            android:layout_width="4.7dp"
+            android:layout_height="0dp" />
+
+        <TextView
+            style="@style/login_RandD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/RandD" />
+
+        <View
+            android:layout_width="4.7dp"
+            android:layout_height="0dp" />
+
+        <!--小点点-->
+        <View
+            android:layout_width="2.06dp"
+            android:layout_height="2.06dp"
+            android:background="@color/login_small_spot" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

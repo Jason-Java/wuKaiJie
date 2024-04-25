@@ -91,6 +91,18 @@ dependencies {
     //当然亦可以自定义
     implementation 'com.squareup.okhttp3:logging-interceptor:4.2.0'
 
+    //通过OkHttp的拦截机制
+    //实现在Chrome中抓包
+    //https://github.com/facebook/stetho
+    implementation 'com.facebook.stetho:stetho:1.6.0'
+    implementation 'com.facebook.stetho:stetho-okhttp3:1.6.0'
+
+//    //通过OkHttp的拦截机制
+//    //实现在应用内显示网络请求功能
+//    //https://github.com/ChuckerTeam/chucker
+//    debugImplementation "com.github.chuckerteam.chucker:library:4.0.0"
+//    releaseImplementation "com.github.chuckerteam.chucker:library-no-op:4.0.0"
+
     //retrofit
     //https://github.com/square/retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.6.2'
@@ -127,7 +139,7 @@ dependencies {
     //https://github.com/GrenderG/Toasty
     implementation 'com.github.GrenderG:Toasty:1.5.2'
 
-    //MultiDex,Dex
+    //MultiDex,Dex，用于解决单个应用程序方法数超过65536个的限制问题。
     implementation 'androidx.multidex:multidex:2.0.1'
 
 }

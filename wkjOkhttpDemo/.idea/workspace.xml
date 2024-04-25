@@ -9,13 +9,24 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc660f97-6de4-458e-98c2-cdeb7c0e8231" name="Changes" comment="" />
+    <list default="true" id="dc660f97-6de4-458e-98c2-cdeb7c0e8231" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../NetEaseCloud/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../NetEaseCloud/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NetEaseCloud/app/src/main/java/com/example/demo01/AppContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/../NetEaseCloud/app/src/main/java/com/example/demo01/AppContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NetEaseCloud/app/src/main/java/com/example/demo01/activity/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../NetEaseCloud/app/src/main/java/com/example/demo01/activity/LoginActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NetEaseCloud/app/src/main/java/com/example/demo01/api/Api.java" beforeDir="false" afterPath="$PROJECT_DIR$/../NetEaseCloud/app/src/main/java/com/example/demo01/api/Api.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NetEaseCloud/app/src/main/java/com/example/demo01/api/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/../NetEaseCloud/app/src/main/java/com/example/demo01/api/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NetEaseCloud/app/src/main/java/com/example/demo01/domain/Sheet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../NetEaseCloud/app/src/main/java/com/example/demo01/domain/Sheet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NetEaseCloud/app/src/main/java/com/example/demo01/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../NetEaseCloud/app/src/main/java/com/example/demo01/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NetEaseCloud/app/src/main/java/com/example/demo01/util/PreferencesUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../NetEaseCloud/app/src/main/java/com/example/demo01/util/PreferencesUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../OkhttpDemo/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../OkhttpDemo/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[XPL0220714000183]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -38,6 +49,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="cidr.known.project.marker" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
@@ -57,8 +69,6 @@
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
       <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
       <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
-      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
-      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
       <option name="DEBUGGER_TYPE" value="Auto" />
       <Auto>
         <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
@@ -95,9 +105,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
       <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
-      <method v="2">
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-      </method>
+      <method v="2" />
     </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
