@@ -1,9 +1,10 @@
 package com.unite.okhttpdemo.api;
 
 import com.unite.okhttpdemo.domain.PasswordLogin;
-import com.unite.okhttpdemo.domain.limit.OneChildren;
+import com.unite.okhttpdemo.domain.limit.LimitOne;
 import com.unite.okhttpdemo.domain.response.DetailResponse;
 import com.unite.okhttpdemo.domain.user.OneUser;
+import com.unite.okhttpdemo.table.shiji.ShiJiJson;
 import com.unite.okhttpdemo.util.Constant;
 
 import io.reactivex.Observable;
@@ -105,9 +106,19 @@ public class Api {
     /**
     * 获取权限
     */
-    public Observable<DetailResponse<OneChildren>> getLimit(String token){
+    public Observable<DetailResponse<LimitOne>> getLimit(String token){
         return service.getLimit(token)
                 .subscribeOn(Schedulers.io())//网络请求放子线程
                 .observeOn(AndroidSchedulers.mainThread());//观察在主线程
     }
+
+    /**
+     * 获取试剂
+     */
+    public Observable<ShiJiJson> getShiJi(String token,int rows){
+        return service.getShiJi(token,rows)
+                .subscribeOn(Schedulers.io())//网络请求放子线程
+                .observeOn(AndroidSchedulers.mainThread());//观察在主线程
+    }
+
 }

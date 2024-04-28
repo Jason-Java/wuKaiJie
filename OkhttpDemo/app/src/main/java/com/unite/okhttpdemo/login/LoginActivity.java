@@ -13,13 +13,17 @@ import com.unite.okhttpdemo.api.Api;
 import com.unite.okhttpdemo.base.activity.BaseBindingActivity;
 import com.unite.okhttpdemo.databinding.ActivityLoginBinding;
 import com.unite.okhttpdemo.domain.PasswordLogin;
-import com.unite.okhttpdemo.domain.limit.OneChildren;
+import com.unite.okhttpdemo.domain.limit.LimitOne;
+import com.unite.okhttpdemo.domain.limit.LimitTwo;
 import com.unite.okhttpdemo.domain.response.DetailResponse;
 import com.unite.okhttpdemo.domain.user.OneUser;
 import com.unite.okhttpdemo.listener.HttpObserver;
 import com.unite.okhttpdemo.main.MainActivity;
 import com.unite.okhttpdemo.util.Constant;
 import com.unite.okhttpdemo.util.LogUtil;
+import com.unite.okhttpdemo.util.ToastUtil;
+
+import java.util.List;
 
 
 public class LoginActivity extends BaseBindingActivity<ActivityLoginBinding> {
@@ -36,6 +40,18 @@ public class LoginActivity extends BaseBindingActivity<ActivityLoginBinding> {
     protected void initBinding() {
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+    }
+
+    @Override
+    protected void initViews() {
+        super.initViews();
+
+        //检测上次是否有用户登录过
+        String oldUser = sp.getUser();
+        if (oldUser != null){
+            binding.etUser.setText(oldUser);
+            binding.etPassword.setText("123456");
+        }
     }
 
     @Override
@@ -66,11 +82,22 @@ public class LoginActivity extends BaseBindingActivity<ActivityLoginBinding> {
                                 login.setToken_type(data.getToken_type());
                                 login.setToken(data.getToken());
 
-                                //获取用户信息，获取用户权限
+                                //获取成功，获取用户信息，获取用户权限
                                 if (login.getToken() != null){
-                                    getUserMessage();
-                                    getUserLimit();
+                                    //保存获取的token_type和token
+                                    sp.setTokenType(login.getToken_type());
+                                    sp.setToken(login.getToken());
+                                    //获取用户信息
+//                                    getUserMessage();
+                                    //获取用户权限
+//                                    getUserLimit();
+                                    //设置用户偏好
+                                    sp.setUser(user);
+                                    //跳转到
                                     startActivityAfterFinishThis(MainActivity.class);
+                                }else{
+                                    //显示登陆失败原因
+                                    ToastUtil.errorShortToast(data.getMessage());
                                 }
                             }
                         });
@@ -79,16 +106,25 @@ public class LoginActivity extends BaseBindingActivity<ActivityLoginBinding> {
         });
     }
 
-    //获取用户权限
+    //获取用户权限,试剂柜权限
     private void getUserLimit() {
         Api.getInstance()
                 .getLimit(login.getToken_type()+" "+login.getToken())
-                .subscribe(new HttpObserver<DetailResponse<OneChildren>>() {
+                .subscribe(new HttpObserver<DetailResponse<LimitOne>>() {
                     @Override
-                    public void onSucceeded(DetailResponse<OneChildren> data) {
-                        LogUtil.d(TAG,"onClick:getUserLimit"+
-                                data.getResponse().getChildren().get(0).getName()+
-                                "\n"+data.getResponse().getChildren().get(1).getChildren().get(0).getName());
+                    public void onSucceeded(DetailResponse<LimitOne> data) {
+                        List<LimitTwo> limitTwoChildren = data.getResponse().getChildren();
+                        LimitTwo regeantbox = new LimitTwo();
+                        for (int i = 0; i < limitTwoChildren.size(); i++) {
+                            if (limitTwoChildren.get(i).getId() == 158){
+                                regeantbox = limitTwoChildren.get(i);
+                                break;
+                            }
+                        }
+                        for (int i = 0; i < regeantbox.getChildren().size(); i++) {
+                            System.out.println(regeantbox.getChildren().get(i).getPath());
+                        }
+
                     }
                 });
     }

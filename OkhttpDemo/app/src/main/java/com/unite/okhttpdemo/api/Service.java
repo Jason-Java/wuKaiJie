@@ -1,9 +1,10 @@
 package com.unite.okhttpdemo.api;
 
 import com.unite.okhttpdemo.domain.PasswordLogin;
-import com.unite.okhttpdemo.domain.limit.OneChildren;
+import com.unite.okhttpdemo.domain.limit.LimitOne;
 import com.unite.okhttpdemo.domain.response.DetailResponse;
 import com.unite.okhttpdemo.domain.user.OneUser;
+import com.unite.okhttpdemo.table.shiji.ShiJiJson;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
@@ -37,6 +38,12 @@ public interface Service {
      * @return
      */
     @GET("api/zu/Permission")
-    Observable<DetailResponse<OneChildren>> getLimit(@Header("Authorization") String token);
+    Observable<DetailResponse<LimitOne>> getLimit(@Header("Authorization") String token);
+
+    /**
+     * 获取试剂
+     */
+    @GET("api/ReagentModel")
+    Observable<ShiJiJson> getShiJi(@Header("Authorization") String token,@Query("rows") int rows);
 
 }

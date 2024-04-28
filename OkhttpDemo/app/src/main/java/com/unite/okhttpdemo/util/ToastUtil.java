@@ -46,4 +46,8 @@ public class ToastUtil {
         Toasty.success(context,id,Toasty.LENGTH_SHORT).show();
     }
 
+    public static void successShortToast( String text) {
+        Toasty.success(context,text,Toasty.LENGTH_SHORT).show();
+    }
+
 }

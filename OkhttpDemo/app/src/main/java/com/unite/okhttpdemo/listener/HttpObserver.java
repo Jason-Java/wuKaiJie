@@ -103,7 +103,7 @@ public abstract class HttpObserver<T> extends ObserverAdapter<T>{
 
             //没有状态码表示成功
             //这是我们和服务端的一个规定
-            LogUtil.d(TAG,baseResponse.getStatus()+"\n"+baseResponse.getMessage());
+            LogUtil.d(TAG,baseResponse.getStatus()+"\n"+baseResponse.getMsg());
             return baseResponse.getStatus() == null || baseResponse.getStatus() == 200 ||baseResponse.getStatus() == 0;
         }
         return false;

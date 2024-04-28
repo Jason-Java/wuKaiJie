@@ -38,4 +38,38 @@ public class Constant {
     public static final String ENDPOINT = BuildConfig.ENDPOINT;
 
     public static boolean isDebug = BuildConfig.DEBUG;
+
+    /**
+     * 试剂柜权限
+     */
+    //试剂柜
+    public static final String REGEANBOKX = "regeanbox";
+    //入库
+    public static final String ACTION_RK = "action_rk";
+    //查询
+    public static final String ACTION_CX = "action_cx";
+    //领用
+    public static final String ACTION_LY = "action_ly";
+    //归还
+    public static final String ACTION_GH = "action_gh";
+    //统计
+    public static final String ACTION_TJ = "action_tj";
+    //设置
+    public static final String ACTION_SZ = "action_sz";
+    //废弃/空瓶标记
+    public static final String ACTION_BJ = "action_bj";
+    //送处
+    public static final String ACTION_SC = "action_sc";
+    //用户管理
+    public static final String ACTION_USER_MANAGE = "action_user_manage";
+    //快速开锁
+    public static final String ACTION_OPEN_LOCK = "action_open_lock";
+    //新增入库
+    public static final String ACTION_NEW_RK = "action_new_rk";
+    //查看日志
+    public static final String ACTION_LOOK_LOG = "action_look_log";
+    //退货
+    public static final String ACTION_TH = "action_th";
+    //调剂试剂
+    public static final String ACTION_ADJUST = "action_adjust";
 }

@@ -1,17 +1,18 @@
 package com.unite.okhttpdemo.domain.limit;
 
+import java.util.List;
+
 /**
  *
  */
-public class ThreeChildren {
+public class Children {
 
     private Integer id;
-    private Integer pid;
-    private Integer order;
-    private String name;
+    private String  name;
     private Boolean IsHide;
     private Boolean IsButton;
     private String path;
+    private String iconCls;
     private Meta meta;
 
     public Integer getId() {
@@ -20,22 +21,6 @@ public class ThreeChildren {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Integer getPid() {
-        return pid;
-    }
-
-    public void setPid(Integer pid) {
-        this.pid = pid;
-    }
-
-    public Integer getOrder() {
-        return order;
-    }
-
-    public void setOrder(Integer order) {
-        this.order = order;
     }
 
     public String getName() {
@@ -68,6 +53,14 @@ public class ThreeChildren {
 
     public void setPath(String path) {
         this.path = path;
+    }
+
+    public String getIconCls() {
+        return iconCls;
+    }
+
+    public void setIconCls(String iconCls) {
+        this.iconCls = iconCls;
     }
 
     public Meta getMeta() {

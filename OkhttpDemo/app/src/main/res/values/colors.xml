@@ -15,4 +15,9 @@
     <color name="login_text_popupWindow_selected">#1E5590</color>
     <color name="login_text_popupWindow_unselected">#333333</color>
     <color name="login_text_background_popupWindow_selected">#EEF2F6</color>
+    <!--    首页main界面-->
+    <color name="main_background">#1E5590</color>
+    <color name="main_logo">#3676BB</color>
+    <!--    rk界面-->
+    <color name="rk_bt_select">#4D6FA5</color>
 </resources>

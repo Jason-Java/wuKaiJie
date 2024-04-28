@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.unite.okhttpdemo.util.Constant;
+import com.unite.okhttpdemo.util.PreferencesUtil;
 
 import me.jessyan.autosize.AutoSizeConfig;
 
@@ -26,16 +27,18 @@ public class BaseActivity extends AppCompatActivity{
     /**
      * 找控件
      */
+    protected PreferencesUtil sp;
     protected void initViews(){
 
-//        fullScreen();
-
+        //设置偏好
+        sp = PreferencesUtil.getInstance(getMainActivity());
     }
 
     /**
      * 设置数据
      */
-    protected void initDatum(){
+    protected void initDatum() {
+
 
     }
 
