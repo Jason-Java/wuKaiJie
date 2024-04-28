@@ -13,7 +13,7 @@ import com.unite.okhttpdemo.R;
 import com.unite.okhttpdemo.base.activity.BaseBindingActivity;
 import com.unite.okhttpdemo.databinding.ActivityRkBinding;
 import com.unite.okhttpdemo.rk.fragment.AddLabelFragment;
-//import com.unite.okhttpdemo.rk.fragment.choosecabinet.ChooseCabinetFragment;
+import com.unite.okhttpdemo.rk.fragment.choosecabinet.ChooseCabinetFragment;
 import com.unite.okhttpdemo.rk.fragment.choosemode.ChooseModeFragment;
 import com.unite.okhttpdemo.table.shiji.ShiJi;
 
@@ -31,13 +31,13 @@ public class RKActivity extends BaseBindingActivity<ActivityRkBinding> {
                 replaceFragment(chooseModeFragment);
                 binding.rkTvStep.setText("试剂模板");
             }
-
-//            if (msg.what == 1){
-//                if (msg.obj instanceof ShiJi){
-//                    replaceFragment(new ChooseCabinetFragment(handler,(ShiJi) msg.obj));
-//                    binding.rkTvStep.setText("选择柜子");
-//                }
-//            }
+            //跳转到选择柜子
+            if (msg.what == 1){
+                if (msg.obj instanceof ShiJi){
+                    replaceFragment(new ChooseCabinetFragment(handler,(ShiJi) msg.obj));
+                    binding.rkTvStep.setText("选择柜子");
+                }
+            }
         }
     };
 
@@ -55,8 +55,10 @@ public class RKActivity extends BaseBindingActivity<ActivityRkBinding> {
     protected void initViews() {
         super.initViews();
         //开始界面
-        replaceFragment(addLabelFragment);
-        binding.rkTvStep.setText("试剂入库");
+//        replaceFragment(addLabelFragment);
+//        binding.rkTvStep.setText("试剂入库");
+        replaceFragment(chooseModeFragment);
+        binding.rkTvStep.setText("试剂模板");
     }
 
     //替换Fragment
@@ -64,8 +66,10 @@ public class RKActivity extends BaseBindingActivity<ActivityRkBinding> {
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();//开启一个事务
+
         //要变换fragment的容器
         fragmentTransaction.replace(R.id.rk_layout,fragment);
+        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
 
