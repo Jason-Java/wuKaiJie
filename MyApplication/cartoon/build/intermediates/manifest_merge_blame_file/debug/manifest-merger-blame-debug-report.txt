@@ -1,0 +1,79 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.cartoon"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->E:\wuKaiJie\MyApplication\cartoon\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="32" />
+9-->E:\wuKaiJie\MyApplication\cartoon\src\main\AndroidManifest.xml
+10
+11    <application
+11-->E:\wuKaiJie\MyApplication\cartoon\src\main\AndroidManifest.xml:4:5-24:19
+12        android:allowBackup="true"
+12-->E:\wuKaiJie\MyApplication\cartoon\src\main\AndroidManifest.xml:5:9-35
+13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+13-->[androidx.core:core:1.7.0] C:\Users\Administrator\.gradle\caches\transforms-3\5586099dc2be2a001572cf14c2426ba8\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
+14        android:debuggable="true"
+15        android:icon="@mipmap/ic_launcher"
+15-->E:\wuKaiJie\MyApplication\cartoon\src\main\AndroidManifest.xml:6:9-43
+16        android:label="@string/app_name"
+16-->E:\wuKaiJie\MyApplication\cartoon\src\main\AndroidManifest.xml:7:9-41
+17        android:roundIcon="@mipmap/ic_launcher_round"
+17-->E:\wuKaiJie\MyApplication\cartoon\src\main\AndroidManifest.xml:8:9-54
+18        android:supportsRtl="true"
+18-->E:\wuKaiJie\MyApplication\cartoon\src\main\AndroidManifest.xml:9:9-35
+19        android:testOnly="true"
+20        android:theme="@style/Theme.MyApplication" >
+20-->E:\wuKaiJie\MyApplication\cartoon\src\main\AndroidManifest.xml:10:9-51
+21        <activity
+21-->E:\wuKaiJie\MyApplication\cartoon\src\main\AndroidManifest.xml:11:9-23:20
+22            android:name="com.example.cartoon.MainActivity"
+22-->E:\wuKaiJie\MyApplication\cartoon\src\main\AndroidManifest.xml:12:13-41
+23            android:exported="true" >
+23-->E:\wuKaiJie\MyApplication\cartoon\src\main\AndroidManifest.xml:13:13-36
+24            <intent-filter>
+24-->E:\wuKaiJie\MyApplication\cartoon\src\main\AndroidManifest.xml:14:13-18:29
+25                <action android:name="android.intent.action.MAIN" />
+25-->E:\wuKaiJie\MyApplication\cartoon\src\main\AndroidManifest.xml:15:17-69
+25-->E:\wuKaiJie\MyApplication\cartoon\src\main\AndroidManifest.xml:15:25-66
+26
+27                <category android:name="android.intent.category.LAUNCHER" />
+27-->E:\wuKaiJie\MyApplication\cartoon\src\main\AndroidManifest.xml:17:17-77
+27-->E:\wuKaiJie\MyApplication\cartoon\src\main\AndroidManifest.xml:17:27-74
+28            </intent-filter>
+29
+30            <meta-data
+30-->E:\wuKaiJie\MyApplication\cartoon\src\main\AndroidManifest.xml:20:13-22:36
+31                android:name="android.app.lib_name"
+31-->E:\wuKaiJie\MyApplication\cartoon\src\main\AndroidManifest.xml:21:17-52
+32                android:value="" />
+32-->E:\wuKaiJie\MyApplication\cartoon\src\main\AndroidManifest.xml:22:17-33
+33        </activity>
+34
+35        <provider
+35-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Administrator\.gradle\caches\transforms-3\4b580972190c9e236a669c6a1f1f8a9e\transformed\emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
+36            android:name="androidx.startup.InitializationProvider"
+36-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Administrator\.gradle\caches\transforms-3\4b580972190c9e236a669c6a1f1f8a9e\transformed\emoji2-1.0.0\AndroidManifest.xml:27:13-67
+37            android:authorities="com.example.cartoon.androidx-startup"
+37-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Administrator\.gradle\caches\transforms-3\4b580972190c9e236a669c6a1f1f8a9e\transformed\emoji2-1.0.0\AndroidManifest.xml:28:13-68
+38            android:exported="false" >
+38-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Administrator\.gradle\caches\transforms-3\4b580972190c9e236a669c6a1f1f8a9e\transformed\emoji2-1.0.0\AndroidManifest.xml:29:13-37
+39            <meta-data
+39-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Administrator\.gradle\caches\transforms-3\4b580972190c9e236a669c6a1f1f8a9e\transformed\emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+40                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+40-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Administrator\.gradle\caches\transforms-3\4b580972190c9e236a669c6a1f1f8a9e\transformed\emoji2-1.0.0\AndroidManifest.xml:32:17-75
+41                android:value="androidx.startup" />
+41-->[androidx.emoji2:emoji2:1.0.0] C:\Users\Administrator\.gradle\caches\transforms-3\4b580972190c9e236a669c6a1f1f8a9e\transformed\emoji2-1.0.0\AndroidManifest.xml:33:17-49
+42            <meta-data
+42-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Administrator\.gradle\caches\transforms-3\dd1064e81b3445eb173cd45521bfd469\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
+43                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+43-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Administrator\.gradle\caches\transforms-3\dd1064e81b3445eb173cd45521bfd469\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+44                android:value="androidx.startup" />
+44-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\Administrator\.gradle\caches\transforms-3\dd1064e81b3445eb173cd45521bfd469\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
+45        </provider>
+46    </application>
+47
+48</manifest>

@@ -51,9 +51,9 @@ public class ChooseModeFragment extends BaseFragment<FragmentChoosemodeBinding> 
     @Override
     protected void initDatum() {
         super.initDatum();
-
-        getShiJi(1000);
-
+        rkModeAdapter.setData(new ArrayList<>());
+        //通信
+        rkModeAdapter.setHandler(handler);
     }
 
     @Override
@@ -66,6 +66,7 @@ public class ChooseModeFragment extends BaseFragment<FragmentChoosemodeBinding> 
             public void onClick(View view) {
                 getBinding().rkChooseEt.setText("");
                 rkModeAdapter.setData(new ArrayList<>());
+                getBinding().rkChooseTv.setText("查询结果(0条)");
             }
         });
 
@@ -74,7 +75,7 @@ public class ChooseModeFragment extends BaseFragment<FragmentChoosemodeBinding> 
             @Override
             public void onClick(View view) {
                 String name = getBinding().rkChooseEt.getText().toString();
-
+                getShiJi(500,name);
             }
         });
 
@@ -94,9 +95,9 @@ public class ChooseModeFragment extends BaseFragment<FragmentChoosemodeBinding> 
                                 break;
                             }
                         }
-                        getBinding().rkChooseTv.setText("");
+                        getBinding().rkChooseTv.setText("查询结果("+num.size()+"条)");
                         rkModeAdapter.setData(num);
-                        rkModeAdapter.setHandler(handler);
+                        num = new ArrayList<>();
                     }
                 });
     }
