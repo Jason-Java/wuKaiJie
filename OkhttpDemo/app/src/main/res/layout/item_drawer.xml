@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="360dp"
+    android:layout_height="50dp"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:id="@+id/drawer_ll"
+    android:layout_marginTop="5dp"
+    android:background="@drawable/shape_rk_choose_child">
+
+    <TextView
+        android:id="@+id/Drawer_mc"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:text="抽屉名称"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="10dp"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_marginTop="13dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/Drawer_syrl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="剩余容量:"
+                android:textColor="@color/black"
+                android:textSize="6sp"/>
+
+            <TextView
+                android:id="@+id/Drawer_baifenbi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:textSize="6sp"
+                android:gravity="right"
+                android:text="(30/50)  "/>
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/Drawer_progress"
+            android:layout_marginTop="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:max="100"
+            android:padding="3dp"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:progress="30"
+            />
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".rk.fragment.choosecabinet.fragment.DrawerFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/drawer_recyclerview"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_width="360dp"
+        android:layout_height="161dp"/>
+    
+    <RelativeLayout
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_width="127dp"
+        android:layout_height="161dp"
+        android:background="@drawable/shape_rk_cabinet"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="当前试剂柜"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"/>
+        
+        
+        <ImageView
+            android:layout_width="50.67dp"
+            android:layout_height="106.67dp"
+            android:src="@mipmap/cabinet_1"
+            android:layout_marginLeft="38dp"
+            android:layout_marginTop="27.33dp"/>
+        
+        
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="117dp"
+            android:layout_height="54dp"
+            android:background="@drawable/shape_rk_cabinet_detail"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="100.67dp">
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:id="@+id/cabinetDrawer_mc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="柜子名称"
+                android:textSize="10sp"
+                android:textColor="@color/black"/>
+
+            <LinearLayout
+                android:layout_marginTop="11.6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_marginLeft="5dp"
+                    android:id="@+id/cabinetDrawer_syrl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="剩余容量:"
+                    android:textColor="@color/black"
+                    android:textSize="6sp"/>
+
+                <TextView
+                    android:id="@+id/cabinetDrawer_baifenbi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:textSize="6sp"
+                    android:gravity="right"
+                    android:text="(30/50)  "/>
+
+            </LinearLayout>
+
+            <ProgressBar
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:id="@+id/cabinetDrawer_progress"
+                android:layout_marginTop="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:max="100"
+                android:padding="3dp"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:progress="30"
+                />
+
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+    
+    
+
+</LinearLayout>

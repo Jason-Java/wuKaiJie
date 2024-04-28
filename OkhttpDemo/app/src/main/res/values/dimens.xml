@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!--login界面输入框和按钮宽高-->
+    <dimen name="login_width">180dp</dimen>
+    <dimen name="login_height">24dp</dimen>
+
+    <!--login文本-->
+    <dimen name="text_toosmall">5.33sp</dimen>
+    <dimen name="text_small">8sp</dimen>
+    <dimen name="text_middle">15.33sp</dimen>
+<!--    popupWindow圆角大小-->
+    <dimen name="radius_small">1.33dp</dimen>
+
+    <!--main文本-->
+    <dimen name="main_text_small">8sp</dimen>
+
+
+</resources>

@@ -69,13 +69,22 @@ public class ChooseModeFragment extends BaseFragment<FragmentChoosemodeBinding> 
             }
         });
 
+        //搜索
+        getBinding().rkChooseBtSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String name = getBinding().rkChooseEt.getText().toString();
+
+            }
+        });
+
 
     }
 
     //获取试剂信息
-    private void getShiJi(int rows) {
+    private void getShiJi(int rows,String name) {
         Api.getInstance()
-                .getShiJi(sp.getTokenType()+" "+sp.getToken(),rows)
+                .getShiJi(sp.getTokenType()+" "+sp.getToken(),rows,name)
                 .subscribe(new HttpObserver<ShiJiJson>() {
                     @Override
                     public void onSucceeded(ShiJiJson data) {
@@ -85,6 +94,7 @@ public class ChooseModeFragment extends BaseFragment<FragmentChoosemodeBinding> 
                                 break;
                             }
                         }
+                        getBinding().rkChooseTv.setText("");
                         rkModeAdapter.setData(num);
                         rkModeAdapter.setHandler(handler);
                     }

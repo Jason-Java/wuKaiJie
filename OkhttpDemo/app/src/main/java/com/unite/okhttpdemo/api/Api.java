@@ -115,8 +115,8 @@ public class Api {
     /**
      * 获取试剂
      */
-    public Observable<ShiJiJson> getShiJi(String token,int rows){
-        return service.getShiJi(token,rows)
+    public Observable<ShiJiJson> getShiJi(String token,int rows,String name){
+        return service.getShiJi(token,rows,name)
                 .subscribeOn(Schedulers.io())//网络请求放子线程
                 .observeOn(AndroidSchedulers.mainThread());//观察在主线程
     }

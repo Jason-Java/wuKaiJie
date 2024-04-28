@@ -44,6 +44,6 @@ public interface Service {
      * 获取试剂
      */
     @GET("api/ReagentModel")
-    Observable<ShiJiJson> getShiJi(@Header("Authorization") String token,@Query("rows") int rows);
+    Observable<ShiJiJson> getShiJi(@Header("Authorization") String token,@Query("rows") int rows,@Query("name") String name);
 
 }

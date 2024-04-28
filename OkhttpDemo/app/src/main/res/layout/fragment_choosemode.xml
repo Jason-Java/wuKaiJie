@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".rk.fragment.choosemode.ChooseModeFragment">
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/rk_choose_et"
+                android:hint="请输入试剂名或者CAS"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/rk_choose_bt_clear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="清空"/>
+
+            <Button
+                android:id="@+id/rk_choose_bt_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="搜索"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/rk_choose_tv"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="查询结果( 0条 )"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+        
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rk_choose_recyclerview"
+            android:layout_width="530dp"
+            android:layout_height="211.33dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="10dp"/>
+        
+        
+    </RelativeLayout>
+
+    
+    
+    
+
+</FrameLayout>
