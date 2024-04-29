@@ -22,9 +22,9 @@ import java.util.List;
 
 
 public class CabinetFragment extends BaseFragment<FragmentCabinetBinding> {
-    List<Cabinet> cabinets = new ArrayList<>();
+    List<Cabinet> cabinets;
     CabinetAdapter cabinetAdapter;
-    List<Drawer> drawers =new ArrayList<>();
+    List<Drawer> drawers;
 
     @Override
     protected FragmentCabinetBinding onCreateViewBinding(@NonNull LayoutInflater inflater, @NonNull ViewGroup container) {
@@ -43,6 +43,9 @@ public class CabinetFragment extends BaseFragment<FragmentCabinetBinding> {
     @Override
     protected void initDatum() {
         super.initDatum();
+
+        cabinets = new ArrayList<>();
+        drawers = new ArrayList<>();
 
         //初始数据抽屉
         for (int i = 0; i < 5; i++) {

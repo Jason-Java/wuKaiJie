@@ -13,142 +13,146 @@
         android:layout_height="match_parent">
 
         <RelativeLayout
+            android:id="@+id/rk_finishMain"
             android:layout_width="78dp"
             android:layout_height="39.67dp"
             android:layout_marginTop="7.67dp"
-            android:gravity="center"
-            android:background="@drawable/shape_main_logo">
+            android:background="@drawable/shape_main_logo"
+            android:clickable="true"
+            android:gravity="center">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="返回首页"
                 android:textColor="@color/white"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
         </RelativeLayout>
 
-       <LinearLayout
-           android:layout_marginTop="60dp"
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"
-           android:orientation="vertical"
-           android:gravity="center">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="60dp"
+            android:gravity="center"
+            android:orientation="vertical">
 
-           <LinearLayout
-               android:id="@+id/rk_addlabel"
-               style="@style/rk_left_bt">
-               <View
-                   android:layout_width="0dp"
-                   android:layout_height="2dp"/>
+            <LinearLayout
+                android:id="@+id/rk_addlabel"
+                style="@style/rk_left_bt">
 
-               <ImageView
-                   style="@style/rk_left_imageview"
-                   android:src="@mipmap/rk_addlabel"/>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="2dp" />
 
-               <View
-                   android:layout_width="0dp"
-                   android:layout_height="2dp"/>
+                <ImageView
+                    style="@style/rk_left_imageview"
+                    android:src="@mipmap/rk_addlabel" />
 
-               <TextView
-                   style="@style/rk_left_text"
-                   android:text="扫描标签"/>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="2dp" />
 
-           </LinearLayout>
+                <TextView
+                    style="@style/rk_left_text"
+                    android:text="扫描标签" />
 
-           <View
-               android:layout_width="50dp"
-               android:layout_height="0dp"
-               android:layout_weight="1"
-               android:background="@drawable/dashed_line"
-               android:layerType="software"/>
+            </LinearLayout>
 
-           <LinearLayout
-               android:id="@+id/rk_choosemode"
-               style="@style/rk_left_bt">
-               <View
-                   android:layout_width="0dp"
-                   android:layout_height="2dp"/>
+            <View
+                android:layout_width="50dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/dashed_line"
+                android:layerType="software" />
 
-               <ImageView
-                   style="@style/rk_left_imageview"
-                   android:src="@mipmap/rk_choosemode"/>
+            <LinearLayout
+                android:id="@+id/rk_choosemode"
+                style="@style/rk_left_bt">
 
-               <View
-                   android:layout_width="0dp"
-                   android:layout_height="2dp"/>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="2dp" />
 
-               <TextView
-                   style="@style/rk_left_text"
-                   android:text="选择模板"/>
+                <ImageView
+                    style="@style/rk_left_imageview"
+                    android:src="@mipmap/rk_choosemode" />
 
-           </LinearLayout>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="2dp" />
 
-           <View
-               android:layout_width="50dp"
-               android:layout_height="0dp"
-               android:layout_weight="1"
-               android:background="@drawable/dashed_line"
-               android:layerType="software"/>
+                <TextView
+                    style="@style/rk_left_text"
+                    android:text="选择模板" />
 
-           <LinearLayout
-               android:id="@+id/rk_surenew"
-               style="@style/rk_left_bt">
-               <View
-                   android:layout_width="0dp"
-                   android:layout_height="2dp"/>
+            </LinearLayout>
 
-               <ImageView
-                   style="@style/rk_left_imageview"
-                   android:src="@mipmap/rk_surenew"/>
+            <View
+                android:layout_width="50dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/dashed_line"
+                android:layerType="software" />
 
-               <View
-                   android:layout_width="0dp"
-                   android:layout_height="2dp"/>
+            <LinearLayout
+                android:id="@+id/rk_surenew"
+                style="@style/rk_left_bt">
 
-               <TextView
-                   style="@style/rk_left_text"
-                   android:text="确认信息"/>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="2dp" />
 
-           </LinearLayout>
+                <ImageView
+                    style="@style/rk_left_imageview"
+                    android:src="@mipmap/rk_surenew" />
 
-           <View
-               android:layout_width="50dp"
-               android:layout_height="0dp"
-               android:layout_weight="1"
-               android:background="@drawable/dashed_line"
-               android:layerType="software"
-               />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="2dp" />
 
-           <LinearLayout
-               android:id="@+id/rk_finish"
-               style="@style/rk_left_bt">
-               <View
-                   android:layout_width="0dp"
-                   android:layout_height="2dp"/>
+                <TextView
+                    style="@style/rk_left_text"
+                    android:text="确认信息" />
 
-               <ImageView
-                   style="@style/rk_left_imageview"
-                   android:src="@mipmap/rk_finish"/>
+            </LinearLayout>
 
-               <View
-                   android:layout_width="0dp"
-                   android:layout_height="2dp"/>
+            <View
+                android:layout_width="50dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/dashed_line"
+                android:layerType="software" />
 
-               <TextView
-                   style="@style/rk_left_text"
-                   android:text="完成"/>
+            <LinearLayout
+                android:id="@+id/rk_finish"
+                style="@style/rk_left_bt">
 
-           </LinearLayout>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="2dp" />
 
-           <View
-               android:layout_width="2dp"
-               android:layout_height="0dp"
-               android:layout_weight="1"/>
+                <ImageView
+                    style="@style/rk_left_imageview"
+                    android:src="@mipmap/rk_finish" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="2dp" />
+
+                <TextView
+                    style="@style/rk_left_text"
+                    android:text="完成" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
 
 
-
-       </LinearLayout>
+        </LinearLayout>
 
     </RelativeLayout>
 
@@ -156,33 +160,46 @@
         android:layout_width="553.32dp"
         android:layout_height="match_parent"
         android:background="@drawable/shape_main_right">
-        
-        
+
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="53dp">
 
             <TextView
                 android:id="@+id/rk_tv_step"
-                android:text="步骤"
+                style="@style/rk_right_title_text"
                 android:layout_marginLeft="44dp"
                 android:layout_marginTop="19.67dp"
-                style="@style/rk_right_title_text"/>
+                android:text="步骤" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_alignParentBottom="true"
-                android:background="@color/black"/>
-            
-            
+                android:background="@drawable/shape_rk_line_die" />
+
+            <Button
+                android:id="@+id/rk_return"
+                android:layout_width="100dp"
+                android:textSize="10sp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/shape_rk_bt_time"
+                android:gravity="center"
+                android:stateListAnimator="@null"
+                android:text="返回上一步(60s)" />
+
+
         </RelativeLayout>
-        
+
         <RelativeLayout
             android:id="@+id/rk_layout"
-            android:layout_marginTop="53dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_marginTop="53dp" />
 
     </RelativeLayout>
 

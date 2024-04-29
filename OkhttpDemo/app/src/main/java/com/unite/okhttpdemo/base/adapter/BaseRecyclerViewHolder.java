@@ -51,6 +51,12 @@ public class BaseRecyclerViewHolder extends RecyclerView.ViewHolder {
     }
 
     //获取Textview的文字信息
+    public TextView getTextView(int tvID){
+        TextView tx = (TextView) inflate.findViewById(tvID);
+        return tx;
+    }
+
+    //设置ProgressBar的进度条
     public ProgressBar getProgressBar(int id){
         ProgressBar progressBar = (ProgressBar) inflate.findViewById(id);
         return progressBar;

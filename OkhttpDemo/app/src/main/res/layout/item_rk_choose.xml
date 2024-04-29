@@ -19,15 +19,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="名称"
+            android:textColor="@color/black"
             android:textStyle="bold"
-            android:textSize="18sp"/>
+            android:textSize="15sp"/>
 
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/black"/>
+        android:background="#EAEAEAFF"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -46,6 +47,9 @@
             android:layout_marginLeft="5dp"
             android:text="别名："
             android:textSize="10sp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textColor="@color/black"
             android:textStyle="bold"/>
         <View
             android:layout_width="0dp"
@@ -59,6 +63,7 @@
             android:layout_marginLeft="5dp"
             android:text="CAS："
             android:textSize="10sp"
+            android:textColor="@color/black"
             android:textStyle="bold"/>
 
         <View
@@ -73,6 +78,7 @@
             android:layout_marginLeft="5dp"
             android:text="纯度："
             android:textSize="10sp"
+            android:textColor="@color/black"
             android:textStyle="bold"/>
         <View
             android:layout_width="0dp"
@@ -86,6 +92,7 @@
             android:layout_marginLeft="5dp"
             android:text="规格："
             android:textSize="10sp"
+            android:textColor="@color/black"
             android:textStyle="bold"/>
 
         <View
@@ -98,7 +105,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/black"/>
+        android:background="#EAEAEAFF"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -108,14 +115,24 @@
         android:gravity="center">
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_width="70dp"
+            android:layout_height="20dp"
+            android:textColor="@color/white"
+            android:stateListAnimator="@null"
+            android:background="@drawable/shape_rk_mode_bt_left"
+            android:textSize="10sp"
             android:text="查看SDS"/>
 
         <Button
+            android:layout_marginLeft="10dp"
             android:id="@+id/item_sj_bt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="70dp"
+            android:layout_height="20dp"
+            android:textColor="@color/white"
+            android:background="@drawable/shape_rk_mode_bt_right"
+            android:textSize="10sp"
+            android:stateListAnimator="@null"
             android:text="编辑入库"/>
 
     </LinearLayout>

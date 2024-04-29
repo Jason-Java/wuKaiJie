@@ -124,4 +124,12 @@ public class BaseActivity extends AppCompatActivity{
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         return displayMetrics.heightPixels;
     }
+
+
+    //设置遮罩层
+    public void setMask(float f) {
+        WindowManager.LayoutParams lp =getWindow().getAttributes();
+        lp.alpha = f;
+        getWindow().setAttributes(lp);
+    }
 }

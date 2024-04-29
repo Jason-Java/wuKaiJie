@@ -90,12 +90,14 @@ public abstract class BaseFragment<T extends ViewBinding> extends Fragment {
     }
 
     //一个fragment切换到另一个fragment
-    public void switchToFragment(BaseFragment fragment,int id) {
+    public void switchToFragment(BaseFragment fragment,int id,Boolean result) {
         if (getActivity() != null) {
             transaction = getActivity().getSupportFragmentManager().beginTransaction();
             transaction.replace(id, fragment);
             //当你想让用户能够返回到前一个Fragment时，你可以使用回退栈。
-            transaction.addToBackStack(null);
+            if (result){
+                transaction.addToBackStack(null);
+            }
             transaction.commit();
         }else {
             ToastUtil.errorShortToast("找不到界面");

@@ -9,22 +9,14 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.unite.okhttpdemo.R;
-import com.unite.okhttpdemo.api.Api;
 import com.unite.okhttpdemo.base.fragment.BaseFragment;
 import com.unite.okhttpdemo.databinding.FragmentChoosecabinetBinding;
-import com.unite.okhttpdemo.domain.limit.LimitOne;
-import com.unite.okhttpdemo.domain.limit.LimitTwo;
-import com.unite.okhttpdemo.domain.response.DetailResponse;
-import com.unite.okhttpdemo.listener.HttpObserver;
 import com.unite.okhttpdemo.rk.fragment.choosecabinet.fragment.CabinetFragment;
 import com.unite.okhttpdemo.rk.fragment.choosecabinet.fragment.DrawerFragment;
 import com.unite.okhttpdemo.table.Cabinet;
 import com.unite.okhttpdemo.table.shiji.ShiJi;
 import com.unite.okhttpdemo.table.SjResult;
-import com.unite.okhttpdemo.table.shiji.ShiJiJson;
 import com.unite.okhttpdemo.util.ToastUtil;
-
-import java.util.List;
 
 
 public class ChooseCabinetFragment extends BaseFragment<FragmentChoosecabinetBinding> {
@@ -53,7 +45,7 @@ public class ChooseCabinetFragment extends BaseFragment<FragmentChoosecabinetBin
                     cabinet = (Cabinet) msg.obj;
                 }
                 drawerFragment = new DrawerFragment(cabinet);
-                switchToFragment(drawerFragment,R.id.chooseCabinet_layout);
+                switchToFragment(drawerFragment,R.id.chooseCabinet_layout,true);
                 drawerFragment.setHandler(childrenHandler);
                 getBinding().tvChooseDrawer.setTextColor(getResources().getColor(R.color.light_blue));
                 getBinding().viewChooseDrawer.setBackgroundResource(R.color.light_blue);
@@ -87,7 +79,7 @@ public class ChooseCabinetFragment extends BaseFragment<FragmentChoosecabinetBin
         getBinding().chooseCabinetBm.setText("别名:"+sj.getAlias());
 
         //跳转到选择柜子
-        switchToFragment(cabinetFragment, R.id.chooseCabinet_layout);
+        switchToFragment(cabinetFragment, R.id.chooseCabinet_layout,false);
         cabinetFragment.setHandler(childrenHandler);
 
     }

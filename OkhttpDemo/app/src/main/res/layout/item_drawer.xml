@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:layout_weight="3"
         android:text="抽屉名称"
-        android:textSize="18sp"
+        android:textSize="15sp"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:gravity="center_vertical"
@@ -59,6 +59,7 @@
             android:layout_height="10dp"
             android:max="100"
             android:padding="3dp"
+            android:progressDrawable="@drawable/lay_rk_progressbar"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:progress="30"
             />

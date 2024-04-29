@@ -1,7 +1,6 @@
 package com.unite.okhttpdemo.api;
 
 import com.unite.okhttpdemo.domain.PasswordLogin;
-import com.unite.okhttpdemo.domain.limit.LimitOne;
 import com.unite.okhttpdemo.domain.response.DetailResponse;
 import com.unite.okhttpdemo.domain.user.OneUser;
 import com.unite.okhttpdemo.table.shiji.ShiJiJson;
@@ -27,10 +26,7 @@ public class Api {
      */
     private static Api instance;
 
-    /**
-     * Server单例
-     */
-    private final Service service;
+    private final Retrofit retrofit;
 
 
     /**
@@ -68,7 +64,7 @@ public class Api {
         }
 
         //初始化retrofit
-        Retrofit retrofit = new Retrofit.Builder()
+        retrofit = new Retrofit.Builder()
                 //让retrofit使用okhttp
                 .client(okhttpClientBuilder.build())
                 //api地址
@@ -80,45 +76,13 @@ public class Api {
                 .addConverterFactory(GsonConverterFactory.create())
                 //创建retrofit
                 .build();
-
-        //创建service
-        service = retrofit.create(Service.class);
     }
 
-    /**
-     * 用户密码登录
-     */
-    public Observable<PasswordLogin> passwordLogin(String user,String password){
-        return service.passwordLogin(user,password)
-                .subscribeOn(Schedulers.io())//网络请求放子线程
-                .observeOn(AndroidSchedulers.mainThread());//观察在主线程
+
+    //获取创造的retrofit
+    public Retrofit getRetrofit(){
+        return retrofit;
     }
 
-    /**
-     * 获取用户信息
-     */
-    public Observable<OneUser> getUser(String token){
-        return service.getUser(token)
-                .subscribeOn(Schedulers.io())//网络请求放子线程
-                .observeOn(AndroidSchedulers.mainThread());//观察在主线程
-    }
-
-    /**
-    * 获取权限
-    */
-    public Observable<DetailResponse<LimitOne>> getLimit(String token){
-        return service.getLimit(token)
-                .subscribeOn(Schedulers.io())//网络请求放子线程
-                .observeOn(AndroidSchedulers.mainThread());//观察在主线程
-    }
-
-    /**
-     * 获取试剂
-     */
-    public Observable<ShiJiJson> getShiJi(String token,int rows,String name){
-        return service.getShiJi(token,rows,name)
-                .subscribeOn(Schedulers.io())//网络请求放子线程
-                .observeOn(AndroidSchedulers.mainThread());//观察在主线程
-    }
 
 }

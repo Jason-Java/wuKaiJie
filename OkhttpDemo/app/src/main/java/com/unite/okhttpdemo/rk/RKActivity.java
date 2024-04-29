@@ -3,6 +3,7 @@ package com.unite.okhttpdemo.rk;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -28,13 +29,13 @@ public class RKActivity extends BaseBindingActivity<ActivityRkBinding> {
             super.handleMessage(msg);
             if (msg.what == 0){
                 //转到选择模板fragment
-                replaceFragment(chooseModeFragment);
+                replaceFragment(chooseModeFragment,true);
                 binding.rkTvStep.setText("试剂模板");
             }
             //跳转到选择柜子
             if (msg.what == 1){
                 if (msg.obj instanceof ShiJi){
-                    replaceFragment(new ChooseCabinetFragment(handler,(ShiJi) msg.obj));
+                    replaceFragment(new ChooseCabinetFragment(handler,(ShiJi) msg.obj),true);
                     binding.rkTvStep.setText("选择柜子");
                 }
             }
@@ -57,19 +58,33 @@ public class RKActivity extends BaseBindingActivity<ActivityRkBinding> {
         //开始界面
 //        replaceFragment(addLabelFragment);
 //        binding.rkTvStep.setText("试剂入库");
-        replaceFragment(chooseModeFragment);
+        replaceFragment(chooseModeFragment,false);
         binding.rkTvStep.setText("试剂模板");
     }
 
+    @Override
+    protected void initListeners() {
+        super.initListeners();
+
+        binding.rkFinishMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+    }
+
     //替换Fragment
-    public void replaceFragment(Fragment fragment) {
+    public void replaceFragment(Fragment fragment,Boolean result) {
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();//开启一个事务
 
         //要变换fragment的容器
         fragmentTransaction.replace(R.id.rk_layout,fragment);
-        fragmentTransaction.addToBackStack(null);
+        if (result){
+            fragmentTransaction.addToBackStack(null);
+        }
         fragmentTransaction.commit();
     }
 

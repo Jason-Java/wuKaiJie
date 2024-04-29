@@ -43,7 +43,7 @@ public class Constant {
      * 试剂柜权限
      */
     //试剂柜
-    public static final String REGEANBOKX = "regeanbox";
+    public static final String REGEANBOKX = "regeantbox";
     //入库
     public static final String ACTION_RK = "action_rk";
     //查询

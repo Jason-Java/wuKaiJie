@@ -11,13 +11,13 @@
         android:layout_marginTop="5dp"
         android:layout_marginLeft="5dp"
         android:layout_width="360dp"
-        android:layout_height="161dp"/>
+        android:layout_height="180dp"/>
     
     <RelativeLayout
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
         android:layout_width="127dp"
-        android:layout_height="161dp"
+        android:layout_height="180dp"
         android:background="@drawable/shape_rk_cabinet"
         >
 
@@ -28,7 +28,7 @@
             android:textColor="@color/white"
             android:textSize="10sp"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginTop="15dp"/>
         
         
         <ImageView
@@ -36,7 +36,7 @@
             android:layout_height="106.67dp"
             android:src="@mipmap/cabinet_1"
             android:layout_marginLeft="38dp"
-            android:layout_marginTop="27.33dp"/>
+            android:layout_marginTop="37.33dp"/>
         
         
         <LinearLayout
@@ -45,7 +45,7 @@
             android:layout_height="54dp"
             android:background="@drawable/shape_rk_cabinet_detail"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="100.67dp">
+            android:layout_marginTop="110.67dp">
 
             <TextView
                 android:layout_marginTop="5dp"
@@ -92,6 +92,7 @@
                 android:layout_height="10dp"
                 android:max="100"
                 android:padding="3dp"
+                android:progressDrawable="@drawable/lay_rk_progressbar"
                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                 android:progress="30"
                 />

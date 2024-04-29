@@ -26,7 +26,7 @@
         <View
             android:layout_width="1dp"
             android:layout_height="match_parent"
-            android:background="@color/dark_black"
+            android:background="#EAEAEAFF"
             android:layout_marginLeft="7.67dp"/>
 
         <LinearLayout
@@ -43,12 +43,14 @@
                 android:gravity="center_vertical"
                 android:layout_marginLeft="5dp"
                 android:text="试剂名称"
+                android:textSize="10sp"
+                android:textColor="@color/black"
                 />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/light_blue"/>
+                android:background="#EAEAEAFF"/>
 
 
             <TextView
@@ -58,6 +60,8 @@
                 android:gravity="center_vertical"
                 android:layout_marginLeft="5dp"
                 android:text="化学式:"
+                android:textSize="10sp"
+                android:textColor="@color/black"
                 />
 
 
@@ -67,7 +71,7 @@
         <View
             android:layout_width="1dp"
             android:layout_height="match_parent"
-            android:background="@color/dark_black"/>
+            android:background="#EAEAEAFF"/>
 
         <LinearLayout
             android:layout_width="0dp"
@@ -83,12 +87,14 @@
                 android:gravity="center_vertical"
                 android:layout_marginLeft="5dp"
                 android:text="CAS:"
+                android:textSize="10sp"
+                android:textColor="@color/black"
                 />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/light_blue"/>
+                android:background="#EAEAEAFF"/>
 
 
             <TextView
@@ -98,6 +104,8 @@
                 android:gravity="center_vertical"
                 android:layout_marginLeft="5dp"
                 android:text="类别:"
+                android:textSize="10sp"
+                android:textColor="@color/black"
                 />
 
 
@@ -106,7 +114,7 @@
         <View
             android:layout_width="1dp"
             android:layout_height="match_parent"
-            android:background="@color/dark_black"/>
+            android:background="#EAEAEAFF"/>
 
         <LinearLayout
             android:layout_width="0dp"
@@ -121,12 +129,14 @@
                 android:gravity="center_vertical"
                 android:layout_marginLeft="5dp"
                 android:text="危险性质"
+                android:textSize="10sp"
+                android:textColor="@color/black"
                 />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/light_blue"/>
+                android:background="#EAEAEAFF"/>
 
 
             <TextView
@@ -137,6 +147,9 @@
                 android:gravity="center_vertical"
                 android:layout_marginLeft="5dp"
                 android:text="别名:"
+                android:textSize="10sp"
+                android:textColor="@color/black"
+                android:maxLines="1"
                 />
 
 
@@ -166,12 +179,14 @@
 
 
                 <TextView
+                    android:layout_marginTop="5dp"
                     android:id="@+id/tv_chooseCabinet"
                     android:text="选择柜子"
                     android:gravity="center"
                     android:textColor="@color/light_blue"
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="25dp"
+                    android:textSize="13sp"
                     />
 
                 <View
@@ -196,7 +211,9 @@
                     android:text="选择抽屉"
                     android:gravity="center"
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_height="25dp"
+                    android:textSize="13sp"
                     />
 
                 <View
@@ -216,7 +233,8 @@
         <FrameLayout
             android:id="@+id/chooseCabinet_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_marginBottom="3dp"/>
         
     </LinearLayout>
 

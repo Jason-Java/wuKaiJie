@@ -14,6 +14,15 @@ public class Children {
     private String path;
     private String iconCls;
     private Meta meta;
+    private List<Children> children;
+
+    public List<Children> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<Children> children) {
+        this.children = children;
+    }
 
     public Integer getId() {
         return id;

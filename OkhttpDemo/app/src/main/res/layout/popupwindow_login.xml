@@ -9,6 +9,7 @@
         android:id="@+id/login_pop_bt_passwordlogin"
         style="@style/login_popupWindow_item"
         android:layout_width="match_parent"
+
         android:text="@string/passwordLogin" />
 
 

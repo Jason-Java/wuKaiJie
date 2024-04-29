@@ -39,6 +39,8 @@ public class MyApplication  extends Application {
 
         //初始化toast工具类
         ToastUtil.init(getApplicationContext());
+
+
     }
 
     public static MyApplication getInstance(){

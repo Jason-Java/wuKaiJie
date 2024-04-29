@@ -64,12 +64,10 @@
             android:layout_height="10dp"
             android:max="100"
             android:padding="3dp"
+            android:progressDrawable="@drawable/lay_rk_progressbar"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:progress="30"
             />
-
-
-
 
     </LinearLayout>
 

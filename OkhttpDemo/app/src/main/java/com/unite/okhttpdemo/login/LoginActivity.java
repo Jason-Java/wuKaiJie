@@ -1,29 +1,23 @@
 package com.unite.okhttpdemo.login;
 
-import android.util.DisplayMetrics;
-import android.view.Gravity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.PopupWindow;
 
 import com.unite.okhttpdemo.R;
-import com.unite.okhttpdemo.api.Api;
+import com.unite.okhttpdemo.api.ApiService;
 import com.unite.okhttpdemo.base.activity.BaseBindingActivity;
 import com.unite.okhttpdemo.databinding.ActivityLoginBinding;
 import com.unite.okhttpdemo.domain.PasswordLogin;
-import com.unite.okhttpdemo.domain.limit.LimitOne;
-import com.unite.okhttpdemo.domain.limit.LimitTwo;
-import com.unite.okhttpdemo.domain.response.DetailResponse;
 import com.unite.okhttpdemo.domain.user.OneUser;
-import com.unite.okhttpdemo.listener.HttpObserver;
+import com.unite.okhttpdemo.api.listener.HttpObserver;
 import com.unite.okhttpdemo.main.MainActivity;
 import com.unite.okhttpdemo.util.Constant;
 import com.unite.okhttpdemo.util.LogUtil;
+import com.unite.okhttpdemo.util.PopupWindowUtil;
 import com.unite.okhttpdemo.util.ToastUtil;
-
-import java.util.List;
 
 
 public class LoginActivity extends BaseBindingActivity<ActivityLoginBinding> {
@@ -48,7 +42,7 @@ public class LoginActivity extends BaseBindingActivity<ActivityLoginBinding> {
 
         //检测上次是否有用户登录过
         String oldUser = sp.getUser();
-        if (oldUser != null){
+        if (oldUser != null) {
             binding.etUser.setText(oldUser);
             binding.etPassword.setText("123456");
         }
@@ -73,17 +67,17 @@ public class LoginActivity extends BaseBindingActivity<ActivityLoginBinding> {
                 String user = binding.etUser.getText().toString();
                 String password = binding.etPassword.getText().toString();
 
-                Api.getInstance()
-                        .passwordLogin(user,password)
+                ApiService.getInstance()
+                        .passwordLogin(user, password)
                         .subscribe(new HttpObserver<PasswordLogin>() {
                             @Override
                             public void onSucceeded(PasswordLogin data) {
-                                LogUtil.d(TAG,"onClick:passwordLogin"+data.getToken_type());
+                                LogUtil.d(TAG, "onClick:passwordLogin" + data.getToken_type());
                                 login.setToken_type(data.getToken_type());
                                 login.setToken(data.getToken());
 
                                 //获取成功，获取用户信息，获取用户权限
-                                if (login.getToken() != null){
+                                if (login.getToken() != null) {
                                     //保存获取的token_type和token
                                     sp.setTokenType(login.getToken_type());
                                     sp.setToken(login.getToken());
@@ -93,9 +87,10 @@ public class LoginActivity extends BaseBindingActivity<ActivityLoginBinding> {
 //                                    getUserLimit();
                                     //设置用户偏好
                                     sp.setUser(user);
+                                    getUserMessage();
                                     //跳转到
                                     startActivityAfterFinishThis(MainActivity.class);
-                                }else{
+                                } else {
                                     //显示登陆失败原因
                                     ToastUtil.errorShortToast(data.getMessage());
                                 }
@@ -106,70 +101,32 @@ public class LoginActivity extends BaseBindingActivity<ActivityLoginBinding> {
         });
     }
 
-    //获取用户权限,试剂柜权限
-    private void getUserLimit() {
-        Api.getInstance()
-                .getLimit(login.getToken_type()+" "+login.getToken())
-                .subscribe(new HttpObserver<DetailResponse<LimitOne>>() {
-                    @Override
-                    public void onSucceeded(DetailResponse<LimitOne> data) {
-                        List<LimitTwo> limitTwoChildren = data.getResponse().getChildren();
-                        LimitTwo regeantbox = new LimitTwo();
-                        for (int i = 0; i < limitTwoChildren.size(); i++) {
-                            if (limitTwoChildren.get(i).getId() == 158){
-                                regeantbox = limitTwoChildren.get(i);
-                                break;
-                            }
-                        }
-                        for (int i = 0; i < regeantbox.getChildren().size(); i++) {
-                            System.out.println(regeantbox.getChildren().get(i).getPath());
-                        }
-
-                    }
-                });
-    }
 
     //获取用户信息
     private void getUserMessage() {
-        Api.getInstance()
-                .getUser(login.getToken_type()+" "+login.getToken())
-                .subscribe(new HttpObserver<OneUser>() {
-                    @Override
-                    public void onSucceeded(OneUser data) {
-                        LogUtil.d(TAG,"onClick:getUserMessage"+
-                                data.getResponse().getTwoUser().getUserRealName()+
-                                "\n"+data.getResponse().getTwoCompany().get(0).getName());
-                    }
+        ApiService.getInstance()
+                .getUser(login.getToken_type() + " " + login.getToken())
+                .subscribe(response -> {
+                    LogUtil.d(TAG,"1"+response.getTwoUser().getUserRealName());
+                },throwable -> {
+
                 });
+
+
     }
+
 
     //创建悬浮窗
     private void createPopuoWindow() {
         View popupView = LayoutInflater.from(getMainActivity()).inflate(R.layout.popupwindow_login, null);
-
-        PopupWindow popupWindow = new PopupWindow(popupView);
-
-        //获取屏幕的宽度和高度
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        int screenWidth = getWindowWidthPx();
-        int screenHeight = getWindowHeightPx();
-        popupWindow.setWidth((int) screenWidth / Constant.DesignWidthInDp * Constant.loginPopupWindowWidth);
-        popupWindow.setHeight((int) screenHeight / Constant.DesignHeightInDp * Constant.loginPopupWindowHeight);
-
-        //设置是否获取焦点
-        popupWindow.setFocusable(true);
-        //设置可以触摸弹出框以外的区域
-        popupWindow.setOutsideTouchable(true);
-
-        //popupwidow放在rootview里
         View rootview = LayoutInflater.from(getMainActivity()).inflate(R.layout.activity_login, null);
-        popupWindow.showAtLocation(rootview, Gravity.LEFT | Gravity.TOP
-                , ((int) screenWidth / Constant.DesignWidthInDp * Constant.loginPopupWindow_x)
-                , ((int) screenHeight / Constant.DesignHeightInDp * Constant.loginPopupWindow_y));
+
+        PopupWindow popupWindow = PopupWindowUtil.getPopupWindow(getMainActivity(), popupView, rootview,
+                Constant.loginPopupWindowWidth, Constant.loginPopupWindowHeight,
+                Constant.loginPopupWindow_x, Constant.loginPopupWindow_y);
 
         //设置遮罩层
-        setMask(0.5f);
+        PopupWindowUtil.setMask(getMainActivity(), 0.5f);
 
 
         Button passwordLogin = popupView.findViewById(R.id.login_pop_bt_passwordlogin);
@@ -184,7 +141,7 @@ public class LoginActivity extends BaseBindingActivity<ActivityLoginBinding> {
         popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
             @Override
             public void onDismiss() {
-                setMask(1.0f);
+                PopupWindowUtil.setMask(getMainActivity(), 1.0f);
             }
         });
 
@@ -209,18 +166,11 @@ public class LoginActivity extends BaseBindingActivity<ActivityLoginBinding> {
                     popStatus = 0;
                 }
                 //把背景还原
-                setMask(1.0f);
+                PopupWindowUtil.setMask(getMainActivity(), 1.0f);
 
             }
         });
 
-    }
-
-    //设置遮罩层
-    private void setMask(float f) {
-        WindowManager.LayoutParams lp =getWindow().getAttributes();
-        lp.alpha = f;
-        getWindow().setAttributes(lp);
     }
 
 

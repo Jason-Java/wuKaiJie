@@ -1,7 +1,7 @@
 package com.unite.okhttpdemo.api;
 
 import com.unite.okhttpdemo.domain.PasswordLogin;
-import com.unite.okhttpdemo.domain.limit.LimitOne;
+import com.unite.okhttpdemo.domain.limit.Children;
 import com.unite.okhttpdemo.domain.response.DetailResponse;
 import com.unite.okhttpdemo.domain.user.OneUser;
 import com.unite.okhttpdemo.table.shiji.ShiJiJson;
@@ -38,7 +38,7 @@ public interface Service {
      * @return
      */
     @GET("api/zu/Permission")
-    Observable<DetailResponse<LimitOne>> getLimit(@Header("Authorization") String token);
+    Observable<DetailResponse<Children>> getLimit(@Header("Authorization") String token);
 
     /**
      * 获取试剂

@@ -1,18 +1,14 @@
 package com.unite.okhttpdemo.main;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
 import android.view.View;
 
 import com.unite.okhttpdemo.R;
-import com.unite.okhttpdemo.api.Api;
+import com.unite.okhttpdemo.api.ApiService;
 import com.unite.okhttpdemo.base.activity.BaseBindingActivity;
 import com.unite.okhttpdemo.databinding.ActivityMainBinding;
-import com.unite.okhttpdemo.domain.limit.LimitOne;
-import com.unite.okhttpdemo.domain.limit.LimitTwo;
+import com.unite.okhttpdemo.domain.limit.Children;
 import com.unite.okhttpdemo.domain.response.DetailResponse;
-import com.unite.okhttpdemo.listener.HttpObserver;
+import com.unite.okhttpdemo.api.listener.HttpObserver;
 import com.unite.okhttpdemo.rk.RKActivity;
 import com.unite.okhttpdemo.util.Constant;
 import com.unite.okhttpdemo.util.ToastUtil;
@@ -119,26 +115,27 @@ public class MainActivity extends BaseBindingActivity<ActivityMainBinding> {
 
     //获取用户权限,试剂柜权限
     private void getUserLimit() {
-        Api.getInstance()
+        ApiService.getInstance()
                 .getLimit(sp.getTokenType()+" "+sp.getToken())
-                .subscribe(new HttpObserver<DetailResponse<LimitOne>>(getMainActivity(),true) {
+                .subscribe(new HttpObserver<DetailResponse<Children>>() {
                     @Override
-                    public void onSucceeded(DetailResponse<LimitOne> data) {
-                        List<LimitTwo> limitTwoChildren = data.getResponse().getChildren();
-                        LimitTwo regeantbox = new LimitTwo();
-                        //查到试剂柜所在的cheildren
-                        for (int i = 0; i < limitTwoChildren.size(); i++) {
-                            if (limitTwoChildren.get(i).getId() == 158){
-                                regeantbox = limitTwoChildren.get(i);
+                    public void onSucceeded(DetailResponse<Children> data) {
+                        //根节点
+                        List<Children> name = data.getResponse().getChildren();
+                        Children sjg = new Children();
+                        for (int i = 0; i < name.size(); i++) {
+                            if (name.get(i).getPath().equals(Constant.REGEANBOKX)){
+                                sjg = name.get(i);
                                 break;
                             }
                         }
                         //查看试剂柜所有权限
-                        for (int i = 0; i < regeantbox.getChildren().size(); i++) {
-                            limit.add(regeantbox.getChildren().get(i).getPath());
+                        for (int i = 0; i < sjg.getChildren().size(); i++) {
+                            limit.add(sjg.getChildren().get(i).getPath());
                         }
 
                     }
                 });
+
     }
 }
