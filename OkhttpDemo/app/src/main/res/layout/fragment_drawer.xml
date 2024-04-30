@@ -32,6 +32,7 @@
         
         
         <ImageView
+            android:id="@+id/cabinetDrawer_gz_img"
             android:layout_width="50.67dp"
             android:layout_height="106.67dp"
             android:src="@mipmap/cabinet_1"

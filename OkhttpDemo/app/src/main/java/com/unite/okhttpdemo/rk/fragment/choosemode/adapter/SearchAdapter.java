@@ -10,7 +10,7 @@ import android.widget.PopupWindow;
 import com.unite.okhttpdemo.R;
 import com.unite.okhttpdemo.base.adapter.BaseRecyclerViewAdapter;
 import com.unite.okhttpdemo.base.adapter.BaseRecyclerViewHolder;
-import com.unite.okhttpdemo.table.shiji.ShiJi;
+import com.unite.okhttpdemo.domain.shiji.ShiJi;
 
 import java.util.Locale;
 

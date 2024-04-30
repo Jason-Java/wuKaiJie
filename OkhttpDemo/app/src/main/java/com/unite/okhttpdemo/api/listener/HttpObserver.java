@@ -2,7 +2,6 @@ package com.unite.okhttpdemo.api.listener;
 
 import com.unite.okhttpdemo.base.activity.BaseActivity;
 import com.unite.okhttpdemo.domain.response.BaseResponse;
-import com.unite.okhttpdemo.domain.user.OneUser;
 import com.unite.okhttpdemo.util.HttpUtil;
 import com.unite.okhttpdemo.util.LoadingUtil;
 import com.unite.okhttpdemo.util.LogUtil;
@@ -49,6 +48,7 @@ public abstract class HttpObserver<T> extends ObserverAdapter<T>{
      * @param e
      */
     public boolean onFailed(T data,Throwable e){
+
         return false;
     }
 
@@ -69,9 +69,11 @@ public abstract class HttpObserver<T> extends ObserverAdapter<T>{
         CheckHideLoading();
 
         if (isSucceeded(t)){
+            LogUtil.d(TAG,"onSucceeded");
             //请求正常
             onSucceeded(t);
         }else {
+            LogUtil.d(TAG,"no onSucceeded");
             //请求出错
             handlerRequest(t,null);
         }

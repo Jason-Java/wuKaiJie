@@ -1,14 +1,7 @@
 package com.unite.okhttpdemo.api;
 
-import com.unite.okhttpdemo.domain.PasswordLogin;
-import com.unite.okhttpdemo.domain.response.DetailResponse;
-import com.unite.okhttpdemo.domain.user.OneUser;
-import com.unite.okhttpdemo.table.shiji.ShiJiJson;
 import com.unite.okhttpdemo.util.Constant;
 
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;

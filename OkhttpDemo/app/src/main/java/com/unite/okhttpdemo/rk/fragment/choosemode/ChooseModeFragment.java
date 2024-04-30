@@ -1,11 +1,11 @@
 package com.unite.okhttpdemo.rk.fragment.choosemode;
 
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -22,9 +22,9 @@ import com.unite.okhttpdemo.base.fragment.BaseFragment;
 import com.unite.okhttpdemo.databinding.FragmentChoosemodeBinding;
 import com.unite.okhttpdemo.api.listener.HttpObserver;
 import com.unite.okhttpdemo.rk.fragment.choosemode.adapter.SearchAdapter;
-import com.unite.okhttpdemo.table.shiji.ShiJi;
+import com.unite.okhttpdemo.domain.shiji.ShiJi;
 import com.unite.okhttpdemo.rk.fragment.choosemode.adapter.RKModeAdapter;
-import com.unite.okhttpdemo.table.shiji.ShiJiJson;
+import com.unite.okhttpdemo.domain.shiji.ShiJiJson;
 import com.unite.okhttpdemo.util.PopupWindowUtil;
 
 import java.util.ArrayList;
@@ -34,13 +34,14 @@ import java.util.List;
 public class ChooseModeFragment extends BaseFragment<FragmentChoosemodeBinding> {
     List<ShiJi> num = new ArrayList<>();
     RKModeAdapter rkModeAdapter;
+    String mc;
 
     Handler modeHandler = new Handler(Looper.myLooper()){
         @Override
         public void handleMessage(@NonNull Message msg) {
             super.handleMessage(msg);
             if (msg.what == 0){
-                String mc = (String) msg.obj;
+                mc = (String) msg.obj;
                 getBinding().rkChooseEt.setText(mc);
                 popupWindow.dismiss();
             }
@@ -75,6 +76,8 @@ public class ChooseModeFragment extends BaseFragment<FragmentChoosemodeBinding> 
     @Override
     protected void initDatum() {
         super.initDatum();
+
+        mc = "";
         rkModeAdapter.setData(new ArrayList<>());
         //通信
         rkModeAdapter.setHandler(handler);
@@ -113,43 +116,50 @@ public class ChooseModeFragment extends BaseFragment<FragmentChoosemodeBinding> 
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                getBinding().rkChooseEt.requestFocus();
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-                ApiService.getInstance()
-                        .getShiJi(sp.getTokenType()+" "+sp.getToken(),10,getBinding().rkChooseEt.getText().toString())
-                        .subscribe(new HttpObserver<ShiJiJson>() {
-                            @Override
-                            public void onSucceeded(ShiJiJson data) {
-                                //设置观察
-                                searchAdapter.setHandler(modeHandler);
-                                //设置数据
-                                List<ShiJi> num = new ArrayList<>();
-                                for (int i = 0; i < data.getResponse().getData().size(); i++) {
-                                    num.add(data.getResponse().getData().get(i));
+                Activity activity = getActivity();
+                View popupView = LayoutInflater.from(getActivity()).inflate(R.layout.popupwindow_search, null);
+                View rootview = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_choosemode, null);
+                //显示悬浮窗条件
+                if (!mc.equals(getBinding().rkChooseEt.getText().toString()) && !getBinding().rkChooseEt.getText().toString().equals("")){
+                    ApiService.getInstance()
+                            .getShiJi(sp.getTokenType()+" "+sp.getToken(),10,getBinding().rkChooseEt.getText().toString())
+                            .subscribe(new HttpObserver<ShiJiJson>() {
+                                @Override
+                                public void onSucceeded(ShiJiJson data) {
+                                    //设置数据
+                                    List<ShiJi> num = new ArrayList<>();
+                                    for (int i = 0; i < data.getResponse().getData().size(); i++) {
+                                        num.add(data.getResponse().getData().get(i));
+                                    }
+                                    int recyclerviewheight;
+                                    if (num.size() < 5){
+                                        recyclerviewheight = num.size()*40;
+                                    }else {
+                                        recyclerviewheight = 200;
+                                    }
+                                    popupWindow = PopupWindowUtil.getPopupWindow(activity,
+                                            popupView,rootview,200,recyclerviewheight,100,100);
+                                    //设为不可聚焦
+                                    popupView.setFocusable(false);
+
+
+                                    RecyclerView recyclerView = popupView.findViewById(R.id.search_recyclerview);
+                                    recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));
+                                    //设置适配器
+                                    searchAdapter = new SearchAdapter(R.layout.item_shiji,getActivity(),getBinding().rkChooseEt.getText().toString(),popupWindow);
+                                    //设置观察
+                                    searchAdapter.setHandler(modeHandler);
+                                    searchAdapter.setData(num);
+                                    recyclerView.setAdapter(searchAdapter);
                                 }
-                                searchAdapter.setData(num);
-                                View popupView = LayoutInflater.from(getActivity()).inflate(R.layout.popupwindow_search, null);
-                                View rootview = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_choosemode, null);
-                                int recyclerviewheight;
-                                if (num.size() < 5){
-                                    recyclerviewheight = num.size()*40;
-                                }else {
-                                    recyclerviewheight = 200;
-                                }
-                                popupWindow = PopupWindowUtil.getPopupWindow(getActivity(),
-                                        popupView,rootview,200,recyclerviewheight,100,100);
-                                //防止被键盘影响显示位置
-                                popupWindow.setInputMethodMode(PopupWindow.INPUT_METHOD_NEEDED);
-                                //设置适配器
-                                RecyclerView recyclerView = popupView.findViewById(R.id.search_recyclerview);
-                                recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false));
-                                searchAdapter = new SearchAdapter(R.layout.item_shiji,getActivity(),getBinding().rkChooseEt.getText().toString(),popupWindow);
-                                recyclerView.setAdapter(searchAdapter);
-                            }
-                        });
+                            });
+                }
+
             }
         });
 

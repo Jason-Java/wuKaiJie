@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".rk.fragment.sure.SureFragment">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="360dp"
+            android:layout_height="57.33dp"
+            android:layout_marginLeft="19.33dp"
+            android:layout_marginTop="14dp"
+            android:orientation="horizontal"
+            android:background="@drawable/shape_rk_choose">
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/rk_shiji"
+                android:layout_marginTop="8.67dp"
+                android:layout_marginLeft="7.67dp"/>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#EAEAEAFF"
+                android:layout_marginLeft="7.67dp"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/sure_sj"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:text="试剂名称"
+                    android:textSize="10sp"
+                    android:textColor="@color/black"
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#EAEAEAFF"/>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:text="化学式:"
+                    android:textSize="10sp"
+                    android:textColor="@color/black"
+                    />
+
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#EAEAEAFF"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/sure_cas"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:text="CAS:"
+                    android:textSize="10sp"
+                    android:textColor="@color/black"
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#EAEAEAFF"/>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:text="类别:"
+                    android:textSize="10sp"
+                    android:textColor="@color/black"
+                    />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#EAEAEAFF"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:text="危险性质"
+                    android:textSize="10sp"
+                    android:textColor="@color/black"
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#EAEAEAFF"/>
+
+
+                <TextView
+                    android:id="@+id/sure_bm"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:text="别名:"
+                    android:textSize="10sp"
+                    android:textColor="@color/black"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginLeft="19.33dp"
+            android:layout_marginTop="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="14dp"
+            android:layout_width="130dp"
+            android:layout_height="225dp"
+            android:background="@drawable/shape_rk_cabinet"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="存放位置"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="15dp"/>
+
+
+            <ImageView
+                android:id="@+id/sure_gz_img"
+                android:clickable="true"
+                android:layout_width="50.67dp"
+                android:layout_height="106.67dp"
+                android:src="@mipmap/cabinet_1"
+                android:layout_marginLeft="38dp"
+                android:layout_marginTop="37.33dp"/>
+
+
+            <TextView
+                android:id="@+id/sure_gzmc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="柜子名称"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:layout_marginTop="140dp"/>
+
+
+            <RelativeLayout
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:background="@drawable/shape_rk_finish_rl"
+                android:layout_marginTop="170dp"
+                android:layout_marginLeft="15dp"
+                >
+
+
+                <TextView
+                    android:id="@+id/sure_ctmc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="抽屉名称"
+                    android:textSize="10sp"
+                    android:textColor="@color/white"
+                    android:layout_alignParentLeft="true"
+                    android:gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:layout_alignParentRight="true"/>
+
+
+                <TextView
+                    android:id="@+id/sure_ctrl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="7sp"
+                    android:text="单元概述:50"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="2dp"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="2dp"/>
+
+
+                <TextView
+                    android:id="@+id/sure_ctzb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="存量比例：5/50"
+                    android:textSize="7sp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:textColor="@color/white"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginBottom="2dp"/>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+        <Button
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:background="@drawable/shape_rk_sure_bt"
+            android:text="完成入库"
+            />
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

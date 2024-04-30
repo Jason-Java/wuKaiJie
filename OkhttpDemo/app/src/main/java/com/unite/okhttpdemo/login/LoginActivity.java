@@ -1,5 +1,7 @@
 package com.unite.okhttpdemo.login;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,8 +13,9 @@ import com.unite.okhttpdemo.api.ApiService;
 import com.unite.okhttpdemo.base.activity.BaseBindingActivity;
 import com.unite.okhttpdemo.databinding.ActivityLoginBinding;
 import com.unite.okhttpdemo.domain.PasswordLogin;
-import com.unite.okhttpdemo.domain.user.OneUser;
+import com.unite.okhttpdemo.domain.response.DetailResponse;
 import com.unite.okhttpdemo.api.listener.HttpObserver;
+import com.unite.okhttpdemo.domain.user.User;
 import com.unite.okhttpdemo.main.MainActivity;
 import com.unite.okhttpdemo.util.Constant;
 import com.unite.okhttpdemo.util.LogUtil;
@@ -87,7 +90,6 @@ public class LoginActivity extends BaseBindingActivity<ActivityLoginBinding> {
 //                                    getUserLimit();
                                     //设置用户偏好
                                     sp.setUser(user);
-                                    getUserMessage();
                                     //跳转到
                                     startActivityAfterFinishThis(MainActivity.class);
                                 } else {
@@ -99,20 +101,6 @@ public class LoginActivity extends BaseBindingActivity<ActivityLoginBinding> {
 
             }
         });
-    }
-
-
-    //获取用户信息
-    private void getUserMessage() {
-        ApiService.getInstance()
-                .getUser(login.getToken_type() + " " + login.getToken())
-                .subscribe(response -> {
-                    LogUtil.d(TAG,"1"+response.getTwoUser().getUserRealName());
-                },throwable -> {
-
-                });
-
-
     }
 
 

@@ -1,14 +1,18 @@
 package com.unite.okhttpdemo.api;
 
 import com.unite.okhttpdemo.domain.PasswordLogin;
+import com.unite.okhttpdemo.domain.cabinet.CabinetInfoResponse;
+import com.unite.okhttpdemo.domain.cabinet.CabinetResponse;
 import com.unite.okhttpdemo.domain.limit.Children;
 import com.unite.okhttpdemo.domain.response.DetailResponse;
-import com.unite.okhttpdemo.domain.user.OneUser;
-import com.unite.okhttpdemo.table.shiji.ShiJiJson;
+import com.unite.okhttpdemo.domain.response.ListResponse;
+import com.unite.okhttpdemo.domain.user.UserResponse;
+import com.unite.okhttpdemo.domain.shiji.ShiJiJson;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 /**
@@ -30,7 +34,7 @@ public interface Service {
      * @return
      */
     @GET("api/zu/user/getInfoByToken")
-    Observable<OneUser> getUser(@Header("Authorization") String token);
+    Observable<DetailResponse<UserResponse>> getUser(@Header("Authorization") String token);
 
     /**
      * 获取权限
@@ -39,6 +43,19 @@ public interface Service {
      */
     @GET("api/zu/Permission")
     Observable<DetailResponse<Children>> getLimit(@Header("Authorization") String token);
+
+    /**
+     * 获取柜子id
+     */
+    @GET("api/Department/{id}/box")
+    Observable<ListResponse<CabinetResponse>> getCabinet(@Header("Authorization") String token, @Path("id") int id);
+
+
+    /**
+     * 获取柜子信息和抽屉信息
+     */
+    @GET("api/Box/{id}")
+    Observable<DetailResponse<CabinetInfoResponse>> getCabinetInfo(@Header("Authorization") String token, @Path("id") int id);
 
     /**
      * 获取试剂

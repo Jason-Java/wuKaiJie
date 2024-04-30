@@ -32,6 +32,9 @@ public class PreferencesUtil {
     //token 的key
     private static final String TOKEN= "token";
 
+    //部门id 的key
+    private static final String BMID= "BMID";
+
     /**
      * 构造方法
      */
@@ -87,6 +90,16 @@ public class PreferencesUtil {
         return preference.getString(TOKEN,null);
     }
 
+
+    //设置部门id
+    public void setBMID(int id) {
+        putInt(BMID,id);
+    }
+    //获取部门id
+    public int getBMID() {
+        return preference.getInt(BMID,0);
+    }
+
     //辅助方法
     private void putBoolean(String key, boolean value) {
         preference.edit().putBoolean(key,value).commit();
@@ -94,6 +107,10 @@ public class PreferencesUtil {
 
     private void putString(String key, String value) {
         preference.edit().putString(key,value).commit();
+    }
+
+    private void putInt(String key, int value) {
+        preference.edit().putInt(key,value).commit();
     }
 
 

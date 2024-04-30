@@ -12,19 +12,21 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.unite.okhttpdemo.R;
+import com.unite.okhttpdemo.api.ApiService;
+import com.unite.okhttpdemo.api.listener.HttpObserver;
 import com.unite.okhttpdemo.base.fragment.BaseFragment;
 import com.unite.okhttpdemo.databinding.FragmentCabinetBinding;
-import com.unite.okhttpdemo.table.Cabinet;
-import com.unite.okhttpdemo.table.Drawer;
+import com.unite.okhttpdemo.domain.cabinet.BoxInfo;
+import com.unite.okhttpdemo.domain.cabinet.CabinetInfoResponse;
+import com.unite.okhttpdemo.rk.RKActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class CabinetFragment extends BaseFragment<FragmentCabinetBinding> {
-    List<Cabinet> cabinets;
+
     CabinetAdapter cabinetAdapter;
-    List<Drawer> drawers;
 
     @Override
     protected FragmentCabinetBinding onCreateViewBinding(@NonNull LayoutInflater inflater, @NonNull ViewGroup container) {
@@ -44,30 +46,11 @@ public class CabinetFragment extends BaseFragment<FragmentCabinetBinding> {
     protected void initDatum() {
         super.initDatum();
 
-        cabinets = new ArrayList<>();
-        drawers = new ArrayList<>();
-
-        //初始数据抽屉
-        for (int i = 0; i < 5; i++) {
-            Drawer drawer = new Drawer();
-            drawer.setMc("抽屉"+i);
-            drawer.setNum(i*2);
-            drawer.setSum(10);
-            drawers.add(drawer);
-        }
-
-        //初始数据柜子
-        for (int i = 0; i < 10; i++) {
-            Cabinet cabinet = new Cabinet();
-            cabinet.setMc("柜子"+i);
-            cabinet.setNum(20);
-            cabinet.setSum(50);
-            cabinet.setXh((i+1)%2);
-            cabinet.setDrawers(drawers);
-            cabinets.add(cabinet);
-        }
-
-        cabinetAdapter.setData(cabinets);
+        cabinetAdapter.setData(RKActivity.boxInfos);
         cabinetAdapter.setHandler(handler);
     }
+
+
+
+
 }

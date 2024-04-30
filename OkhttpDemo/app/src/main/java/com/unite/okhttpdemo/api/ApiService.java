@@ -1,13 +1,13 @@
 package com.unite.okhttpdemo.api;
 
-import android.os.Handler;
-import android.os.Looper;
-
 import com.unite.okhttpdemo.domain.PasswordLogin;
+import com.unite.okhttpdemo.domain.cabinet.CabinetInfoResponse;
+import com.unite.okhttpdemo.domain.cabinet.CabinetResponse;
 import com.unite.okhttpdemo.domain.limit.Children;
 import com.unite.okhttpdemo.domain.response.DetailResponse;
-import com.unite.okhttpdemo.domain.user.OneUser;
-import com.unite.okhttpdemo.table.shiji.ShiJiJson;
+import com.unite.okhttpdemo.domain.response.ListResponse;
+import com.unite.okhttpdemo.domain.user.Dept;
+import com.unite.okhttpdemo.domain.shiji.ShiJiJson;
 
 
 import io.reactivex.Observable;
@@ -55,11 +55,11 @@ public class ApiService {
     /**
      * 获取用户信息
      */
-    public Observable<OneUser.Response> getUser(String token){
+    public Observable<Dept> getUser(String token){
         return service.getUser(token)
                 .subscribeOn(Schedulers.io())//网络请求放子线程
                 .observeOn(AndroidSchedulers.mainThread())
-                .map(OneUser->OneUser.getResponse());
+                .map(data->data.getResponse().getUser().getDrs().get(0).getDept());
     }
 
 
@@ -70,6 +70,28 @@ public class ApiService {
         return service.getLimit(token)
                 .subscribeOn(Schedulers.io())//网络请求放子线程
                 .observeOn(AndroidSchedulers.mainThread());//观察在主线程
+    }
+
+
+    /**
+     * 获取各个柜子id柜子
+     * 参数部门id
+     */
+    public Observable<ListResponse<CabinetResponse>> getCabinetIds(String token, int id){
+        return service.getCabinet(token,id)
+                .subscribeOn(Schedulers.io())//网络请求放子线程
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    /**
+     * 获取各个柜子信息
+     * 参数柜子id
+     */
+    public Observable<CabinetInfoResponse> getCabinetInfo(String token, int id){
+        return service.getCabinetInfo(token,id)
+                .subscribeOn(Schedulers.io())//网络请求放子线程
+                .observeOn(AndroidSchedulers.mainThread())
+                .map(response -> response.getResponse());
     }
 
 

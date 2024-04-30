@@ -1,5 +1,6 @@
 package com.unite.okhttpdemo.main;
 
+import android.util.Log;
 import android.view.View;
 
 import com.unite.okhttpdemo.R;
@@ -11,6 +12,7 @@ import com.unite.okhttpdemo.domain.response.DetailResponse;
 import com.unite.okhttpdemo.api.listener.HttpObserver;
 import com.unite.okhttpdemo.rk.RKActivity;
 import com.unite.okhttpdemo.util.Constant;
+import com.unite.okhttpdemo.util.LogUtil;
 import com.unite.okhttpdemo.util.ToastUtil;
 
 import java.util.ArrayList;
@@ -20,6 +22,7 @@ public class MainActivity extends BaseBindingActivity<ActivityMainBinding> {
 
     //获取到的该账号的试剂柜权限
     public static List<String> limit = new ArrayList<>();
+    private String TAG = "MainActivity";
 
 
     @Override
@@ -134,8 +137,23 @@ public class MainActivity extends BaseBindingActivity<ActivityMainBinding> {
                             limit.add(sjg.getChildren().get(i).getPath());
                         }
 
+                        //获取部门id
+                        getUserMessage();
+
                     }
                 });
 
+    }
+
+
+
+    //获取用户信息的部门id
+    private void getUserMessage() {
+        ApiService.getInstance()
+                .getUser(sp.getTokenType() + " " +sp.getToken())
+                .subscribe(dept -> {
+                    LogUtil.d(TAG,"getUserMessage:"+dept.getId());
+                    sp.setBMID(dept.getId());
+                });
     }
 }

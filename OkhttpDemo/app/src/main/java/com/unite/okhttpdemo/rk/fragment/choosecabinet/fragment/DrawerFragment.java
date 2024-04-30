@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Handler;
+import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +15,7 @@ import android.view.ViewGroup;
 import com.unite.okhttpdemo.R;
 import com.unite.okhttpdemo.base.fragment.BaseFragment;
 import com.unite.okhttpdemo.databinding.FragmentDrawerBinding;
-import com.unite.okhttpdemo.table.Cabinet;
+import com.unite.okhttpdemo.domain.cabinet.CabinetInfoResponse;
 
 import java.util.List;
 
@@ -26,10 +27,10 @@ public class DrawerFragment extends BaseFragment<FragmentDrawerBinding> {
         return FragmentDrawerBinding.inflate(getLayoutInflater());
     }
 
-    Cabinet cabinet;
+    CabinetInfoResponse cabinet;
     DrawerAdapter drawerAdapter;
 
-    public DrawerFragment(Cabinet cabinet) {
+    public DrawerFragment(CabinetInfoResponse cabinet) {
         this.cabinet = cabinet;
     }
 
@@ -37,11 +38,11 @@ public class DrawerFragment extends BaseFragment<FragmentDrawerBinding> {
     protected void initViews() {
         super.initViews();
 
-        getBinding().cabinetDrawerMc.setText(cabinet.getMc());
-        getBinding().cabinetDrawerSyrl.setText("剩余容量:"+(cabinet.getSum()-cabinet.getNum()));
-        getBinding().cabinetDrawerBaifenbi.setText("("+cabinet.getNum()+"/"+cabinet.getSum()+")  ");
-        getBinding().cabinetDrawerProgress.setMax(cabinet.getSum());
-        getBinding().cabinetDrawerProgress.setProgress(cabinet.getNum());
+        getBinding().cabinetDrawerMc.setText(cabinet.getBoxInfo().getName());
+        getBinding().cabinetDrawerSyrl.setText("剩余容量:"+(cabinet.getTotalHole()-cabinet.getUsedHole()));
+        getBinding().cabinetDrawerBaifenbi.setText("("+cabinet.getUsedHole()+"/"+cabinet.getTotalHole()+")  ");
+        getBinding().cabinetDrawerProgress.setMax(cabinet.getTotalHole());
+        getBinding().cabinetDrawerProgress.setProgress(cabinet.getUsedHole());
 
         drawerAdapter = new DrawerAdapter(R.layout.item_drawer,getActivity());
         getBinding().drawerRecyclerview.setLayoutManager(
@@ -54,7 +55,22 @@ public class DrawerFragment extends BaseFragment<FragmentDrawerBinding> {
     protected void initDatum() {
         super.initDatum();
 
-        drawerAdapter.setData(cabinet.getDrawers());
+        drawerAdapter.setData(cabinet.getContainers());
         drawerAdapter.setHandler(handler);
+    }
+
+    @Override
+    protected void initListeners() {
+        super.initListeners();
+
+        getBinding().cabinetDrawerGzImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //传回chooseCabinetFragment
+                Message message = new Message();
+                message.what = 50;
+                handler.sendMessage(message);
+            }
+        });
     }
 }
